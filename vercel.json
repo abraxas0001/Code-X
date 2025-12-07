@@ -1,37 +1,11 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/topics",
-      "dest": "/api/topics.js"
-    },
-    {
-      "src": "/api/users/(.*)",
-      "dest": "/api/users.js"
-    },
-    {
-      "src": "/api/execute",
-      "dest": "/api/execute.js"
-    },
-    {
-      "src": "/api/health",
-      "dest": "/api/health.js"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/dist",
+  "framework": null,
+  "rewrites": [
+    { "source": "/api/topics", "destination": "/api/topics" },
+    { "source": "/api/users/:path*", "destination": "/api/users" },
+    { "source": "/api/execute", "destination": "/api/execute" },
+    { "source": "/api/health", "destination": "/api/health" }
   ]
 }
