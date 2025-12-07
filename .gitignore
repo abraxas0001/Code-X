@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment variables (KEEP SECURE)
+.env
+.env.local
+.env.production
+client/.env
+server/.env
+
+# Build outputs
+dist/
+build/
+client/dist/
+server/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary documentation files (keep local only)
+*_COMPLETE.md
+*_STATUS.md
+*_PLAN.md
+*_GUIDE.md
+*_IMPLEMENTATION.md
+*_PROGRESS.md
+*_SUMMARY.md
+*_TOPICS.md
+*_REFERENCE.md
+ACTUAL_STATUS.md
+ADD_THESE_TOPICS.md
+ALL_TOPICS_*.md
+ARRAYS_COMPLETE.md
+COMPLETE_*.md
+COMPLETION_*.md
+FINAL_*.md
+IMMEDIATE_ACTION_PLAN.md
+IMPLEMENTATION_*.md
+INDEX.md
+LEARN_PAGE_UI_FIX.md
+MULTI_LANGUAGE_*.md
+NEW_TOPICS_DATA.md
+PROJECT_*.md
+READY_TO_IMPLEMENT.md
+remaining_topics.txt
+REMAINING_TOPICS_SUMMARY.md
+SESSION1_IMPLEMENTATION.md
+STACKS_QUEUES_COMPLETE.md
+STATUS.md
+TOPICS_*.md
+UI_IMPROVEMENTS.md
+TOPICS_TO_ADD.js
+FINAL_TWO_TOPICS_TO_ADD.js
+
+# Keep only essential docs
+!README.md
+!SECURITY.md
+!QUICK_START.md
+!SETUP_GUIDE.md

@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode - "Fresh Notebook" - CRISP WHITE! */
+    --paper: #ffffff;
+    --ink: #2d3436;
+    --surface: #ffffff;
+    --lines: #e5e7eb;
+    
+    /* Legacy HSL values for compatibility */
+    --background: 0 0% 100%;
+    --foreground: 210 11% 21%;
+    --primary: 250 69% 61%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 162 73% 36%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 43 96% 71%;
+    --accent-foreground: 210 11% 21%;
+    --border: 220 13% 91%;
+  }
+
+  .dark {
+    /* Dark Mode - "Cyber Chalkboard" - HIGH CONTRAST! */
+    --paper: #1e1e1e;
+    --ink: #dfe6e9;
+    --surface: #2d2d2d;
+    --lines: #333333;
+    
+    /* Legacy HSL values for compatibility */
+    --background: 0 0% 12%;
+    --foreground: 210 17% 91%;
+    --primary: 250 69% 80%;
+    --primary-foreground: 0 0% 12%;
+    --secondary: 162 73% 60%;
+    --secondary-foreground: 0 0% 12%;
+    --accent: 43 96% 85%;
+    --accent-foreground: 0 0% 12%;
+    --border: 0 0% 20%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--paper);
+  color: var(--ink);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* 90s School Pattern Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(0, 0, 0, 0.03) 31px,
+      rgba(0, 0, 0, 0.03) 32px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 31px,
+      rgba(0, 0, 0, 0.02) 31px,
+      rgba(0, 0, 0, 0.02) 32px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark body::before {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(255, 255, 255, 0.02) 31px,
+      rgba(255, 255, 255, 0.02) 32px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 31px,
+      rgba(255, 255, 255, 0.01) 31px,
+      rgba(255, 255, 255, 0.01) 32px
+    );
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Patrick Hand', cursive;
+  font-weight: 700;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.font-marker {
+  font-family: 'Patrick Hand', cursive;
+}
+
+.font-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Handwritten effect for special text */
+.handwritten {
+  font-family: 'Patrick Hand', cursive;
+  letter-spacing: 0.5px;
+}
+
+/* Typewriter effect */
+.typewriter {
+  font-family: 'Courier Prime', monospace;
+}
+
+/* Sketchy border utility */
+.border-sketchy {
+  border: 2px dashed var(--ink);
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Highlighter effect */
+.highlighter {
+  background: linear-gradient(180deg, transparent 60%, #f2c94c80 60%);
+  padding: 0 4px;
+}
+
+.dark .highlighter {
+  background: linear-gradient(180deg, transparent 60%, #81b29a60 60%);
+}
+
+/* Ruled paper lines */
+.ruled-paper {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    var(--ruled) 31px,
+    var(--ruled) 32px
+  );
+  background-size: 100% 32px;
+}
+
+/* Sticker effect */
+.sticker {
+  position: relative;
+  transform: rotate(-1deg);
+  transition: all 0.3s ease;
+}
+
+.sticker:hover {
+  transform: rotate(-2deg) translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* Eraser button effect */
+.eraser-btn {
+  background: linear-gradient(135deg, #ef9a9a 0%, #f48fb1 100%);
+  border: 2px solid #d81b60;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+.eraser-btn:hover {
+  transform: scale(0.98) translateY(1px);
+  box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.3);
+}
+
+.eraser-btn:active {
+  transform: scale(0.95) scaleY(0.9);
+}
+
+/* Tape label effect */
+.tape-label {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.dark .tape-label {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Notebook spiral binding */
+.spiral-binding {
+  position: relative;
+}
+
+.spiral-binding::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: 
+    repeating-linear-gradient(
+      transparent,
+      transparent 15px,
+      var(--ruled) 15px,
+      var(--ruled) 16px
+    ),
+    linear-gradient(90deg, 
+      transparent 0px,
+      transparent 10px,
+      var(--ruled) 10px,
+      var(--ruled) 12px,
+      transparent 12px
+    );
+}
+
+/* Chalkboard effect */
+.chalkboard {
+  background: linear-gradient(135deg, #2d3436 0%, #1a1d1a 100%);
+  position: relative;
+}
+
+.chalkboard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" /%3E%3C/filter%3E%3Crect width="100" height="100" filter="url(%23noise)" opacity="0.08" /%3E%3C/svg%3E');
+  pointer-events: none;
+}
+
+/* Crayon & Sticker Aesthetic */
+.font-hand {
+  font-family: 'Patrick Hand', cursive;
+}
+
+.border-sketch {
+  border: 3px solid #000;
+  border-radius: 2px 255px 3px 25px / 255px 5px 225px 5px;
+}
+
+.shadow-crayon {
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.8);
+}
+
+.text-highlight {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sticker container for icons */
+.icon-sticker {
+  background: white;
+  clip-path: polygon(
+    0% 5%, 5% 0%, 95% 0%, 100% 5%,
+    100% 95%, 95% 100%, 5% 100%, 0% 95%
+  );
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Crayon colors */
+.crayon-red {
+  background: #ff5e57;
+}
+
+.crayon-blue {
+  background: #00d2d3;
+}
+
+.crayon-green {
+  background: #2ecc71;
+}
+
+.crayon-yellow {
+  background: #f2c94c;
+}
+
+.crayon-purple {
+  background: #a29bfe;
+}
+
+/* Marker highlight effect */
+.marker-highlight {
+  background: linear-gradient(to right, 
+    rgba(242, 201, 76, 0.8) 0%, 
+    rgba(242, 201, 76, 0.4) 50%,
+    rgba(242, 201, 76, 0) 100%
+  );
+  transform: skewX(-12deg);
+  padding: 0 8px;
+  display: inline-block;
+}
+
+/* Hand-drawn border */
+.border-hand-drawn {
+  border: 2px solid currentColor;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+/* Bouncing animation */
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+/* Curtain opening animation */
+@keyframes curtain-open {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.curtain-open {
+  animation: curtain-open 0.8s ease-out forwards;
+}
+
+/* Slide up reveal */
+@keyframes slide-up-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.slide-up-reveal {
+  animation: slide-up-reveal 0.6s ease-out forwards;
+}
+
+/* 3D Eraser Button Effect */
+.btn-3d {
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  border: 2px solid #000;
+  transition: all 0.1s ease;
+}
+
+.btn-3d:hover {
+  transform: rotate(2deg);
+}
+
+.btn-3d:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+}
+
+/* Retro Card */
+.card-retro {
+  border: 2px solid #000;
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+  transition: all 0.3s ease;
+}
+
+.card-retro:hover {
+  transform: scale(1.02) rotate(-1deg);
+  box-shadow: 12px 12px 0px 0px rgba(0,0,0,1);
+}
+
+/* Washi Tape Border */
+.washi-tape {
+  position: relative;
+}
+
+.washi-tape::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #6c5ce7,
+    #6c5ce7 10px,
+    #a29bfe 10px,
+    #a29bfe 20px
+  );
+}
+
+/* Pulsing animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(108, 92, 231, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Paper clip decoration */
+.paper-clip {
+  position: relative;
+}
+
+.paper-clip::before {
+  content: '📎';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 24px;
+  transform: rotate(45deg);
+}
