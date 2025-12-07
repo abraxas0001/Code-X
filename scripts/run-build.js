@@ -1,4 +1,4 @@
-import { existsSync, statSync } from 'fs';
+import { existsSync, statSync, cpSync } from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 
@@ -21,3 +21,11 @@ if (!clientDir) {
 
 execSync('npm install', { cwd: clientDir, stdio: 'inherit' });
 execSync('npm run build', { cwd: clientDir, stdio: 'inherit' });
+
+// Ensure Vercel can find the built assets even if it looks in the repo root.
+const clientDist = path.join(clientDir, 'dist');
+const rootDist = path.resolve(clientDir, '..', 'dist');
+if (existsSync(clientDist) && clientDist !== rootDist) {
+  // Copy dist to the root-level dist for platforms that expect ./dist.
+  cpSync(clientDist, rootDist, { recursive: true });
+}
