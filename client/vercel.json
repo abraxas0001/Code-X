@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node ./scripts/run-build.js || node ../scripts/run-build.js || node ./client/scripts/run-build.js",
+  "buildCommand": "node ./scripts/run-build.js || node ../scripts/run-build.js",
   "outputDirectory": "dist",
   "functions": {
     "api/*.js": {
