@@ -52,7 +52,13 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📊 Database mode: ${isMongoConnected ? 'MongoDB' : 'Mock Data'}`);
-});
+// Export for Vercel serverless
+export default app;
+
+// Only listen if not in serverless environment
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`📊 Database mode: ${isMongoConnected ? 'MongoDB' : 'Mock Data'}`);
+  });
+}

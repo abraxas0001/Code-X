@@ -18,9 +18,9 @@ export const getAIResponse = async (
       return '🔑 Please add your Gemini API key to the .env file (VITE_GEMINI_API_KEY) to use the AI Tutor!';
     }
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-
-    const systemPrompt = `You are a Socratic Tutor for computer science education. 
+    const model = genAI.getGenerativeModel({ 
+      model: 'gemini-1.5-flash',
+      systemInstruction: `You are a Socratic Tutor for computer science education. 
 Current skill tier: ${context.tier}
 ${context.topicTitle ? `Topic: ${context.topicTitle}` : ''}
 
@@ -33,11 +33,11 @@ Guidelines:
 - Keep responses concise and friendly.
 
 ${context.code ? `Current code:\n\`\`\`\n${context.code}\n\`\`\`` : ''}
-${context.error ? `Error message:\n${context.error}` : ''}`;
+${context.error ? `Error message:\n${context.error}` : ''}`
+    });
 
-    const result = await model.generateContent([systemPrompt, prompt]);
-    const response = await result.response;
-    return response.text();
+    const result = await model.generateContent(prompt);
+    return result.response.text();
   } catch (error: any) {
     console.error('Gemini API Error:', error);
     if (error.message?.includes('API key')) {
@@ -52,23 +52,23 @@ export const generateQuiz = async (
   tier: SkillTier
 ): Promise<any[]> => {
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-
-    const prompt = `Based on this content, generate 5 multiple-choice questions for ${tier} level.
+    const model = genAI.getGenerativeModel({ 
+      model: 'gemini-1.5-flash',
+      systemInstruction: `Based on this content, generate 5 multiple-choice questions for ${tier} level.
 Return ONLY valid JSON array with this structure:
 [{
   "question": "string",
   "options": ["A", "B", "C", "D"],
   "correctAnswer": 0,
   "explanation": "string"
-}]
+}]`
+    });
 
-Content:
+    const prompt = `Content:
 ${content}`;
 
     const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    const text = result.response.text();
     
     // Extract JSON from markdown code blocks if present
     const jsonMatch = text.match(/```json\n([\s\S]*?)\n```/) || text.match(/\[[\s\S]*\]/);

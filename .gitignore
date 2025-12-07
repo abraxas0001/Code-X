@@ -73,3 +73,12 @@ FINAL_TWO_TOPICS_TO_ADD.js
 !SECURITY.md
 !QUICK_START.md
 !SETUP_GUIDE.md
+!VERCEL_DEPLOYMENT_GUIDE.md
+!DEPLOYMENT_QUICK_START.md
+!DEPLOYMENT_CHECKLIST.md
+
+# Vercel
+.vercel
+
+# Exclude deployment summary (local only)
+DEPLOYMENT_SUMMARY.md

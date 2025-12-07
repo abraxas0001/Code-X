@@ -96,3 +96,33 @@ npm run dev
 2. Create free cluster
 3. Get connection string
 4. Add to `server/.env` as `MONGODB_URI`
+
+## 🚀 Deployment to Vercel
+
+Deploy your app to production in minutes!
+
+### Quick Deploy
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Login and deploy
+vercel login
+vercel
+
+# Add environment variables in Vercel dashboard, then:
+vercel --prod
+```
+
+### Detailed Guides
+- **⚡ Quick Start**: See `DEPLOYMENT_QUICK_START.md`
+- **📖 Full Guide**: See `VERCEL_DEPLOYMENT_GUIDE.md`
+- **✅ Checklist**: See `DEPLOYMENT_CHECKLIST.md`
+
+### Required Environment Variables for Production
+```
+VITE_GEMINI_API_KEY=your_key
+VITE_API_URL=https://your-project.vercel.app/api
+MONGODB_URI=your_mongodb_atlas_uri
+NODE_ENV=production
+```

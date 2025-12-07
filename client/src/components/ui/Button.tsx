@@ -68,7 +68,9 @@ export const Button = ({
       whileHover={hoverAnimation}
       whileTap={tapAnimation}
       className={cn(baseStyles, variants[variant], sizes[size], className)}
-      {...props}
+      disabled={props.disabled}
+      onClick={props.onClick}
+      type={props.type}
     >
       {/* Eraser texture lines */}
       {(variant === 'primary' || variant === 'eraser') && (
