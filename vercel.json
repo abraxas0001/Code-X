@@ -1,11 +1,12 @@
 {
   "buildCommand": "cd client && npm install && npm run build",
   "outputDirectory": "client/dist",
-  "framework": null,
+  "functions": {
+    "api/*.js": {
+      "runtime": "@vercel/node@3"
+    }
+  },
   "rewrites": [
-    { "source": "/api/topics", "destination": "/api/topics" },
-    { "source": "/api/users/:path*", "destination": "/api/users" },
-    { "source": "/api/execute", "destination": "/api/execute" },
-    { "source": "/api/health", "destination": "/api/health" }
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
