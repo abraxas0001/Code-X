@@ -1,7 +1,21 @@
 import axios from 'axios';
 import type { Topic, User, CompilationResult } from '@/types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Auto-detect API URL based on environment
+const getApiUrl = () => {
+  // If VITE_API_URL is set and not localhost, use it
+  if (import.meta.env.VITE_API_URL && !import.meta.env.VITE_API_URL.includes('localhost')) {
+    return import.meta.env.VITE_API_URL;
+  }
+  // In production (Vercel), use relative path
+  if (import.meta.env.PROD) {
+    return '/api';
+  }
+  // In development, use localhost
+  return 'http://localhost:5000/api';
+};
+
+const API_URL = getApiUrl();
 
 const api = axios.create({
   baseURL: API_URL,
