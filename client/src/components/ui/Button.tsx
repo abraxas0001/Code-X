@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'ghost' | 'eraser' | 'tape';
   size?: 'sm' | 'md' | 'lg';
+  className?: string;
+  disabled?: boolean;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export const Button = ({
@@ -13,7 +17,9 @@ export const Button = ({
   variant = 'primary',
   size = 'md',
   className,
-  ...props
+  disabled,
+  onClick,
+  type = 'button',
 }: ButtonProps) => {
   const baseStyles = 'font-handwritten font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed relative';
   
@@ -68,9 +74,9 @@ export const Button = ({
       whileHover={hoverAnimation}
       whileTap={tapAnimation}
       className={cn(baseStyles, variants[variant], sizes[size], className)}
-      disabled={props.disabled}
-      onClick={props.onClick}
-      type={props.type}
+      disabled={disabled}
+      onClick={onClick}
+      type={type}
     >
       {/* Eraser texture lines */}
       {(variant === 'primary' || variant === 'eraser') && (
