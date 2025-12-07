@@ -1,12 +1,37 @@
 {
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api"
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/topics",
+      "dest": "/api/topics.js"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/api/users/(.*)",
+      "dest": "/api/users.js"
+    },
+    {
+      "src": "/api/execute",
+      "dest": "/api/execute.js"
+    },
+    {
+      "src": "/api/health",
+      "dest": "/api/health.js"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
