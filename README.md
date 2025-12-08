@@ -1,128 +1,258 @@
-# OmniLearn - The Ultimate CS Adaptive Learning Platform
+# Code-X - DSA Learning Platform
+
+An interactive, AI-powered learning platform for mastering Data Structures and Algorithms with gamification, real-time code execution, and adaptive difficulty levels.
+
+## 🎯 Features
+
+- **🎓 Adaptive Learning:** Beginner, Intermediate, and Expert difficulty levels for each topic
+- **💻 Live Code Editor:** Monaco editor with multi-language support (Python, JavaScript, C++, Java)
+- **🤖 AI Tutor:** Gemini-powered Socratic assistant to answer questions and explain concepts
+- **📊 Complexity Visualization:** Time and space complexity charts for algorithms
+- **🎮 Gamification:** Earn XP, climb levels, maintain streaks, unlock badges
+- **📈 Activity Heatmap:** GitHub-style activity tracking
+- **🎨 Animated UI:** Smooth transitions with Framer Motion
+- **⚡ Responsive Design:** Works seamlessly on desktop, tablet, and mobile
+- **🚀 Cloud-Ready:** Deployed on Vercel with serverless functions
 
 ## 🚀 Tech Stack
-- **Frontend:** React 19 (Vite), TypeScript, Tailwind CSS, Framer Motion, Shadcn/UI
+- **Frontend:** React 18 (Vite), TypeScript, Tailwind CSS, Framer Motion
 - **State:** Zustand + TanStack Query
-- **Backend:** Node.js, Express.js (ES Modules)
-- **Database:** MongoDB + Mongoose
+- **Backend:** Vercel Serverless Functions (Node.js)
+- **Database:** Mock data (no database required for deployment)
 - **AI:** Google Gemini 2.5 Flash
-- **Code Execution:** Judge0 API
+- **Code Execution:** Mock mode (can integrate Judge0 API)
 
-## 📦 Installation & Setup
+## 🏗️ Architecture
+
+```
+code-x/
+├── client/                    # React + Vite frontend
+│   ├── src/
+│   │   ├── components/       # UI components
+│   │   ├── pages/            # LearnPage, Dashboard
+│   │   ├── lib/              # API client, Gemini integration
+│   │   ├── store/            # Zustand stores
+│   │   └── types/            # TypeScript interfaces
+│   ├── api/                  # Vercel serverless functions
+│   └── dist/                 # Built output
+├── server/                   # Optional Node.js backend
+├── scripts/
+│   └── run-build.js         # Build helper
+└── README.md
+```
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ installed
-- MongoDB (local or Atlas) OR use mock data mode
-- (Optional) Gemini API key for AI features
-- (Optional) Judge0 API key for code execution
+- Node.js 18+
 
-### Step 1: Install Dependencies
+### Local Development
+
 ```bash
-# Install client dependencies
-cd client
+# Clone repo
+git clone https://github.com/abraxas0001/Code-X.git
+cd Code-X
+
+# Install and build
 npm install
+npm run build
 
-# Install server dependencies
-cd ../server
-npm install
-```
-
-### Step 2: Configure Environment Variables
-
-**Client (.env)**
-```env
-VITE_API_URL=http://localhost:5000/api
-VITE_GEMINI_API_KEY=your_gemini_api_key_here
-```
-
-**Server (.env)**
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/omnilearn
-# OR use MongoDB Atlas:
-# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/omnilearn
-NODE_ENV=development
-JUDGE0_API_KEY=your_judge0_api_key_here
-```
-
-### Step 3: Seed Database (if using MongoDB)
-```bash
-cd server
-npm run seed
-```
-
-### Step 4: Start Development Servers
-```bash
-# Terminal 1 - Backend
-cd server
-npm run dev
-
-# Terminal 2 - Frontend
+# Run dev server
 cd client
 npm run dev
 ```
 
-## 🌐 Access the Application
-- **Frontend:** http://localhost:3000
-- **Backend API:** http://localhost:5000/api
-- **Health Check:** http://localhost:5000/api/health
+**Frontend:** http://localhost:5173
 
-## ✨ Features Implemented
-✅ Adaptive three-pane learning interface
-✅ Tier-based content (Beginner/Intermediate/Expert)
-✅ Monaco code editor with multi-language support
-✅ Real-time complexity visualization
-✅ AI Socratic tutor (Gemini integration)
-✅ Gamification (XP, levels, streaks, badges)
-✅ GitHub-style activity heatmap
-✅ Framer Motion animations
-✅ Code execution via Judge0 API
-✅ Responsive design with Tailwind CSS
+## 🌐 Live Demo
 
-## 🔑 API Keys Setup
+**Deployed on Vercel:** https://code-x-eta-khaki.vercel.app
 
-### Gemini API (Free)
-1. Visit https://makersuite.google.com/app/apikey
-2. Create a new API key
-3. Add to `client/.env` as `VITE_GEMINI_API_KEY`
+### API Endpoints
+- `GET /api/topics` - Get all DSA topics
+- `GET /api/topics/[slug]` - Get specific topic with full content
+- `GET /api/users` - User profile and progress
+- `POST /api/execute` - Code execution (mock)
+- `GET /api/health` - Health check
 
-### Judge0 API (Free tier available)
-1. Visit https://rapidapi.com/judge0-official/api/judge0-ce
-2. Subscribe to free tier
-3. Add to `server/.env` as `JUDGE0_API_KEY`
+## 📚 Topics Covered
 
-### MongoDB Atlas (Free tier)
-1. Visit https://www.mongodb.com/cloud/atlas
-2. Create free cluster
-3. Get connection string
-4. Add to `server/.env` as `MONGODB_URI`
+### Data Structures
+- Arrays & Linked Lists
+- Stacks & Queues
+- Trees (Binary, BST, AVL)
+- Graphs (Directed, Undirected)
+- Hash Tables
+- Heaps
 
-## 🚀 Deployment to Vercel
+### Algorithms
+- Sorting (Bubble, Merge, Quick)
+- Searching (Linear, Binary)
+- Recursion & Backtracking
+- Dynamic Programming
+- Divide & Conquer
+- Greedy Algorithms
+- Graph Traversal (BFS, DFS)
 
-Deploy your app to production in minutes!
+### AI Topics
+- Neural Networks Basics
+- Machine Learning Fundamentals
 
-### Quick Deploy
+## ✨ Key Features
+
+### 1. Adaptive Learning Interface
+- Three-pane layout: Theory, Complexity, Code Editor
+- Tier-based content (Beginner → Intermediate → Expert)
+- Switch difficulty to see different explanations
+
+### 2. Live Code Editor
+- Monaco editor with syntax highlighting
+- Multi-language support (Python, JavaScript, C++, Java)
+- Execute code and see output
+- Code snippets for each difficulty level
+
+### 3. AI Socratic Tutor
+- Ask questions about concepts
+- Get explanations without spoiling solutions
+- Real-time responses powered by Gemini API
+
+### 4. Complexity Visualization
+- Time complexity charts
+- Space complexity analysis
+- Big O notation reference
+
+### 5. Gamification System
+- **XP & Levels:** Earn points for completing topics
+- **Streaks:** Maintain daily learning consistency
+- **Badges:** Unlock achievements
+- **Activity Heatmap:** GitHub-style contribution graph
+- **Leaderboard:** Compare with other learners
+
+### 6. Responsive Design
+- Mobile-optimized interface
+- Dark/Light theme toggle
+- Smooth animations with Framer Motion
+
+## 🛠️ Development
+
+### Project Structure
+```
+client/src/
+├── components/
+│   ├── CodeEditor.tsx       # Code execution interface
+│   ├── AIChat.tsx           # AI tutor chat
+│   ├── TheoryPane.tsx       # Learning content
+│   ├── ComplexityGraph.tsx  # Visualizations
+│   ├── TierSwitcher.tsx     # Difficulty selector
+│   └── Navbar.tsx           # Navigation
+├── pages/
+│   ├── Dashboard.tsx        # Home + topic listing
+│   └── LearnPage.tsx        # Learning interface
+├── lib/
+│   ├── api.ts               # API client
+│   ├── gemini.ts            # Gemini AI integration
+│   └── utils.ts             # Utilities
+└── store/
+    ├── topicStore.ts        # Current topic state
+    └── userStore.ts         # User data
+```
+
+### Environment Variables (Optional)
+
+**For AI Tutor:**
+```bash
+VITE_GEMINI_API_KEY=your_google_gemini_api_key
+```
+
+Get free Gemini API key: https://makersuite.google.com/app/apikey
+
+## 🚀 Deployment
+
+### Deploy to Vercel
+
 ```bash
 # Install Vercel CLI
 npm install -g vercel
 
-# Login and deploy
-vercel login
+# Deploy
 vercel
 
-# Add environment variables in Vercel dashboard, then:
+# Deploy to production
 vercel --prod
 ```
 
-### Detailed Guides
-- **⚡ Quick Start**: See `DEPLOYMENT_QUICK_START.md`
-- **📖 Full Guide**: See `VERCEL_DEPLOYMENT_GUIDE.md`
-- **✅ Checklist**: See `DEPLOYMENT_CHECKLIST.md`
+**The app deploys automatically on push to `main`**
 
-### Required Environment Variables for Production
-```
-VITE_GEMINI_API_KEY=your_key
-VITE_API_URL=https://your-project.vercel.app/api
-MONGODB_URI=your_mongodb_atlas_uri
-NODE_ENV=production
-```
+### Features of Vercel Deployment
+- ✅ Automatic builds on GitHub push
+- ✅ Serverless functions for API routes (`client/api/`)
+- ✅ SPA routing (rewrites to `/index.html`)
+- ✅ No database needed (mock data included)
+- ✅ Environment variables support
+- ✅ Free tier with generous limits
+
+## 📖 Learning Path
+
+1. **Start:** Browse dashboard and pick your first topic
+2. **Learn:** Read beginner-level explanation with analogy
+3. **Code:** Write code in the editor and execute
+4. **Practice:** Move to intermediate, then expert
+5. **Ask AI:** Use tutor when stuck
+6. **Track:** Watch your XP and streak grow
+7. **Master:** Complete all topics and earn badges
+
+## 🤖 AI Tutor Usage
+
+Type questions like:
+- "Explain binary search in simple terms"
+- "What's the time complexity of quicksort?"
+- "How do I optimize this algorithm?"
+- "What's the difference between arrays and linked lists?"
+
+The AI tutor responds with clear, educational answers.
+
+## 🔒 Privacy & Data
+
+- No user account required to browse
+- Anonymous learning progress tracking
+- All data stored locally (browser storage)
+- No personal data collection
+- Fully self-contained, no external dependencies for core features
+
+## 🐛 Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Topics not loading | Verify `/api/topics` returns data in DevTools |
+| AI tutor not responding | Check Gemini API key in `.env` |
+| Code not executing | Features work in mock mode, no external API required |
+| Build failing locally | Run `npm install` in both root and `client/` |
+
+## 🤝 Contributing
+
+Contributions welcome! Fork, create a branch, and submit a PR for:
+- New DSA topics
+- Better animations
+- Mobile improvements
+- Code optimization
+- Bug fixes
+- Documentation
+
+## 📄 License
+
+MIT License - Free to use for educational purposes
+
+## 🙏 Acknowledgments
+
+- Inspired by LeetCode, CodeSignal, and freeCodeCamp
+- UI built with Tailwind CSS & shadcn/ui
+- Animations with Framer Motion
+- Data viz with Recharts
+- AI powered by Google Gemini
+- Hosted on Vercel
+
+---
+
+**Made with ❤️ for DSA learners**
+
+Have questions? Issues? Suggestions? Open an issue on GitHub!

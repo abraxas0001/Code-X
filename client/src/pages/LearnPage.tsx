@@ -49,6 +49,11 @@ export const LearnPage = () => {
     );
   }
 
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
