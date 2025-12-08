@@ -28,6 +28,11 @@ export const LearnPage = () => {
     }
   }, [topic, setCurrentTopic]);
 
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   const scrollToEditor = () => {
     setShowEditor(true);
     setTimeout(() => {
@@ -48,11 +53,6 @@ export const LearnPage = () => {
       </div>
     );
   }
-
-  useEffect(() => {
-    // Scroll to top when page loads
-    window.scrollTo(0, 0);
-  }, [slug]);
 
   return (
     <motion.div
