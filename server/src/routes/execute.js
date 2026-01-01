@@ -3,15 +3,15 @@ import axios from 'axios';
 
 const router = express.Router();
 
-// Language ID mapping for Judge0
-const languageIds = {
-  python: 71,
-  javascript: 63,
-  cpp: 54,
-  java: 62,
+// Language mapping for Piston API
+const runtimeMap = {
+  python: { language: 'python', version: '3.10.0' },
+  javascript: { language: 'javascript', version: '18.15.0' },
+  cpp: { language: 'c++', version: '10.2.0' },
+  java: { language: 'java', version: '15.0.2' },
 };
 
-// Execute code using Judge0 API
+// Execute code using Piston API (v2)
 router.post('/', async (req, res) => {
   try {
     const { code, language } = req.body;
@@ -20,54 +20,46 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ error: 'Code and language are required' });
     }
 
-    const languageId = languageIds[language];
-    if (!languageId) {
-      return res.status(400).json({ error: 'Unsupported language' });
+    const runtime = runtimeMap[language];
+    if (!runtime) {
+      return res.status(400).json({ error: `Unsupported language: ${language}` });
     }
 
-    // Using Judge0 CE (free tier)
-    const response = await axios.post(
-      'https://judge0-ce.p.rapidapi.com/submissions',
-      {
-        source_code: code,
-        language_id: languageId,
-        stdin: '',
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-RapidAPI-Key': process.env.JUDGE0_API_KEY || 'demo-key',
-          'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com',
+    // Call Piston API
+    console.log(`🚀 Executing ${language} code via Piston...`);
+    const response = await axios.post('https://emkc.org/api/v2/piston/execute', {
+      language: runtime.language,
+      version: runtime.version,
+      files: [
+        {
+          content: code,
         },
-        params: {
-          base64_encoded: 'false',
-          wait: 'true',
-        },
-      }
-    );
+      ],
+    });
 
-    const result = response.data;
+    const { run } = response.data;
 
-    if (result.status.id === 3) {
+    // Piston returns { run: { stdout, stderr, code, signal, ... } }
+    if (run.code === 0 && !run.stderr) {
       // Success
       res.json({
         success: true,
-        output: result.stdout || 'No output',
-        executionTime: result.time,
-        memory: result.memory,
+        output: run.stdout,
+        executionTime: 'N/A', // Piston v2 doesn't always return time in top-level
+        memory: 'N/A',
       });
     } else {
-      // Error
+      // Runtime Error or Compilation Error
       res.json({
         success: false,
-        error: result.stderr || result.compile_output || 'Execution failed',
+        error: run.stderr || run.stdout || 'Execution failed',
       });
     }
   } catch (error) {
-    console.error('Execution error:', error);
+    console.error('Execution error:', error.message);
     res.status(500).json({
       success: false,
-      error: 'Failed to execute code. Please try again.',
+      error: 'Failed to execute code. Internal server error.',
     });
   }
 });

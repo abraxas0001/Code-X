@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Loader2, Sparkles, Brain } from 'lucide-react';
 import { getAIResponse } from '@/lib/gemini';
@@ -15,6 +15,12 @@ export const AIChat = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { currentTopic, currentTier } = useTopicStore();
+
+  useEffect(() => {
+    const handleOpenChat = () => setIsOpen(true);
+    window.addEventListener('openAIChat', handleOpenChat);
+    return () => window.removeEventListener('openAIChat', handleOpenChat);
+  }, []);
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
@@ -34,9 +40,9 @@ export const AIChat = () => {
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error('AI Chat error:', error);
-      const errorMessage: Message = { 
-        role: 'assistant', 
-        content: '❌ Sorry, I encountered an error. Please try again or check your API key.' 
+      const errorMessage: Message = {
+        role: 'assistant',
+        content: '❌ Sorry, I encountered an error. Please try again or check your API key.'
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
@@ -115,11 +121,10 @@ export const AIChat = () => {
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[85%] p-3 rounded-2xl backdrop-blur-sm ${
-                      msg.role === 'user'
-                        ? 'bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-lg'
-                        : 'bg-white/60 dark:bg-gray-800/60 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 shadow-md'
-                    }`}
+                    className={`max-w-[85%] p-3 rounded-2xl backdrop-blur-sm ${msg.role === 'user'
+                      ? 'bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-lg'
+                      : 'bg-white/60 dark:bg-gray-800/60 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 shadow-md'
+                      }`}
                   >
                     <p className="text-sm font-typewriter whitespace-pre-wrap leading-relaxed">
                       {msg.content}

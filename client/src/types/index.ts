@@ -41,10 +41,17 @@ export interface CodeSnippet {
   explanation?: string;
 }
 
+export interface Visualization {
+  title: string;
+  imageUrl: string;
+  description: string;
+}
+
 export interface TierContent {
   markdownText: string;
   videoUrl?: string;
   analogy?: string;
+  visualizations?: Visualization[];
   standardLibUsage?: string;
   timeComplexityAnalysis?: string;
   memoryOptimization?: string;

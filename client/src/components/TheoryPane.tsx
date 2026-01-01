@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Lightbulb, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, Lightbulb, CheckCircle2, Copy, Check } from 'lucide-react';
 import { useTopicStore } from '@/store/topicStore';
 import { TierSwitcher } from './TierSwitcher';
 import { TextSkeleton } from './ui/SkeletonLoader';
@@ -9,6 +9,13 @@ import { AnalogyVisualizer } from './AnalogyVisualizer';
 // Code Snippet Tabs Component
 const CodeSnippetTabs = ({ snippets }: { snippets: Array<{ language: string; code: string; explanation?: string }> }) => {
   const [activeTab, setActiveTab] = useState(0);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async (code: string) => {
+    await navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const languageColors: Record<string, string> = {
     python: 'crayon-blue',
@@ -37,7 +44,7 @@ const CodeSnippetTabs = ({ snippets }: { snippets: Array<{ language: string; cod
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white dark:bg-gray-800 border-4 border-ink rounded-xl overflow-hidden shadow-2xl"
+        className="bg-white dark:bg-gray-800 border-4 border-ink rounded-xl shadow-2xl"
       >
         {/* Language Tabs */}
         <div className="flex flex-wrap gap-1 bg-gray-100 dark:bg-gray-900 p-2 border-b-4 border-ink">
@@ -71,9 +78,18 @@ const CodeSnippetTabs = ({ snippets }: { snippets: Array<{ language: string; cod
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-[#1e1e1e] dark:bg-gray-950"
+          className="bg-[#1e1e1e] dark:bg-gray-950 relative group"
         >
-          <pre className="p-6 overflow-x-auto">
+          <div className="sticky top-0 right-0 z-20 flex justify-end p-2 pointer-events-none">
+            <button
+              onClick={() => handleCopy(snippets[activeTab].code)}
+              className="pointer-events-auto p-2 rounded-md bg-white/10 dark:bg-black/20 hover:bg-white/20 backdrop-blur-md text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 border border-white/10"
+              title="Copy code"
+            >
+              {copied ? <Check className="w-5 h-5 text-green-400" /> : <Copy className="w-5 h-5" />}
+            </button>
+          </div>
+          <pre className="p-6 pt-0 overflow-x-auto">
             <code className="text-sm font-mono text-green-400 leading-relaxed whitespace-pre">
               {snippets[activeTab].code}
             </code>
@@ -229,24 +245,25 @@ export const TheoryPane = () => {
             initial={{ scale: 0.9, rotate: -2 }}
             animate={{ scale: 1, rotate: 0 }}
             whileHover={{ rotate: 0, scale: 1.02 }}
-            className="bg-yellow-200 dark:bg-amber-600 p-6 rounded-sm shadow-xl transform rotate-1 border-2 border-yellow-300 dark:border-amber-700"
+            className="bg-yellow-200 dark:bg-yellow-900/60 p-6 rounded-sm shadow-xl transform rotate-1 border-2 border-yellow-300 dark:border-yellow-700"
           >
             <div className="flex items-start gap-3">
               <div className="relative">
-                <Lightbulb className="h-8 w-8 text-gray-900 dark:text-white flex-shrink-0" />
-                <div className="absolute inset-0 border-2 border-gray-900 dark:border-white rounded-full scale-125 opacity-50" />
+                <Lightbulb className="h-8 w-8 text-gray-900 dark:text-yellow-100 flex-shrink-0" />
+                <div className="absolute inset-0 border-2 border-gray-900 dark:border-yellow-100 rounded-full scale-125 opacity-50" />
               </div>
               <div className="flex-1">
-                <p className="font-handwritten text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                <p className="font-handwritten text-2xl font-bold text-gray-900 dark:text-yellow-100 mb-3">
                   Think of it like this...
                 </p>
-                <p className="font-typewriter text-lg text-gray-900 dark:text-white leading-relaxed">
+                <p className="font-typewriter text-lg text-gray-900 dark:text-gray-200 leading-relaxed">
                   {content.analogy}
                 </p>
                 <AnalogyVisualizer
                   analogy={content.analogy}
                   topicTitle={currentTopic.meta.title}
                   imagePath={`/images/analogies/${currentTopic.meta.slug}.png`}
+                  visualizations={content.visualizations}
                 />
               </div>
             </div>
@@ -307,7 +324,7 @@ export const TheoryPane = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
                   className={`${isCallout
-                    ? 'bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-amber-900/30 dark:to-orange-900/30 border-l-4 border-yellow-500 dark:border-yellow-400'
+                    ? 'bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-amber-900/30 dark:to-orange-900/30 border-l-4 border-yellow-500 dark:border-yellow-600'
                     : 'bg-gray-50 dark:bg-gray-700/50 border-2 border-gray-200 dark:border-gray-600'
                     } rounded-lg p-4 shadow-sm hover:shadow-md transition-all`}
                 >

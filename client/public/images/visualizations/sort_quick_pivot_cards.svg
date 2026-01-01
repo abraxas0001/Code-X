@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .bar { width: 40px; stroke: #2d3436; }
+      .small { fill: #00b894; }
+      .pivot { fill: #fdcb6e; stroke: #e17055; stroke-width: 4; }
+      .large { fill: #0984e3; }
+      .text { font-family: sans-serif; fill: #ffffff; text-anchor: middle; }
+    </style>
+  </defs>
+  
+  <text x="400" y="60" class="text" font-size="32" font-weight="bold">Quick Sort: Partitioning</text>
+
+  <g transform="translate(150, 150)">
+    <!-- Smaller Group -->
+    <rect x="0" y="100" height="50" class="bar small" />
+    <rect x="50" y="80" height="70" class="bar small" />
+    <rect x="100" y="120" height="30" class="bar small" />
+    
+    <text x="75" y="190" class="text" fill="#00b894">&lt; Pivot</text>
+
+    <!-- Pivot -->
+    <rect x="200" y="50" height="100" class="bar pivot" />
+    <text x="220" y="190" class="text" fill="#fdcb6e" font-weight="bold">Pivot (5)</text>
+
+    <!-- Larger Group -->
+    <rect x="300" y="20" height="130" class="bar large" />
+    <rect x="350" y="0" height="150" class="bar large" />
+    
+    <text x="350" y="190" class="text" fill="#0984e3">&gt; Pivot</text>
+  </g>
+
+  <text x="400" y="400" class="text" font-size="20">"Crucial Step: Everything smaller moves left, everything larger moves right."</text>
+</svg>

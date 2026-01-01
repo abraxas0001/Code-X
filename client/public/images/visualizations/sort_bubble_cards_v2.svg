@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .card { fill: #fff; stroke: #2d3436; stroke-width: 2; rx: 10; }
+      .card-text { font-family: sans-serif; fill: #2d3436; font-size: 40px; text-anchor: middle; font-weight: bold; }
+      .highlight { stroke: #e17055; stroke-width: 6; }
+      .text { font-family: sans-serif; fill: #ffffff; text-anchor: middle; }
+      .swap-arrow { stroke: #e17055; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e17055" />
+    </marker>
+  </defs>
+
+  <text x="400" y="80" class="text" font-size="32" font-weight="bold">Bubble Sort: Swap Adjacent</text>
+
+  <g transform="translate(100, 200)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="100" height="150" class="card" />
+    <text x="50" y="90" class="card-text">5</text>
+
+    <!-- Card 2 (High) -->
+    <rect x="120" y="0" width="100" height="150" class="card highlight" />
+    <text x="170" y="90" class="card-text" fill="#e17055">8</text>
+
+    <!-- Card 3 (Low) -->
+    <rect x="240" y="0" width="100" height="150" class="card highlight" />
+    <text x="290" y="90" class="card-text" fill="#e17055">3</text>
+
+    <!-- Card 4 -->
+    <rect x="360" y="0" width="100" height="150" class="card" />
+    <text x="410" y="90" class="card-text">9</text>
+
+    <!-- Card 5 -->
+    <rect x="480" y="0" width="100" height="150" class="card" />
+    <text x="530" y="90" class="card-text">1</text>
+
+    <!-- Swap Arrow -->
+    <path d="M 170 160 Q 230 220 290 160" class="swap-arrow" />
+    <text x="230" y="220" class="text" fill="#e17055" font-size="20">8 &gt; 3? SWAP!</text>
+  </g>
+</svg>

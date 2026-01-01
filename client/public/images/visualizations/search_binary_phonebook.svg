@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .page-group { stroke: #6c5ce7; stroke-width: 3; rx: 10; ry: 10; }
+      .discarded { fill: #2d3436; stroke: #636e72; opacity: 0.5; }
+      .active { fill: #2a2a40; stroke: #00cec9; }
+      .text { font-family: sans-serif; fill: #ffffff; text-anchor: middle; }
+      .arrow { stroke: #00cec9; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00cec9" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="60" class="text" font-size="32" font-weight="bold">Binary Search: Split &amp; Discard</text>
+
+  <!-- Left Half (Discarded) -->
+  <rect x="50" y="150" width="300" height="300" class="page-group discarded" />
+  <text x="200" y="300" class="text" fill="#b2bec3" font-size="24">A - M (Discarded)</text>
+
+  <!-- Right Half (Active) -->
+  <rect x="450" y="150" width="300" height="300" class="page-group active" />
+  <text x="600" y="200" class="text" font-size="24">N - Z (Keep Searching)</text>
+
+  <!-- Lines representing entries -->
+  <line x1="480" y1="240" x2="720" y2="240" stroke="#636e72" stroke-width="2" />
+  <line x1="480" y1="270" x2="720" y2="270" stroke="#636e72" stroke-width="2" />
+  
+  <!-- Target Highlight -->
+  <rect x="470" y="290" width="260" height="40" fill="#0984e3" rx="5" />
+  <text x="600" y="318" class="text" font-weight="bold" font-size="22">"Smith" (Target)</text>
+
+  <line x1="480" y1="360" x2="720" y2="360" stroke="#636e72" stroke-width="2" />
+
+  <!-- Action Arrow -->
+  <path d="M 400 130 L 400 480" stroke="#fab1a0" stroke-width="2" stroke-dasharray="10,5" />
+  <text x="400" y="500" class="text" fill="#fab1a0" font-size="20">Middle Split Pair</text>
+
+</svg>

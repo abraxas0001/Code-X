@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .block { fill: #6c5ce7; stroke: #fff; stroke-width: 2; rx: 5; }
+      .text { font-family: sans-serif; fill: #ffffff; text-anchor: middle; }
+      .arrow { stroke: #a29bfe; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a29bfe" />
+    </marker>
+  </defs>
+  
+  <text x="400" y="60" class="text" font-size="32" font-weight="bold">Merge Sort: Merge Sorted Lists</text>
+
+  <!-- Left Sorted List -->
+  <g transform="translate(150, 150)">
+    <text x="75" y="-20" class="text">Sorted A</text>
+    <rect x="0" y="0" width="50" height="50" class="block" /><text x="25" y="32" class="text">2</text>
+    <rect x="50" y="0" width="50" height="50" class="block" /><text x="75" y="32" class="text">5</text>
+    <rect x="100" y="0" width="50" height="50" class="block" /><text x="125" y="32" class="text">8</text>
+  </g>
+
+  <!-- Right Sorted List -->
+  <g transform="translate(500, 150)">
+    <text x="75" y="-20" class="text">Sorted B</text>
+    <rect x="0" y="0" width="50" height="50" class="block" /><text x="25" y="32" class="text">3</text>
+    <rect x="50" y="0" width="50" height="50" class="block" /><text x="75" y="32" class="text">6</text>
+    <rect x="100" y="0" width="50" height="50" class="block" /><text x="125" y="32" class="text">9</text>
+  </g>
+
+  <!-- Merge Action -->
+  <path d="M 175 210 L 300 350" class="arrow" />
+  <path d="M 525 210 L 350 350" class="arrow" />
+
+  <!-- Result List -->
+  <g transform="translate(250, 360)">
+    <text x="150" y="-20" class="text">Merged Result</text>
+    <!-- 2 -->
+    <rect x="0" y="0" width="50" height="50" class="block" opacity="1" /><text x="25" y="32" class="text">2</text>
+    <!-- 3 -->
+    <rect x="50" y="0" width="50" height="50" class="block" opacity="1" /><text x="75" y="32" class="text">3</text>
+    <!-- 5 -->
+    <rect x="100" y="0" width="50" height="50" class="block" opacity="1" /><text x="125" y="32" class="text">5</text>
+     <!-- ... -->
+    <rect x="150" y="0" width="150" height="50" fill="none" stroke="#fff" stroke-dasharray="5,5"/><text x="225" y="32" class="text">...</text>
+  </g>
+
+  <text x="400" y="500" class="text" font-size="20">"Compare heads of A and B. Take smaller. Repeat."</text>
+</svg>

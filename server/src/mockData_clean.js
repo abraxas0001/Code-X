@@ -70,23 +70,6 @@ Algorithms are step-by-step instructions to solve problems. They're like recipes
 Ready to begin? Pick any topic from the list and start your journey! 🎯
         `,
                 analogy: "Learning DSA is like learning to cook - you start with basic techniques (data structures) and recipes (algorithms), then combine them to create amazing dishes (programs)!",
-                visualizations: [
-                    {
-                        title: "Building a Skyscraper 🏢",
-                        imageUrl: "/images/visualizations/arrays_apartment_building_1767285711476.png",
-                        description: "Think of DSA as construction. Data structures are your materials (bricks, beams, glass) and algorithms are your construction techniques. You need a solid foundation (arrays) and structure (trees) to build a stable, scalable application like a skyscraper!"
-                    },
-                    {
-                        title: "The Organized Library 📚",
-                        imageUrl: "/images/visualizations/arrays_bookshelf_1767285693088.png",
-                        description: "Imagine a library with millions of books. Without a system (Data Structure), finding one is impossible. With a catalog and sorted shelves (Algorithms), you can find any book in seconds. DSA turns chaos into order!"
-                    },
-                    {
-                        title: "The Train Journey 🚂",
-                        imageUrl: "/images/visualizations/linkedlist_train_cars_1767285767379.png",
-                        description: "Your learning path is like a train journey. You start at the station (Arrays), travel through different zones (Trees, Graphs), and connect concepts together like train cars. Every stop adds a new skill to your cargo!"
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -126,8 +109,13 @@ function findInSet(items, target) {
 }
 
 // Example
-`,
-                        explanation: 'JavaScript Sets provide O(1) lookup time.',
+const myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const mySet = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+// Both find the number, but Set is much faster!
+console.log(findInArray(myArray, 7));  // true
+console.log(findInSet(mySet, 7));      // true (but faster!)`,
+                        explanation: 'JavaScript Sets provide O(1) lookup time compared to O(n) for arrays.',
                     },
                     {
                         language: 'cpp',
@@ -137,27 +125,27 @@ function findInSet(items, target) {
 #include <algorithm>
 using namespace std;
 
-                        // Bad approach: Using a vector to check if item exists
-                        bool findInVector(const vector<int>& items, int target) {
-                        return find(items.begin(), items.end(), target) != items.end();
-                        // O(n) - slow for large vectors
-                    }
+// Bad approach: Using a vector to check if item exists
+bool findInVector(const vector<int>& items, int target) {
+    return find(items.begin(), items.end(), target) != items.end();
+    // O(n) - slow for large vectors
+}
 
 // Better approach: Using an unordered_set (hash table)
-bool findInSet(const unordered_set < int >& items, int target) {
-        return items.find(target) != items.end();  // O(1) - instant!
-    }
+bool findInSet(const unordered_set<int>& items, int target) {
+    return items.find(target) != items.end();  // O(1) - instant!
+}
 
 int main() {
-        // Example
-        vector<int> myVector = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        unordered_set<int> mySet = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-        // Both find the number, but set is much faster!
-        cout << findInVector(myVector, 7) << endl;  // 1 (true)
-cout << findInSet(mySet, 7) << endl;        // 1 (true, but faster!)
-
-return 0;
+    // Example
+    vector<int> myVector = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    unordered_set<int> mySet = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    
+    // Both find the number, but set is much faster!
+    cout << findInVector(myVector, 7) << endl;  // 1 (true)
+    cout << findInSet(mySet, 7) << endl;        // 1 (true, but faster!)
+    
+    return 0;
 }`,
                         explanation: 'C++ unordered_set provides O(1) average lookup time using hash tables.',
                     },
@@ -168,23 +156,23 @@ return 0;
 public class DSAIntro {
     // Bad approach: Using ArrayList to check if item exists
     public static boolean findInList(List<Integer> items, int target) {
-    return items.contains(target);  // O(n) - slow for large lists
-}
-
+        return items.contains(target);  // O(n) - slow for large lists
+    }
+    
     // Better approach: Using HashSet (hash table)
-    public static boolean findInSet(Set < Integer > items, int target) {
-    return items.contains(target);  // O(1) - instant!
-}
+    public static boolean findInSet(Set<Integer> items, int target) {
+        return items.contains(target);  // O(1) - instant!
+    }
     
     public static void main(String[] args) {
-    // Example
-    List < Integer > myList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-    Set < Integer > mySet = new HashSet <> (myList);
-
-    // Both find the number, but HashSet is much faster!
-    System.out.println(findInList(myList, 7));  // true
-    System.out.println(findInSet(mySet, 7));    // true (but faster!)
-}
+        // Example
+        List<Integer> myList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        Set<Integer> mySet = new HashSet<>(myList);
+        
+        // Both find the number, but HashSet is much faster!
+        System.out.println(findInList(myList, 7));  // true
+        System.out.println(findInSet(mySet, 7));    // true (but faster!)
+    }
 }`,
                         explanation: 'Java HashSet provides O(1) average lookup time compared to O(n) for ArrayList.',
                     },
@@ -196,84 +184,84 @@ public class DSAIntro {
 
 ## Understanding Complexity
 
-The key to mastering DSA is understanding ** time and space complexity ** - how fast your code runs and how much memory it uses.
+The key to mastering DSA is understanding **time and space complexity** - how fast your code runs and how much memory it uses.
 
 ### Big O Notation
-    - ** O(1) ** - Constant: Same time regardless of input size
-        - ** O(log n) ** - Logarithmic: Doubles input, adds one step
-            - ** O(n) ** - Linear: Time grows with input size
-                - ** O(n log n) ** - Linearithmic: Efficient sorting
-                    - ** O(n²) ** - Quadratic: Nested loops
-                        - ** O(2ⁿ) ** - Exponential: Avoid when possible!
+- **O(1)** - Constant: Same time regardless of input size
+- **O(log n)** - Logarithmic: Doubles input, adds one step
+- **O(n)** - Linear: Time grows with input size
+- **O(n log n)** - Linearithmic: Efficient sorting
+- **O(n²)** - Quadratic: Nested loops
+- **O(2ⁿ)** - Exponential: Avoid when possible!
 
 ## Data Structure Categories
 
 ### Linear Structures
 Data arranged in sequence:
-- ** Arrays **: Fixed size, fast access by index
-    - ** Linked Lists **: Dynamic size, fast insertion / deletion
-        - ** Stacks **: LIFO(Last In, First Out)
-            - ** Queues **: FIFO(First In, First Out)
+- **Arrays**: Fixed size, fast access by index
+- **Linked Lists**: Dynamic size, fast insertion/deletion
+- **Stacks**: LIFO (Last In, First Out)
+- **Queues**: FIFO (First In, First Out)
 
-### Non - Linear Structures
+### Non-Linear Structures
 Data arranged hierarchically or in networks:
-- ** Trees **: Hierarchical with parent - child relationships
-    - ** Graphs **: Nodes connected by edges(social networks, maps)
-        - ** Heaps **: Special trees for priority queues
+- **Trees**: Hierarchical with parent-child relationships
+- **Graphs**: Nodes connected by edges (social networks, maps)
+- **Heaps**: Special trees for priority queues
 
-### Hash - Based Structures
+### Hash-Based Structures
 Fast lookups using hash functions:
-- ** Hash Tables **: Key - value pairs with O(1) average access
-    - ** Hash Sets **: Unique elements with O(1) membership testing
+- **Hash Tables**: Key-value pairs with O(1) average access
+- **Hash Sets**: Unique elements with O(1) membership testing
 
 ## Algorithm Paradigms
 
 ### Divide and Conquer
 Break problem into smaller subproblems:
 - Merge Sort, Quick Sort
-    - Binary Search
-        - Efficient and elegant
+- Binary Search
+- Efficient and elegant
 
 ### Dynamic Programming
 Store solutions to avoid recalculation:
 - Fibonacci sequence
-    - Longest common subsequence
-        - Knapsack problem
+- Longest common subsequence
+- Knapsack problem
 
 ### Greedy Algorithms
 Make locally optimal choices:
 - Dijkstra's shortest path
-    - Huffman coding
-        - Activity selection
+- Huffman coding
+- Activity selection
 
 ### Backtracking
 Try all possibilities, backtrack on failure:
-- N - Queens problem
-    - Sudoku solver
-        - Maze solving
+- N-Queens problem
+- Sudoku solver
+- Maze solving
 
 ## Choosing the Right Tool
 
-    | Need | Use |
-| ------| -----|
+| Need | Use |
+|------|-----|
 | Fast random access | Array |
-| Frequent insertions / deletions | Linked List |
+| Frequent insertions/deletions | Linked List |
 | LIFO operations | Stack |
 | FIFO operations | Queue |
 | Fast lookups | Hash Table |
 | Hierarchical data | Tree |
-| Relationships / networks | Graph |
-| Priority - based processing | Heap |
+| Relationships/networks | Graph |
+| Priority-based processing | Heap |
 
 ## Practice Strategy
 
-1. ** Understand the problem ** - Read carefully
-2. ** Choose data structure ** - What fits best ?
-    3. ** Design algorithm ** - Plan before coding
-4. ** Analyze complexity ** - Is it efficient ?
-    5. ** Code and test ** - Implement and verify
-6. ** Optimize ** - Can you do better ?
-    `,
+1. **Understand the problem** - Read carefully
+2. **Choose data structure** - What fits best?
+3. **Design algorithm** - Plan before coding
+4. **Analyze complexity** - Is it efficient?
+5. **Code and test** - Implement and verify
+6. **Optimize** - Can you do better?
+        `,
                 timeComplexityAnalysis: 'Understanding Big O notation is crucial for evaluating algorithm efficiency and making informed decisions about which approach to use.',
                 codeSnippets: [
                     {
@@ -283,28 +271,28 @@ Try all possibilities, backtrack on failure:
 
 # Approach 1: Brute Force - O(n²)
 def has_duplicates_v1(arr):
-for i in range(len(arr)):
-    for j in range(i + 1, len(arr)):
-        if arr[i] == arr[j]:
-            return True
-return False
+    for i in range(len(arr)):
+        for j in range(i + 1, len(arr)):
+            if arr[i] == arr[j]:
+                return True
+    return False
 
 # Approach 2: Sorting - O(n log n)
 def has_duplicates_v2(arr):
-sorted_arr = sorted(arr)
-for i in range(len(sorted_arr) - 1):
-    if sorted_arr[i] == sorted_arr[i + 1]:
-        return True
-return False
+    sorted_arr = sorted(arr)
+    for i in range(len(sorted_arr) - 1):
+        if sorted_arr[i] == sorted_arr[i + 1]:
+            return True
+    return False
 
 # Approach 3: Hash Set - O(n) - BEST!
 def has_duplicates_v3(arr):
-seen = set()
-for num in arr:
-    if num in seen:
-        return True
-seen.add(num)
-return False
+    seen = set()
+    for num in arr:
+        if num in seen:
+            return True
+        seen.add(num)
+    return False
 
 # Test
 test_array = [1, 2, 3, 4, 5, 2]
@@ -924,27 +912,17 @@ Access any element instantly using its index: \`array[3]\` gives you the 4th ele
 - 📊 Temperature readings over time
 - 🎵 Playlist of songs
         `,
-                analogy: "An array is like a parking lot with numbered spaces - each car goes in its designated spot (index), and you can drive directly to any space if you know its number. Super fast access!",
+                analogy: "An array is like a row of mailboxes - each has a unique index number, and you can go directly to any mailbox if you know its number. But to add a new mailbox in the middle, you'd have to move all the others!",
                 visualizations: [
                     {
-                        title: "Parking Lot Spaces 🚗",
-                        imageUrl: "/images/visualizations/arrays_parking_lot_1767285674793.png",
-                        description: "Just like a parking lot with numbered spaces (0, 1, 2, 3, 4), arrays allow direct access to any element. You can instantly drive to space #3 without checking other spaces. That's O(1) - constant time access!"
+                        title: "The Mailbox Row 📬",
+                        imageUrl: "/images/array_mailboxes.png",
+                        description: "Just like mailboxes numbered 0, 1, 2... Arrays allow instant access to any item if you know its index. O(1) Access!"
                     },
                     {
-                        title: "Bookshelf Organization 📚",
-                        imageUrl: "/images/visualizations/arrays_bookshelf_1767285693088.png",
-                        description: "A bookshelf with numbered compartments perfectly shows arrays - all books (same type of data) are stored in adjacent, numbered slots. Grab book from compartment #2 instantly by knowing its index!"
-                    },
-                    {
-                        title: "Apartment Building Memory 🏢",
-                        imageUrl: "/images/visualizations/arrays_apartment_building_1767285711476.png",
-                        description: "Arrays store elements in contiguous memory, like apartments side-by-side on the same floor. All units are connected and adjacent, making access super fast. This is why arrays are cache-friendly and efficient!"
-                    },
-                    {
-                        title: "Array vs Scattered: Speed Comparison ⚡",
-                        imageUrl: "/images/visualizations/arrays_vs_scattered_1767285731046.png",
-                        description: "Compare arrays (neat row of boxes 0-4 with direct arrows) to scattered storage (random placement with maze-like paths). Arrays win because contiguous storage means instant access, while scattered data requires searching!"
+                        title: "Theater Seating 🎬",
+                        imageUrl: "/images/analogies/arrays.png",
+                        description: "Seats are fixed in place. You can't just shove an extra seat in the middle of a row without inspecting everything else. Fixed Size!"
                     }
                 ],
                 codeSnippets: [
@@ -1986,28 +1964,6 @@ That's exactly what Binary Search does!
 Instead of checking 1000 items one by one, you only need about 10 checks! That's the power of halving.
         `,
                 analogy: "It's like playing the 'guess the number' game where someone says 'higher' or 'lower' after each guess. You always guess the middle to win fastest!",
-                visualizations: [
-                    {
-                        title: "Linear Search - Check Every Box 📦",
-                        imageUrl: "/images/visualizations/search_linear_boxes.svg",
-                        description: "Looking for a specific toy in 100 unmarked boxes? Open each box one by one until you find it. This is linear search - O(n) time. Simple, works on unsorted data, but slow for large datasets. Like searching for a word by reading every word in a book sequentially."
-                    },
-                    {
-                        title: "Binary Search - Phone Book Strategy 📖",
-                        imageUrl: "/images/visualizations/search_binary_phonebook.svg",
-                        description: "Find 'Smith' in a phone book: Open to middle. Is 'Smith' before or after? Eliminate half the book. Repeat with remaining half. Find any name in O(log n) time! Requires sorted data but incredibly efficient. 1 million items? Only ~20 comparisons needed!"
-                    },
-                    {
-                        title: "Hash-Based Search - Direct Access 🎯",
-                        imageUrl: "/images/visualizations/search_hash_library.svg",
-                        description: "Use a hash function to compute exactly where data is stored. Instead of searching, calculate the location and go directly there - O(1) time! Like knowing exactly which shelf a book is on in a library. Requires extra memory for hash table but provides instant lookups."
-                    },
-                    {
-                        title: "BFS & DFS Graph Search 🗺️",
-                        imageUrl: "/images/visualizations/graph_road_map.png",
-                        description: "Searching graphs/trees? BFS explores level-by-level (like ripples in water - finds shortest path). DFS explores deep before backtracking (like maze solving - uses less memory). Choose based on problem: BFS for shortest path, DFS for exhaustive search or space constraints."
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -3053,24 +3009,14 @@ The first node is called the **head**, and the last node points to **null**.
                 analogy: "A linked list is like a treasure hunt - each clue (node) holds a secret (data) and tells you exactly where to find the next clue (pointer). You can't skip ahead; you must follow the path!",
                 visualizations: [
                     {
-                        title: "Train Cars Connection 🚂",
-                        imageUrl: "/images/visualizations/linkedlist_train_cars_1767285767379.png",
-                        description: "Each train car (node) is connected to the next by a coupling (pointer). To add a new car in the middle, simply unhook the coupling between two cars and hook in the new one! This shows why linked lists have O(1) insertion when you have a reference to the location."
+                        title: "The Treasure Hunt 🗺️",
+                        imageUrl: "/images/analogies/linked-lists.png",
+                        description: "Start at the first clue (Head). It points you to the second, which points to the third... You traverse one by one!"
                     },
                     {
-                        title: "The Treasure Hunt Adventure 🗺️",
-                        imageUrl: "/images/visualizations/linkedlist_treasure_hunt_1767285789933.png",
-                        description: "Follow the clues one by one! Each treasure chest (node) contains data AND a map to the next chest (pointer). Start at chest #1 (HEAD), read its clue to find chest #2, then chest #3, and so on until you find the final treasure (NULL). This demonstrates sequential O(n) traversal."
-                    },
-                    {
-                        title: "Sequential Access Pattern 📍",
-                        imageUrl: "/images/visualizations/linkedlist_train_cars_1767285767379.png",
-                        description: "Like a paper chain, each loop links to the next. Unlike arrays where you can jump to any position, linked lists require following the chain from the start. But adding or removing a loop? Super easy - just unhook and re-hook! Dynamic size with O(1) insertion/deletion at known positions."
-                    },
-                    {
-                        title: "Array vs Linked List Trade-offs ⚖️",
-                        imageUrl: "/images/visualizations/arrays_vs_scattered_1767285731046.png",
-                        description: "Arrays: Fixed boxes in a row, O(1) random access but O(n) insertion. Linked Lists: Flexible chain of nodes, O(n) access but O(1) insertion/deletion when you have a pointer. Choose based on your needs - fast access or fast modification!"
+                        title: "The Train Connection 🚂",
+                        imageUrl: "/images/analogies/graphs.png",
+                        description: "Train cars are hooked together. To add a car in the middle, you just unhook two cars and hook the new one in between. Easy Insertion!"
                     }
                 ],
                 codeSnippets: [
@@ -4143,28 +4089,6 @@ Break big problems into smaller subproblems and remember the answers.
 2. **Tabulation:** Bottom-up (iterative + table)
         `,
                 analogy: "It's like doing homework and saving your answers so you don't have to solve the same problem twice!",
-                visualizations: [
-                    {
-                        title: "Climbing Stairs with Memory 🪜",
-                        imageUrl: "/images/visualizations/dp_staircase.svg",
-                        description: "Climb n stairs taking 1 or 2 steps. Ways to reach step 5? It's ways(4) + ways(3) - you can arrive from step 4 or 3! Naive recursion recalculates same steps repeatedly. DP solution: write down ways(i) for each step once in a table. Use stored results instead of recalculating. Memoization!"
-                    },
-                    {
-                        title: "Fibonacci With Notebook 📔",
-                        imageUrl: "/images/visualizations/dp_fib_tree.svg",
-                        description: "Computing Fib(50) recursively does millions of duplicate calculations. DP approach: keep a notebook! Write Fib(0)=0, Fib(1)=1. For next numbers, look up the previous two in your notebook instead of recalculating. Bottom-up DP builds from base cases - O(n) instead of O(2ⁿ)!"
-                    },
-                    {
-                        title: "Knapsack Problem Grid 🎒",
-                        imageUrl: "/images/visualizations/dp_knapsack.png",
-                        description: "Fit items in backpack to maximize value? Create a 2D table: rows are items, columns are weight capacities. Each cell [i][w] = max value using first i items with capacity w. Build table cell by cell, using previous results. Final cell has answer - no recalculation needed!"
-                    },
-                    {
-                        title: "Longest Common Subsequence Matrix 📊",
-                        imageUrl: "/images/visualizations/dp_grid_path.png",
-                        description: "Find longest common subsequence of two strings? Build matrix comparing each character pair. If match, diagonal + 1. If not, max of left and top cells. Fill entire table once, use stored values. Bottom-right cell has answer. DP trades space (table) for time (efficiency)!"
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -4709,29 +4633,6 @@ Average O(1) time for insert, delete, and search!
 - Phone book lookups
         `,
                 analogy: "It's like having a locker number (hash) that directly tells you where your stuff is stored!",
-                visualizations: [
-                    {
-                        title: "Library Card Catalog 📚",
-                        imageUrl: "/images/visualizations/hash_library_catalog.png",
-                        description: "Old library catalogs used drawers labeled A-Z. Find a book by author? Hash the author's last name to a letter (hash function), go straight to that drawer (bucket). O(1) access! Collisions happen when multiple authors start with the same letter - handle with chaining (multiple cards in drawer)."
-                    },
-                    {
-                        title: "Classroom Lockers with Numbers 🔐",
-                        imageUrl: "/images/visualizations/hash_lockers.png",
-                        description: "Lockers numbered 0-99 (hash table size). Your student ID is hashed (ID % 100) to assign you a locker number. Go directly to your locker in O(1) time! If two students hash to the same number (collision), use linear probing (try next locker) or chaining (share the locker with subdivisions)."
-                    },
-                    {
-                        title: "Restaurant Reservation System 🍴",
-                        imageUrl: "/images/visualizations/hash_restaurant.png",
-                        description: "Hash phone numbers to quickly find reservations! Phone number → hash function → table index. Instead of searching all reservations  (O(n)), jump directly to the right spot (O(1)). Multiple reservations with same hash? Use linked list at that index (chaining) or find next empty slot (open addressing)."
-                    },
-                    {
-                        title: "Dictionary/HashMap Inside 🔍",
-                        imageUrl: "/images/visualizations/hash_dictionary.png",
-                        description: "Programming dictionaries/maps use hash tables! Key goes through hash function → index in array. This is why dict['name'] is O(1) instead of O(n). Good hash functions distribute keys evenly to minimize collisions. Load factor (items/capacity) kept low by resizing table when it gets too full!"
-                    }
-                ],
-
                 codeSnippets: [
                     {
                         language: 'python',
@@ -5643,28 +5544,6 @@ A stack is a collection of elements where insertions and deletions occur at one 
 - Backtracking algorithms
         `,
                 analogy: "A stack is like a stack of books - you can only take the top book off, and you add new books on top! You can't pull a book from the middle without removing all the books above it first.",
-                visualizations: [
-                    {
-                        title: "Plate Stack in Cafeteria 🍽️",
-                        imageUrl: "/images/visualizations/stack_plates.png",
-                        description: "Imagine a stack of plates at a buffet. New plates are placed on top (PUSH), and you always take from the top (POP). The last plate added is the first one taken - that's LIFO (Last In, First Out) in action! You can't access plates in the middle without removing the ones on top."
-                    },
-                    {
-                        title: "Browser Back Button History 🌐",
-                        imageUrl: "/images/visualizations/stack_browser_history.png",
-                        description: "When you browse websites, each page is 'pushed' onto a history stack. Clicking 'Back' 'pops' the most recent page off the stack, taking you to the previous one. Keep clicking back to traverse the stack - most recent pages come off first!"
-                    },
-                    {
-                        title: "Undo/Redo Operations ↩️",
-                        imageUrl: "/images/visualizations/stack_undo_redo.png",
-                        description: "Text editors use stacks for undo/redo! Each action you perform is pushed onto the undo stack. Press Ctrl+Z to pop the last action and reverse it. This is why undo always reverses your MOST RECENT change - perfect LIFO behavior!"
-                    },
-                    {
-                        title: "Function Call Stack 📞",
-                        imageUrl: "/images/visualizations/stack_function_calls.png",
-                        description: "When function A calls function B, which calls function C, they're stacked: C on top, B in middle, A at bottom. When C finishes, it's popped off, returning to B. Then B finishes and pops, returning to A. This is how recursion and function calls work!"
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -6530,28 +6409,6 @@ A queue is a collection where elements are added at one end (rear) and removed f
 - Message queues in distributed systems
         `,
                 analogy: "A queue is like waiting in line at a coffee shop - first come, first served! You join at the back of the line and leave from the front. No cutting in line allowed!",
-                visualizations: [
-                    {
-                        title: "Line at Coffee Shop  ☕",
-                        imageUrl: "/images/visualizations/queue_coffee_line.png",
-                        description: "A queue is like people waiting in line at a coffee shop. First person in line gets served first (FIFO - First In, First Out). New customers join at the back (enqueue), and service happens at the front (dequeue). Fair and orderly!"
-                    },
-                    {
-                        title: "Print Queue 🖨️",
-                        imageUrl: "/images/visualizations/queue_printer.png",
-                        description: "When multiple people send documents to a printer, they form a queue. The first document sent prints first, then the second, and so on. Your document waits its turn at the back of the queue until all previous jobs finish. No cutting in line!"
-                    },
-                    {
-                        title: "Customer Service Hotline 📞",
-                        imageUrl: "/images/visualizations/queue_call_center.png",
-                        description: "Call a support hotline and you're added to a queue. 'You are caller number 5' means 4 people are ahead of you. As each call finishes (dequeue from front), you move forward. First caller to join gets helped first - classic FIFO!"
-                    },
-                    {
-                        title: "Task Scheduling in OS 💻",
-                        imageUrl: "/images/visualizations/queue_cpu_scheduling.png",
-                        description: "Operating systems use queues to manage processes waiting for CPU time. Each process joins the ready queue. The CPU serves processes in order - first come, first served (FCFS scheduling). This ensures fair resource allocation across all programs!"
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -7651,28 +7508,6 @@ Where h = height of tree
 - Decision trees in AI/ML
         `,
                 analogy: "A binary tree is like a family tree where each person can have at most two children. You start at the top (root) and branch down through generations!",
-                visualizations: [
-                    {
-                        title: "Family Tree Hierarchy 👨‍👩‍👧‍👦",
-                        imageUrl: "/images/visualizations/tree_family.png",
-                        description: "A family tree is a perfect example! The ancestor is the root, children are child nodes, and each person can have their own descendants. Grandparents → Parents → Children shows the hierarchical parent-child relationship. Each node has at most one parent but can have multiple children!"
-                    },
-                    {
-                        title: "Company Organization Chart 🏢",
-                        imageUrl: "/images/visualizations/tree_org_chart.png",
-                        description: "Companies are structured as trees: CEO at the root, VPs as children, managers below them, and employees as leaves. Each employee reports to exactly one manager (parent), but managers can have multiple employees (children). Clear hierarchy, no circular reporting!"
-                    },
-                    {
-                        title: "File System Directory Structure 📁",
-                        imageUrl: "/images/visualizations/tree_file_system.png",
-                        description: "Your computer's folders form a tree! Root directory (C:\\ or /) is at top, folders are nodes, and files are leaves. Each folder can contain subfolders (children) and files. Navigate the tree by traversing parent-child relationships. Efficient organization and searching!"
-                    },
-                    {
-                        title: "Decision Tree Flow 🎯",
-                        imageUrl: "/images/visualizations/tree_decision.png",
-                        description: "Decision-making follows a tree structure.  Start at root with a question, each answer branches to child nodes with new questions, until you reach leaf nodes (final decisions). Binary trees (2 choices) and n-ary trees (multiple choices) model real-world decisions perfectly!"
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -8712,28 +8547,6 @@ A graph is a collection of nodes (vertices) connected by edges. Think of it like
 - Computer networks
         `,
                 analogy: "A graph is like a map of cities (nodes) connected by roads (edges). You can travel from one city to another following the roads!",
-                visualizations: [
-                    {
-                        title: "Social Network Connections 👥",
-                        imageUrl: "/images/visualizations/graph_social_network.png",
-                        description: "Facebook friends form a graph! Each person is a node, and friendships are edges connecting them. Unlike trees, graphs can have cycles (A knows B, B knows C, C knows A). You can traverse the network to find mutual friends, suggest connections, or measure degrees of separation!"
-                    },
-                    {
-                        title: "City Road Map 🗺️",
-                        imageUrl: "/images/visualizations/graph_road_map.png",
-                        description: "Cities are nodes, roads are edges in a weighted graph (weights = distances). Multiple routes exist between cities (unlike trees with one path). GPS uses graph algorithms like Dijkstra's to find shortest paths. Edges can be directed (one-way streets) or undirected (two-way roads)!"
-                    },
-                    {
-                        title: "Flight Route Network ✈️",
-                        imageUrl: "/images/visualizations/graph_flight_routes.png",
-                        description: "Airports are vertices, flight routes are edges. This is a directed weighted graph: edges have direction (NYC→LA ≠ LA→NYC) and weights (flight cost/time). Finding cheapest or fastest route between cities? That's a graph traversal problem solved by algorithms like Bellman-Ford or Dijkstra!"
-                    },
-                    {
-                        title: "Web Page Link Graph 🌐",
-                        imageUrl: "/images/visualizations/graph_web_pages.png",
-                        description: "The internet is a massive directed graph! Webpages are nodes, hyperlinks are directed edges. PageRank algorithm analyzes this graph to rank pages by importance. Crawlers traverse the graph to index content. Cycles are common (pages link to each other)!"
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -9578,28 +9391,6 @@ A function that calls itself with:
 - Game AI (minimax)
         `,
                 analogy: "Recursion is like Russian nesting dolls - each doll contains a smaller version of itself until you reach the smallest one!",
-                visualizations: [
-                    {
-                        title: "Russian Nesting Dolls 🪆",
-                        imageUrl: "/images/visualizations/recursion_dolls.svg",
-                        description: "Each doll contains a smaller copy of itself until you reach the tiniest one (base case). Opening them is recursive: open outer doll, find inner doll, open it (recursive call), repeat. When you hit the smallest doll (base case), start returning back up. Perfect recursion analogy!"
-                    },
-                    {
-                        title: "Factorial Staircase 🪜",
-                        imageUrl: "/images/visualizations/recursion_factorial.png",
-                        description: "Computing 5! = 5 × 4 × 3 × 2 × 1. Each step needs the previous: 5! = 5 × 4!, 4! = 4 × 3!, etc. Descent the stairs with recursive calls until 1! = 1 (base case), then climb back up multiplying values. Stack grows going down, shrinks going up!"
-                    },
-                    {
-                        title: "Mirrors Reflecting Mirrors 🪞",
-                        imageUrl: "/images/visualizations/recursion_mirror.png",
-                        description: "Stand between two mirrors - you see infinite reflections (each reflection contains smaller versions). That's recursion visualized! Each call creates a smaller version of the problem. Base case is when the reflection becomes too small to see - recursion stops and returns begin."
-                    },
-                    {
-                        title: "Tree Traversal Recursion 🌳",
-                        imageUrl: "/images/visualizations/recursion_file_tree.png",
-                        description: "Visiting every node in a tree? Define recursively: Visit node, recursively visit left subtree, recursively visit right subtree. Each subtree is a smaller tree (recursive structure). Base case: empty subtree (null). Natural fit - trees are inherently recursive data structures!"
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -10224,28 +10015,6 @@ Merge Sort divides the array into halves, sorts them, and merges them back toget
 - Stable sorting (maintains order)
 - Linked list sorting`,
                 analogy: "Like organizing a deck of cards by splitting it in half, sorting each half, then merging them back in order!",
-                visualizations: [
-                    {
-                        title: "Bubble Sort Card Sorting 🃏",
-                        imageUrl: "/images/visualizations/sort_bubble_cards_v2.svg",
-                        description: "Imagine sorting playing cards by repeatedly comparing adjacent pairs. If left > right, swap them. If left > right, swap them. After each pass, the largest 'bubbles' to the end (like bubbles rising in water!). Repeat until no swaps needed. Simple but O(n²) - slow for large datasets."
-                    },
-                    {
-                        title: "Quick Sort Divide & Conquer ⚡",
-                        imageUrl: "/images/visualizations/sort_quick_pivot_cards.svg",
-                        description: "Pick a pivot card, partition deck: smaller cards left, larger cards right. Recursively sort each partition. Like organizing a messy room - pick an item, sort everything around it, then tackle each pile. Average O(n log n) - very fast! Used in real-world applications."
-                    },
-                    {
-                        title: "Merge Sort Merging Streams 🌊",
-                        imageUrl: "/images/visualizations/sort_merge_piles.svg",
-                        description: "Split the deck in half repeatedly until you have single cards (trivially sorted). Then merge pairs of sorted piles by comparing tops and taking the smaller. Conquer by dividing! Always O(n log n) - guaranteed performance. Think of merging two sorted lists into one sorted list."
-                    },
-                    {
-                        title: "Insertion Sort Building Sorted Hand 👋",
-                        imageUrl: "/images/visualizations/sort_insertion_hand_v2.svg",
-                        description: "Like sorting cards in your hand while playing. Pick one card from unsorted pile, find its position in your sorted hand, insert it there. Shift cards as needed. Excellent for nearly-sorted data or small datasets. O(n²) worst case but O(n) if already sorted!"
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -10907,28 +10676,6 @@ Quick Sort picks a pivot, partitions array around it, and recursively sorts!
 - In-place sorting (low memory)
 - Cache-friendly`,
                 analogy: "Like organizing books by picking a middle book as reference, putting smaller books left, larger right, then repeating!",
-                visualizations: [
-                    {
-                        title: "Bubble Sort Card Sorting 🃏",
-                        imageUrl: "/images/visualizations/sort_bubble_cards_v2.svg",
-                        description: "Imagine sorting playing cards by repeatedly comparing adjacent pairs. If left > right, swap them. After each pass, the largest 'bubbles' to the end (like bubbles rising in water!). Repeat until no swaps needed. Simple but O(n²) - slow for large datasets."
-                    },
-                    {
-                        title: "Quick Sort Divide & Conquer ⚡",
-                        imageUrl: "/images/visualizations/sort_quick_pivot_cards.svg",
-                        description: "Pick a pivot card, partition deck: smaller cards left, larger cards right. Recursively sort each partition. Like organizing a messy room - pick an item, sort everything around it, then tackle each pile. Average O(n log n) - very fast! Used in real-world applications."
-                    },
-                    {
-                        title: "Merge Sort Merging Streams 🌊",
-                        imageUrl: "/images/visualizations/sort_merge_piles.svg",
-                        description: "Split the deck in half repeatedly until you have single cards (trivially sorted). Then merge pairs of sorted piles by comparing tops and taking the smaller. Conquer by dividing! Always O(n log n) - guaranteed performance. Think of merging two sorted lists into one sorted list."
-                    },
-                    {
-                        title: "Insertion Sort Building Sorted Hand 👋",
-                        imageUrl: "/images/visualizations/sort_insertion_hand_v2.svg",
-                        description: "Like sorting cards in your hand while playing. Pick one card from unsorted pile, find its position in your sorted hand, insert it there. Shift cards as needed. Excellent for nearly-sorted data or small datasets. O(n²) worst case but O(n) if already sorted!"
-                    }
-                ],
                 codeSnippets: [
                     {
                         language: 'python',

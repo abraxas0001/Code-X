@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#1a1a2e" />
+  <text x="400" y="40" font-family="Arial" font-size="24" fill="#e94560" text-anchor="middle" font-weight="bold">DP: Climbing Stairs</text>
+  
+  <!-- Steps -->
+  <g transform="translate(200, 300)">
+    <!-- Step 0 -->
+    <rect x="0" y="0" width="80" height="40" fill="#4ecca3" stroke="#fff"/>
+    <text x="40" y="25" fill="#16213e" text-anchor="middle" font-weight="bold">Start</text>
+    
+    <!-- Step 1 -->
+    <rect x="80" y="-40" width="80" height="40" fill="#16213e" stroke="#4ecca3"/>
+    <text x="120" y="-15" fill="#fff" text-anchor="middle">Step 1</text>
+    
+    <!-- Step 2 -->
+    <rect x="160" y="-80" width="80" height="40" fill="#16213e" stroke="#4ecca3"/>
+    <text x="200" y="-55" fill="#fff" text-anchor="middle">Step 2</text>
+    
+    <!-- Step 3 -->
+    <rect x="240" y="-120" width="80" height="40" fill="#16213e" stroke="#4ecca3"/>
+    <text x="280" y="-95" fill="#fff" text-anchor="middle">Step 3</text>
+    
+    <!-- Goal -->
+    <rect x="320" y="-160" width="80" height="40" fill="#e94560" stroke="#fff"/>
+    <text x="360" y="-135" fill="#fff" text-anchor="middle" font-weight="bold">Goal</text>
+  </g>
+  
+  <!-- Logic -->
+  <text x="600" y="150" font-family="Arial" font-size="14" fill="#a0a0a0">Ways(i) = Ways(i-1) + Ways(i-2)</text>
+  <path d="M 400 200 Q 440 150 480 160" stroke="#e94560" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .card { fill: #fff; stroke: #2d3436; stroke-width: 2; rx: 5; }
+      .sorted-zone { fill: #00b894; fill-opacity: 0.2; stroke: #00b894; stroke-dasharray: 5,5; }
+      .card-text { font-family: sans-serif; fill: #2d3436; font-size: 30px; text-anchor: middle; font-weight: bold; }
+      .new-card { fill: #ffeaa7; stroke: #fdcb6e; stroke-width: 4; }
+      .text { font-family: sans-serif; fill: #ffffff; text-anchor: middle; }
+      .arrow { stroke: #fdcb6e; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fdcb6e" />
+    </marker>
+  </defs>
+
+  <text x="400" y="60" class="text" font-size="32" font-weight="bold">Insertion Sort: Place in Order</text>
+
+  <!-- Sorted Hand -->
+  <g transform="translate(100, 200)">
+    <rect x="-20" y="-30" width="340" height="210" class="sorted-zone" />
+    <text x="150" y="-40" class="text" fill="#00b894">Sorted Portion</text>
+
+    <!-- Sorted Cards -->
+    <rect x="0" y="0" width="80" height="120" class="card" /><text x="40" y="70" class="card-text">2</text>
+    <rect x="100" y="0" width="80" height="120" class="card" /><text x="140" y="70" class="card-text">4</text>
+    <rect x="200" y="0" width="80" height="120" class="card" /><text x="240" y="70" class="card-text">7</text>
+  </g>
+
+  <!-- New Card Incoming -->
+  <g transform="translate(500, 100)">
+    <text x="40" y="-20" class="text">New Item</text>
+    <rect x="0" y="0" width="80" height="120" class="card new-card" />
+    <text x="40" y="70" class="card-text">5</text>
+  </g>
+
+  <!-- Insertion Path -->
+  <path d="M 540 220 Q 540 300 290 250" class="arrow" />
+  <text x="500" y="320" class="text" fill="#fdcb6e">Insert 5 between 4 and 7</text>
+
+</svg>

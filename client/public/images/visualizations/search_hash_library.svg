@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .shelf { fill: #2d3436; stroke: #dfe6e9; stroke-width: 5; }
+      .book { width: 40px; height: 120px; rx: 3; stroke: #2d3436; stroke-width: 1; }
+      .text { font-family: sans-serif; fill: #ffffff; text-anchor: middle; }
+      .arrow { stroke: #fdcb6e; stroke-width: 6; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fdcb6e" />
+    </marker>
+  </defs>
+
+  <text x="400" y="60" class="text" font-size="32" font-weight="bold">Hash Search: Direct Access</text>
+
+  <!-- Shelves -->
+  <g transform="translate(100, 150)">
+    <!-- Shelf unit -->
+    <rect x="0" y="0" width="600" height="300" class="shelf" fill="#2a2a40" />
+
+    <!-- Slot labels -->
+    <text x="100" y="270" class="text">Slot 0</text>
+    <text x="300" y="270" class="text">Slot 1</text>
+    <text x="500" y="270" class="text">Slot 2</text>
+
+    <!-- Books -->
+    <!-- Slot 0 Empty -->
+    
+    <!-- Slot 1 Empty -->
+
+    <!-- Slot 2 (Target) -->
+    <rect x="480" y="100" width="40" height="120" class="book" fill="#0984e3" />
+    <text x="500" y="80" class="text" fill="#0984e3">Target</text>
+  </g>
+
+  <!-- Hash Process -->
+  <rect x="50" y="30" width="200" height="80" fill="#6c5ce7" rx="10" />
+  <text x="150" y="60" class="text">Key: "Adventure"</text>
+  <text x="150" y="90" class="text" font-size="14">Hash("Adventure") = 2</text>
+
+  <!-- Arrow -->
+  <path d="M 260 70 Q 600 70 600 230" class="arrow" />
+
+  <text x="400" y="500" class="text" font-size="20">"Go directly to Slot 2. No searching required!"</text>
+</svg>

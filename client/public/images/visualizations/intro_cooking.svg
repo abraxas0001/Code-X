@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#1a1a2e" />
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" fill="#e94560" text-anchor="middle" font-weight="bold">DSA is like Cooking</text>
+
+  <!-- Ingredients (Data Structures) -->
+  <g transform="translate(100, 100)">
+    <text x="60" y="-20" font-family="Arial" font-size="18" fill="#fff" text-anchor="middle">Ingredients (Data Structures)</text>
+    
+    <!-- Array/Vegetables -->
+    <rect x="0" y="0" width="120" height="40" rx="5" fill="#16213e" stroke="#0f3460" stroke-width="2"/>
+    <text x="60" y="25" font-family="Arial" font-size="14" fill="#a0a0a0" text-anchor="middle">[ ] Arrays</text>
+    
+    <!-- Tree/Broccoli -->
+    <rect x="0" y="50" width="120" height="40" rx="5" fill="#16213e" stroke="#0f3460" stroke-width="2"/>
+    <text x="60" y="75" font-family="Arial" font-size="14" fill="#a0a0a0" text-anchor="middle">🌲 Trees</text>
+    
+    <!-- Graph/Spices -->
+    <rect x="0" y="100" width="120" height="40" rx="5" fill="#16213e" stroke="#0f3460" stroke-width="2"/>
+    <text x="60" y="125" font-family="Arial" font-size="14" fill="#a0a0a0" text-anchor="middle">🕸️ Graphs</text>
+  </g>
+
+  <!-- Pot (Algorithms) -->
+  <g transform="translate(350, 100)">
+    <text x="60" y="-20" font-family="Arial" font-size="18" fill="#fff" text-anchor="middle">Recipe (Algorithms)</text>
+    
+    <!-- Pot Body -->
+    <path d="M 10 50 Q 10 150 60 150 Q 110 150 110 50 L 10 50" fill="#e94560" opacity="0.8"/>
+    <ellipse cx="60" cy="50" rx="50" ry="10" fill="#c42b45"/>
+    
+    <!-- Steam -->
+    <path d="M 40 40 Q 30 20 40 10" stroke="#fff" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M 60 40 Q 50 20 60 10" stroke="#fff" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M 80 40 Q 70 20 80 10" stroke="#fff" stroke-width="2" fill="none" opacity="0.6"/>
+    
+    <text x="60" y="100" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">Processing...</text>
+  </g>
+
+  <!-- Meal (Result) -->
+  <g transform="translate(600, 100)">
+    <text x="60" y="-20" font-family="Arial" font-size="18" fill="#fff" text-anchor="middle">Meal (Program)</text>
+    
+    <circle cx="60" cy="80" r="50" fill="#16213e" stroke="#4ecca3" stroke-width="3"/>
+    <text x="60" y="75" font-family="Arial" font-size="14" fill="#4ecca3" text-anchor="middle">Efficient</text>
+    <text x="60" y="95" font-family="Arial" font-size="14" fill="#4ecca3" text-anchor="middle">Solution</text>
+  </g>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
+    </marker>
+  </defs>
+  
+  <line x1="230" y1="150" x2="330" y2="150" stroke="#fff" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="480" y1="150" x2="580" y2="150" stroke="#fff" stroke-width="2" marker-end="url(#arrow)"/>
+
+</svg>

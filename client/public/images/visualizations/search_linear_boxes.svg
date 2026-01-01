@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .box { fill: #2a2a40; stroke: #6c5ce7; stroke-width: 4; }
+      .text { font-family: sans-serif; fill: #ffffff; font-size: 24px; text-anchor: middle; }
+      .highlight { fill: #6c5ce7; stroke: #a29bfe; }
+      .toy { fill: #fdcb6e; }
+    </style>
+  </defs>
+  
+  <!-- Background transparent -->
+  
+  <!-- Title -->
+  <text x="400" y="80" class="text" font-size="32" font-weight="bold">Linear Search: Check One by One</text>
+
+  <!-- Boxes -->
+  <g transform="translate(50, 200)">
+    <!-- Box 0 -->
+    <rect x="0" y="0" width="100" height="100" class="box" />
+    <text x="50" y="140" class="text">Index 0</text>
+    
+    <!-- Box 1 -->
+    <rect x="140" y="0" width="100" height="100" class="box" />
+    <text x="190" y="140" class="text">Index 1</text>
+    
+    <!-- Box 2 (The Target) -->
+    <rect x="280" y="0" width="100" height="100" class="highlight" />
+    <text x="330" y="140" class="text">Index 2</text>
+    <!-- Toy inside -->
+    <circle cx="330" cy="50" r="30" class="toy" />
+    <text x="330" y="58" class="text" fill="#2d3436" font-size="20">TOY</text>
+    
+    <!-- Box 3 -->
+    <rect x="420" y="0" width="100" height="100" class="box" />
+    <text x="470" y="140" class="text">Index 3</text>
+    
+    <!-- Box 4 -->
+    <rect x="560" y="0" width="100" height="100" class="box" />
+    <text x="610" y="140" class="text">Index 4</text>
+  </g>
+
+  <!-- Explanation Text -->
+  <text x="400" y="450" class="text" font-size="20">"Is it in box 0? No. Box 1? No. Box 2? Yes!"</text>
+</svg>
