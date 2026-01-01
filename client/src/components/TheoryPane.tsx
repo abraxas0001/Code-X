@@ -243,7 +243,11 @@ export const TheoryPane = () => {
                 <p className="font-typewriter text-lg text-gray-900 dark:text-white leading-relaxed">
                   {content.analogy}
                 </p>
-                <AnalogyVisualizer analogy={content.analogy} topicTitle={currentTopic.meta.title} />
+                <AnalogyVisualizer
+                  analogy={content.analogy}
+                  topicTitle={currentTopic.meta.title}
+                  imagePath={`/images/analogies/${currentTopic.meta.slug}.png`}
+                />
               </div>
             </div>
           </motion.div>
