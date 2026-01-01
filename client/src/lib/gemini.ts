@@ -19,7 +19,7 @@ export const getAIResponse = async (
     }
 
     const model = genAI.getGenerativeModel({
-      model: 'gemini-1.5-flash-001',
+      model: 'gemini-1.5-flash',
       systemInstruction: `You are a Socratic Tutor for computer science education. 
 Current skill tier: ${context.tier}
 ${context.topicTitle ? `Topic: ${context.topicTitle}` : ''}
@@ -53,7 +53,7 @@ export const generateQuiz = async (
 ): Promise<any[]> => {
   try {
     const model = genAI.getGenerativeModel({
-      model: 'gemini-1.5-flash-001',
+      model: 'gemini-1.5-flash',
       systemInstruction: `Based on this content, generate 5 multiple-choice questions for ${tier} level.
 Return ONLY valid JSON array with this structure:
 [{
@@ -81,7 +81,7 @@ ${content}`;
   }
 };
 
-export const generateImage = async (prompt: string): Promise<string> => {
+export const generateImage = async (prompt: string): Promise<string | null> => {
   try {
     // Note: In a real production environment with access to Imagen 3 or Gemini 2.5 Flash Image,
     // we would call that specific model here.
@@ -94,7 +94,7 @@ export const generateImage = async (prompt: string): Promise<string> => {
     // or return a placeholder URL if we had a backend proxy.
 
     // Let's try to generate a vivid description that acts as a "Textual Image"
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
     const result = await model.generateContent(`
       You are "Nano Banana", an AI artist. 
       Create a vivid, 3-sentence visual description of an image that represents this concept: "${prompt}".
@@ -104,6 +104,6 @@ export const generateImage = async (prompt: string): Promise<string> => {
     return result.response.text();
   } catch (error) {
     console.error('Image generation error:', error);
-    return '';
+    return null;
   }
 };

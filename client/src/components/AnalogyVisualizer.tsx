@@ -11,26 +11,39 @@ interface AnalogyVisualizerProps {
 export const AnalogyVisualizer = ({ analogy, topicTitle }: AnalogyVisualizerProps) => {
     const [description, setDescription] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const handleVisualize = async () => {
         setIsLoading(true);
+        setError(null);
         const result = await generateImage(`${topicTitle}: ${analogy}`);
-        setDescription(result);
+        if (result) {
+            setDescription(result);
+        } else {
+            setError('Failed to generate visualization. Please try again.');
+        }
         setIsLoading(false);
     };
 
     return (
         <div className="mt-4 pt-4 border-t-2 border-dashed border-yellow-400 dark:border-amber-700/50">
             {!description && !isLoading && (
-                <motion.button
-                    onClick={handleVisualize}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-bold font-handwritten flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all"
-                >
-                    <Sparkles className="h-4 w-4" />
-                    <span>Visualize with Nano Banana 🍌</span>
-                </motion.button>
+                <div className="space-y-2">
+                    <motion.button
+                        onClick={handleVisualize}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-bold font-handwritten flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all"
+                    >
+                        <Sparkles className="h-4 w-4" />
+                        <span>Visualize with Nano Banana 🍌</span>
+                    </motion.button>
+                    {error && (
+                        <p className="text-xs text-red-500 font-bold text-center animate-pulse">
+                            {error}
+                        </p>
+                    )}
+                </div>
             )}
 
             {isLoading && (
