@@ -4,11 +4,12 @@ import { useTopicStore } from '@/store/topicStore';
 import { TierSwitcher } from './TierSwitcher';
 import { TextSkeleton } from './ui/SkeletonLoader';
 import { useState } from 'react';
+import { AnalogyVisualizer } from './AnalogyVisualizer';
 
 // Code Snippet Tabs Component
 const CodeSnippetTabs = ({ snippets }: { snippets: Array<{ language: string; code: string; explanation?: string }> }) => {
   const [activeTab, setActiveTab] = useState(0);
-  
+
   const languageColors: Record<string, string> = {
     python: 'crayon-blue',
     javascript: 'crayon-yellow',
@@ -32,7 +33,7 @@ const CodeSnippetTabs = ({ snippets }: { snippets: Array<{ language: string; cod
       <h3 className="text-2xl font-handwritten font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
         📝 Code Examples
       </h3>
-      
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -51,8 +52,8 @@ const CodeSnippetTabs = ({ snippets }: { snippets: Array<{ language: string; cod
                 whileTap={{ scale: 0.95 }}
                 className={`
                   px-4 py-2 font-handwritten font-bold text-lg rounded-lg border-3 border-black transition-all
-                  ${isActive 
-                    ? `icon-sticker ${languageColors[lang] || 'crayon-blue'} text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]` 
+                  ${isActive
+                    ? `icon-sticker ${languageColors[lang] || 'crayon-blue'} text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]`
                     : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                   }
                 `}
@@ -128,31 +129,31 @@ const parseMarkdown = (text: string) => {
     // Tables - improved detection
     if (line.includes('|') && !line.startsWith('#')) {
       const cells = line.split('|').map(cell => cell.trim()).filter(cell => cell);
-      
+
       // Check if it's a separator line (|---|---|)
       if (cells.every(cell => cell.match(/^[\-:]+$/))) {
         inTable = true;
         return;
       }
-      
+
       // If we haven't started a table yet, this is the header
       if (!inTable && tableHeaders.length === 0) {
         tableHeaders = cells;
         return;
       }
-      
+
       // If we're in a table, add rows
       if (inTable || tableHeaders.length > 0) {
         tableRows.push(cells);
-        
+
         // Check if next line is not a table line
         const nextLine = lines[idx + 1];
         if (!nextLine || !nextLine.includes('|')) {
-          sections.push({ 
-            type: 'table', 
-            content: '', 
+          sections.push({
+            type: 'table',
+            content: '',
             headers: tableHeaders,
-            rows: tableRows 
+            rows: tableRows
           });
           inTable = false;
           tableHeaders = [];
@@ -169,10 +170,10 @@ const parseMarkdown = (text: string) => {
         currentList = [];
       }
       const level = line.match(/^#+/)?.[0].length || 1;
-      sections.push({ 
-        type: 'heading', 
+      sections.push({
+        type: 'heading',
         content: line.replace(/^#+\s*/, '').replace(/[🚀📦🔍⚡🏆🌊🎯📚🎫🌳]/g, '').trim(),
-        level 
+        level
       });
     }
     // List items
@@ -214,7 +215,7 @@ export const TheoryPane = () => {
   return (
     <div className="bg-white dark:bg-gray-800 border-4 border-ink rounded-xl shadow-2xl overflow-hidden">
       <TierSwitcher />
-      
+
       <motion.div
         key={currentTier}
         initial={{ opacity: 0, x: -20 }}
@@ -235,42 +236,45 @@ export const TheoryPane = () => {
                 <Lightbulb className="h-8 w-8 text-gray-900 dark:text-white flex-shrink-0" />
                 <div className="absolute inset-0 border-2 border-gray-900 dark:border-white rounded-full scale-125 opacity-50" />
               </div>
-              <div>
+              <div className="flex-1">
                 <p className="font-handwritten text-2xl font-bold text-gray-900 dark:text-white mb-3">
                   Think of it like this...
                 </p>
                 <p className="font-typewriter text-lg text-gray-900 dark:text-white leading-relaxed">
                   {content.analogy}
                 </p>
+                <AnalogyVisualizer analogy={content.analogy} topicTitle={currentTopic.meta.title} />
               </div>
             </div>
           </motion.div>
         )}
 
         {/* Time Complexity Analysis Box (Intermediate/Expert) */}
-        {content.timeComplexityAnalysis && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-2 border-blue-300 dark:border-blue-700 rounded-lg p-5 shadow-md mb-6"
-          >
-            <div className="flex items-start gap-3">
-              <div className="bg-blue-500 rounded-full p-2">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+        {
+          content.timeComplexityAnalysis && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-2 border-blue-300 dark:border-blue-700 rounded-lg p-5 shadow-md mb-6"
+            >
+              <div className="flex items-start gap-3">
+                <div className="bg-blue-500 rounded-full p-2">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-handwritten text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    ⚡ Complexity Analysis
+                  </h4>
+                  <p className="font-typewriter text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {content.timeComplexityAnalysis}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-handwritten text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
-                  ⚡ Complexity Analysis
-                </h4>
-                <p className="font-typewriter text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {content.timeComplexityAnalysis}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )
+        }
 
         {/* Parsed Content */}
         <div className="space-y-4">
@@ -291,22 +295,21 @@ export const TheoryPane = () => {
             if (section.type === 'paragraph') {
               // Check if it's a special callout
               const isCallout = section.content.startsWith('**') || section.content.includes('✅') || section.content.includes('❌');
-              
+
               return (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
-                  className={`${
-                    isCallout 
-                      ? 'bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-amber-900/30 dark:to-orange-900/30 border-l-4 border-yellow-500 dark:border-yellow-400' 
-                      : 'bg-gray-50 dark:bg-gray-700/50 border-2 border-gray-200 dark:border-gray-600'
-                  } rounded-lg p-4 shadow-sm hover:shadow-md transition-all`}
+                  className={`${isCallout
+                    ? 'bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-amber-900/30 dark:to-orange-900/30 border-l-4 border-yellow-500 dark:border-yellow-400'
+                    : 'bg-gray-50 dark:bg-gray-700/50 border-2 border-gray-200 dark:border-gray-600'
+                    } rounded-lg p-4 shadow-sm hover:shadow-md transition-all`}
                 >
-                  <p 
+                  <p
                     className="font-typewriter text-gray-900 dark:text-gray-100 leading-relaxed"
-                    dangerouslySetInnerHTML={{ 
+                    dangerouslySetInnerHTML={{
                       __html: section.content
                         .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-blue-600 dark:text-blue-400">$1</strong>')
                         .replace(/`(.*?)`/g, '<code class="bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono text-pink-600 dark:text-pink-400">$1</code>')
@@ -329,9 +332,9 @@ export const TheoryPane = () => {
                     {section.items.map((item, itemIdx) => (
                       <li key={itemIdx} className="flex items-start gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-500 dark:text-green-400 flex-shrink-0 mt-0.5" />
-                        <span 
+                        <span
                           className="font-typewriter text-gray-900 dark:text-gray-100 leading-relaxed"
-                          dangerouslySetInnerHTML={{ 
+                          dangerouslySetInnerHTML={{
                             __html: item
                               .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-blue-600 dark:text-blue-400">$1</strong>')
                               .replace(/`(.*?)`/g, '<code class="bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono text-pink-600 dark:text-pink-400">$1</code>')
@@ -357,8 +360,8 @@ export const TheoryPane = () => {
                     <thead className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 border-b-2 border-gray-300 dark:border-gray-600">
                       <tr>
                         {section.headers.map((header, hIdx) => (
-                          <th 
-                            key={hIdx} 
+                          <th
+                            key={hIdx}
                             className="px-4 py-3 text-left font-bold text-gray-900 dark:text-gray-100"
                           >
                             {header}
@@ -368,19 +371,18 @@ export const TheoryPane = () => {
                     </thead>
                     <tbody>
                       {section.rows.map((row, rIdx) => (
-                        <tr 
+                        <tr
                           key={rIdx}
-                          className={`border-b border-gray-200 dark:border-gray-700 ${
-                            rIdx % 2 === 0 
-                              ? 'bg-gray-50 dark:bg-gray-900/30' 
-                              : 'bg-white dark:bg-gray-800'
-                          } hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors`}
+                          className={`border-b border-gray-200 dark:border-gray-700 ${rIdx % 2 === 0
+                            ? 'bg-gray-50 dark:bg-gray-900/30'
+                            : 'bg-white dark:bg-gray-800'
+                            } hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors`}
                         >
                           {row.map((cell, cIdx) => (
-                            <td 
-                              key={cIdx} 
+                            <td
+                              key={cIdx}
                               className="px-4 py-3 text-gray-700 dark:text-gray-300"
-                              dangerouslySetInnerHTML={{ 
+                              dangerouslySetInnerHTML={{
                                 __html: cell
                                   .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-blue-600 dark:text-blue-400">$1</strong>')
                                   .replace(/`(.*?)`/g, '<code class="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-xs font-mono text-pink-600 dark:text-pink-400">$1</code>')
@@ -400,9 +402,11 @@ export const TheoryPane = () => {
         </div>
 
         {/* Code Snippets - Multi-Language Tabs */}
-        {content.codeSnippets && content.codeSnippets.length > 0 && (
-          <CodeSnippetTabs snippets={content.codeSnippets} />
-        )}
+        {
+          content.codeSnippets && content.codeSnippets.length > 0 && (
+            <CodeSnippetTabs snippets={content.codeSnippets} />
+          )
+        }
 
         {/* References - Colorful Sticker Links */}
         <div className="mt-10 pt-6 border-t-2 border-dashed border-ink/30">
@@ -432,7 +436,7 @@ export const TheoryPane = () => {
             ))}
           </div>
         </div>
-      </motion.div>
-    </div>
+      </motion.div >
+    </div >
   );
 };
