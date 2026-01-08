@@ -2527,6 +2527,23 @@ That's exactly what Bubble Sort does!
 The largest values bubble up to the top (end) of the array, just like bubbles in water!
         `,
                 analogy: "It's like sorting cards in your hand by repeatedly swapping adjacent cards that are out of order.",
+                visualizations: [
+                    {
+                        title: "Bubbling Up 🫧",
+                        imageUrl: "/images/visualizations/bubble_sort_analogy.png",
+                        description: "Just like air bubbles rising in water, the largest numbers in the array 'bubble up' to the top (end) of the list with each pass."
+                    },
+                    {
+                        title: "Compare & Swap ↔️",
+                        imageUrl: "/images/visualizations/bubble_sort_process.png",
+                        description: "The algorithm walks through the list, comparing two neighbors at a time. If they are in the wrong order, they swap places!"
+                    },
+                    {
+                        title: "One Pass Complete ✅",
+                        imageUrl: "/images/visualizations/bubble_sort_complete.png",
+                        description: "After one full pass, the largest unsorted number is guaranteed to be in its correct final position. We repeat this until the whole list is sorted."
+                    }
+                ],
                 codeSnippets: [
                     {
                         language: 'python',
@@ -5426,6 +5443,23 @@ A computer system inspired by the human brain, made of connected "neurons" that 
 3. **Output Layer:** Makes predictions
         `,
                 analogy: "It's like a team of workers passing information down a line, each adding their expertise until you get the final answer!",
+                visualizations: [
+                    {
+                        title: "Neural Network Architecture 🏗️",
+                        imageUrl: "/images/visualizations/nn_architecture.png",
+                        description: "A bird's-eye view of a neural network showing the Input Layer, Hidden Layers, and Output Layer. Information flows from left to right as the network learns complex patterns."
+                    },
+                    {
+                        title: "The Single Neuron 🔬",
+                        imageUrl: "/images/visualizations/nn_neuron_logic.png",
+                        description: "Inside a single neuron! It takes multiple inputs, multiplies them by 'weights', adds them up, and then uses an 'activation function' to decide what signal to pass forward."
+                    },
+                    {
+                        title: "The Learning Cycle 🔄",
+                        imageUrl: "/images/visualizations/nn_training_flow.png",
+                        description: "How AI learns: The 'Forward Pass' makes a prediction, while 'Backpropagation' looks at the error and adjusts the weights to make the next prediction even better!"
+                    }
+                ],
                 codeSnippets: [
                     {
                         language: 'python',
