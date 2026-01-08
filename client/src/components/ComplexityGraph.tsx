@@ -1,10 +1,8 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceDot } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { motion } from 'framer-motion';
-import { Clock, TrendingUp, Zap, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { TrendingUp, Zap, AlertTriangle } from 'lucide-react';
 
 interface ComplexityGraphProps {
-  executionTime?: number;
-  inputSize?: number;
   topicSlug?: string;
 }
 
@@ -75,7 +73,7 @@ const complexityInfo = [
   { name: 'O(2ⁿ)', color: '#dc2626', emoji: '💥', label: 'Exponential', value: 6 },
 ];
 
-export const ComplexityGraph = ({ executionTime, inputSize = 100, topicSlug }: ComplexityGraphProps) => {
+export const ComplexityGraph = ({ topicSlug }: ComplexityGraphProps) => {
 
   // Specific data for the current topic, if available
   const currentTopicData = topicSlug ? TOPIC_COMPLEXITY_DATA[topicSlug] : null;

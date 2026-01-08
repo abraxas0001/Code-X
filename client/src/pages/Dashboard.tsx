@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { fetchTopics } from '@/lib/api';
 import { useUserStore } from '@/store/userStore';
-import { Trophy, Flame, Target, BookOpen, Brain, Code, Sparkles, X, Activity, Zap, Layers } from 'lucide-react';
+import { Trophy, Flame, Target, BookOpen, Brain, Code, Sparkles, X, Zap } from 'lucide-react';
 import { CodeSkeleton } from '@/components/ui/SkeletonLoader';
 import type { Topic } from '@/types';
 import { useState, useMemo } from 'react';
@@ -378,14 +378,14 @@ export const Dashboard = () => {
                           key={`${wIdx}-${dIdx}`}
                           title={`${day.date}: ${day.count} contributions`}
                           className={`w-3 h-3 rounded-[2px] transition-all duration-300 ${day.isFuture
-                              ? 'opacity-0'
-                              : day.count === 0
-                                ? 'bg-white/50 dark:bg-gray-800'
-                                : day.count < 3
-                                  ? 'bg-purple-300 dark:bg-purple-900/40'
-                                  : day.count < 5
-                                    ? 'bg-purple-400 dark:bg-purple-600'
-                                    : 'bg-purple-600 dark:bg-purple-400'
+                            ? 'opacity-0'
+                            : day.count === 0
+                              ? 'bg-white/50 dark:bg-gray-800'
+                              : day.count < 3
+                                ? 'bg-purple-300 dark:bg-purple-900/40'
+                                : day.count < 5
+                                  ? 'bg-purple-400 dark:bg-purple-600'
+                                  : 'bg-purple-600 dark:bg-purple-400'
                             }`}
                         />
                       ))}
@@ -460,10 +460,10 @@ export const Dashboard = () => {
                               <span
                                 key={tag}
                                 className={`px-3 py-1 text-xs font-medium rounded-full border shadow-sm font-mono ${tagIdx === 0
-                                    ? 'bg-blue-50 dark:bg-blue-900/60 text-blue-700 dark:text-blue-200 border-blue-200 dark:border-blue-700'
-                                    : tagIdx === 1
-                                      ? 'bg-purple-50 dark:bg-purple-900/60 text-purple-700 dark:text-purple-200 border-purple-200 dark:border-purple-700'
-                                      : 'bg-green-50 dark:bg-green-900/60 text-green-700 dark:text-green-200 border-green-200 dark:border-green-700'
+                                  ? 'bg-blue-50 dark:bg-blue-900/60 text-blue-700 dark:text-blue-200 border-blue-200 dark:border-blue-700'
+                                  : tagIdx === 1
+                                    ? 'bg-purple-50 dark:bg-purple-900/60 text-purple-700 dark:text-purple-200 border-purple-200 dark:border-purple-700'
+                                    : 'bg-green-50 dark:bg-green-900/60 text-green-700 dark:text-green-200 border-green-200 dark:border-green-700'
                                   }`}
                               >
                                 {tag}
