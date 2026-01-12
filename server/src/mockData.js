@@ -932,16 +932,6 @@ Access any element instantly using its index: \`array[3]\` gives you the 4th ele
                         description: "Just like a parking lot with numbered spaces (0, 1, 2, 3, 4), arrays allow direct access to any element. You can instantly drive to space #3 without checking other spaces. That's O(1) - constant time access!"
                     },
                     {
-                        title: "Bookshelf Organization 📚",
-                        imageUrl: "/images/visualizations/arrays_bookshelf_1767285693088.png",
-                        description: "A bookshelf with numbered compartments perfectly shows arrays - all books (same type of data) are stored in adjacent, numbered slots. Grab book from compartment #2 instantly by knowing its index!"
-                    },
-                    {
-                        title: "Apartment Building Memory 🏢",
-                        imageUrl: "/images/visualizations/arrays_apartment_building_1767285711476.png",
-                        description: "Arrays store elements in contiguous memory, like apartments side-by-side on the same floor. All units are connected and adjacent, making access super fast. This is why arrays are cache-friendly and efficient!"
-                    },
-                    {
                         title: "Array vs Scattered: Speed Comparison ⚡",
                         imageUrl: "/images/visualizations/arrays_vs_scattered_1767285731046.png",
                         description: "Compare arrays (neat row of boxes 0-4 with direct arrows) to scattered storage (random placement with maze-like paths). Arrays win because contiguous storage means instant access, while scattered data requires searching!"
@@ -10260,24 +10250,14 @@ Merge Sort divides the array into halves, sorts them, and merges them back toget
                 analogy: "Like organizing a deck of cards by splitting it in half, sorting each half, then merging them back in order!",
                 visualizations: [
                     {
-                        title: "Bubble Sort Card Sorting 🃏",
-                        imageUrl: "/images/visualizations/sort_bubble_cards_v2.svg",
-                        description: "Imagine sorting playing cards by repeatedly comparing adjacent pairs. If left > right, swap them. If left > right, swap them. After each pass, the largest 'bubbles' to the end (like bubbles rising in water!). Repeat until no swaps needed. Simple but O(n²) - slow for large datasets."
-                    },
-                    {
-                        title: "Quick Sort Divide & Conquer ⚡",
-                        imageUrl: "/images/visualizations/sort_quick_pivot_cards.svg",
-                        description: "Pick a pivot card, partition deck: smaller cards left, larger cards right. Recursively sort each partition. Like organizing a messy room - pick an item, sort everything around it, then tackle each pile. Average O(n log n) - very fast! Used in real-world applications."
-                    },
-                    {
                         title: "Merge Sort Merging Streams 🌊",
                         imageUrl: "/images/visualizations/sort_merge_piles.svg",
                         description: "Split the deck in half repeatedly until you have single cards (trivially sorted). Then merge pairs of sorted piles by comparing tops and taking the smaller. Conquer by dividing! Always O(n log n) - guaranteed performance. Think of merging two sorted lists into one sorted list."
                     },
                     {
-                        title: "Insertion Sort Building Sorted Hand 👋",
-                        imageUrl: "/images/visualizations/sort_insertion_hand_v2.svg",
-                        description: "Like sorting cards in your hand while playing. Pick one card from unsorted pile, find its position in your sorted hand, insert it there. Shift cards as needed. Excellent for nearly-sorted data or small datasets. O(n²) worst case but O(n) if already sorted!"
+                        title: "Merging Zipper Analogy 🤐",
+                        imageUrl: "/images/visualizations/sort_merge_zipper.png",
+                        description: "Merge Sort acts like a zipper closing! Two separate sorted sides (arrays) come together, element by element, to form one perfectly aligned (sorted) sequence."
                     }
                 ],
                 codeSnippets: [
@@ -10943,24 +10923,14 @@ Quick Sort picks a pivot, partitions array around it, and recursively sorts!
                 analogy: "Like organizing books by picking a middle book as reference, putting smaller books left, larger right, then repeating!",
                 visualizations: [
                     {
-                        title: "Bubble Sort Card Sorting 🃏",
-                        imageUrl: "/images/visualizations/sort_bubble_cards_v2.svg",
-                        description: "Imagine sorting playing cards by repeatedly comparing adjacent pairs. If left > right, swap them. After each pass, the largest 'bubbles' to the end (like bubbles rising in water!). Repeat until no swaps needed. Simple but O(n²) - slow for large datasets."
-                    },
-                    {
                         title: "Quick Sort Divide & Conquer ⚡",
                         imageUrl: "/images/visualizations/sort_quick_pivot_cards.svg",
                         description: "Pick a pivot card, partition deck: smaller cards left, larger cards right. Recursively sort each partition. Like organizing a messy room - pick an item, sort everything around it, then tackle each pile. Average O(n log n) - very fast! Used in real-world applications."
                     },
                     {
-                        title: "Merge Sort Merging Streams 🌊",
-                        imageUrl: "/images/visualizations/sort_merge_piles.svg",
-                        description: "Split the deck in half repeatedly until you have single cards (trivially sorted). Then merge pairs of sorted piles by comparing tops and taking the smaller. Conquer by dividing! Always O(n log n) - guaranteed performance. Think of merging two sorted lists into one sorted list."
-                    },
-                    {
-                        title: "Insertion Sort Building Sorted Hand 👋",
-                        imageUrl: "/images/visualizations/sort_insertion_hand_v2.svg",
-                        description: "Like sorting cards in your hand while playing. Pick one card from unsorted pile, find its position in your sorted hand, insert it there. Shift cards as needed. Excellent for nearly-sorted data or small datasets. O(n²) worst case but O(n) if already sorted!"
+                        title: "Quick Sort Partitioning 📏",
+                        imageUrl: "/images/visualizations/sort_quick_partition.png",
+                        description: "The core of Quick Sort is partitioning. We choose a pivot and move everything smaller to the left and everything larger to the right, placing the pivot in its final correct spot. Then we repeat for the left and right sides!"
                     }
                 ],
                 codeSnippets: [
