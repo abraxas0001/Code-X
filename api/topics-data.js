@@ -1,18 +1,20 @@
 // Mock data for development without MongoDB
 
+
+console.log("Loading mockData...");
 export const mockTopics = [
-  {
-    _id: '0',
-    meta: {
-      title: 'Introduction to DSA',
-      slug: 'dsa-introduction',
-      category: 'DSA',
-      tags: ['introduction', 'overview', 'fundamentals'],
-      estimatedTime: 20,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '0',
+        meta: {
+            title: 'Introduction to DSA',
+            slug: 'dsa-introduction',
+            category: 'DSA',
+            tags: ['introduction', 'overview', 'fundamentals'],
+            estimatedTime: 20,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Data Structures and Algorithms - Your Journey Starts Here! 🚀
 
 Welcome to the world of Data Structures and Algorithms! This is where you'll learn the fundamental building blocks that power every piece of software you use daily.
@@ -67,11 +69,28 @@ Algorithms are step-by-step instructions to solve problems. They're like recipes
 
 Ready to begin? Pick any topic from the list and start your journey! 🎯
         `,
-        analogy: "Learning DSA is like learning to cook - you start with basic techniques (data structures) and recipes (algorithms), then combine them to create amazing dishes (programs)!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Welcome to DSA! Let's see a simple example
+                analogy: "Learning DSA is like learning to cook - you start with basic techniques (data structures) and recipes (algorithms), then combine them to create amazing dishes (programs)!",
+                visualizations: [
+                    {
+                        title: "Building a Skyscraper 🏢",
+                        imageUrl: "/images/visualizations/arrays_apartment_building_1767285711476.png",
+                        description: "Think of DSA as construction. Data structures are your materials (bricks, beams, glass) and algorithms are your construction techniques. You need a solid foundation (arrays) and structure (trees) to build a stable, scalable application like a skyscraper!"
+                    },
+                    {
+                        title: "The Organized Library 📚",
+                        imageUrl: "/images/visualizations/arrays_bookshelf_1767285693088.png",
+                        description: "Imagine a library with millions of books. Without a system (Data Structure), finding one is impossible. With a catalog and sorted shelves (Algorithms), you can find any book in seconds. DSA turns chaos into order!"
+                    },
+                    {
+                        title: "The Train Journey 🚂",
+                        imageUrl: "/images/visualizations/linkedlist_train_cars_1767285767379.png",
+                        description: "Your learning path is like a train journey. You start at the station (Arrays), travel through different zones (Trees, Graphs), and connect concepts together like train cars. Every stop adds a new skill to your cargo!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Welcome to DSA! Let's see a simple example
 # This shows how choosing the right data structure matters
 
 # Bad approach: Using a list to check if item exists
@@ -89,11 +108,11 @@ my_set = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 # Both find the number, but set is much faster!
 print(find_in_list(my_list, 7))  # True
 print(find_in_set(my_set, 7))    # True (but faster!)`,
-            explanation: 'This shows why choosing the right data structure matters for performance.',
-          },
-          {
-            language: 'javascript',
-            code: `// Welcome to DSA! Let's see a simple example
+                        explanation: 'This shows why choosing the right data structure matters for performance.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Welcome to DSA! Let's see a simple example
 // This shows how choosing the right data structure matters
 
 // Bad approach: Using an array to check if item exists
@@ -107,199 +126,194 @@ function findInSet(items, target) {
 }
 
 // Example
-const myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const mySet = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-// Both find the number, but Set is much faster!
-console.log(findInArray(myArray, 7));  // true
-console.log(findInSet(mySet, 7));      // true (but faster!)`,
-            explanation: 'JavaScript Sets provide O(1) lookup time compared to O(n) for arrays.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+`,
+                        explanation: 'JavaScript Sets provide O(1) lookup time.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <unordered_set>
 #include <algorithm>
 using namespace std;
 
-// Bad approach: Using a vector to check if item exists
-bool findInVector(const vector<int>& items, int target) {
-    return find(items.begin(), items.end(), target) != items.end();
-    // O(n) - slow for large vectors
-}
+                        // Bad approach: Using a vector to check if item exists
+                        bool findInVector(const vector<int>& items, int target) {
+                        return find(items.begin(), items.end(), target) != items.end();
+                        // O(n) - slow for large vectors
+                    }
 
 // Better approach: Using an unordered_set (hash table)
-bool findInSet(const unordered_set<int>& items, int target) {
-    return items.find(target) != items.end();  // O(1) - instant!
-}
+bool findInSet(const unordered_set < int >& items, int target) {
+        return items.find(target) != items.end();  // O(1) - instant!
+    }
 
 int main() {
-    // Example
-    vector<int> myVector = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    unordered_set<int> mySet = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    
-    // Both find the number, but set is much faster!
-    cout << findInVector(myVector, 7) << endl;  // 1 (true)
-    cout << findInSet(mySet, 7) << endl;        // 1 (true, but faster!)
-    
-    return 0;
+        // Example
+        vector<int> myVector = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        unordered_set<int> mySet = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        // Both find the number, but set is much faster!
+        cout << findInVector(myVector, 7) << endl;  // 1 (true)
+cout << findInSet(mySet, 7) << endl;        // 1 (true, but faster!)
+
+return 0;
 }`,
-            explanation: 'C++ unordered_set provides O(1) average lookup time using hash tables.',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ unordered_set provides O(1) average lookup time using hash tables.',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class DSAIntro {
     // Bad approach: Using ArrayList to check if item exists
     public static boolean findInList(List<Integer> items, int target) {
-        return items.contains(target);  // O(n) - slow for large lists
-    }
-    
+    return items.contains(target);  // O(n) - slow for large lists
+}
+
     // Better approach: Using HashSet (hash table)
-    public static boolean findInSet(Set<Integer> items, int target) {
-        return items.contains(target);  // O(1) - instant!
-    }
+    public static boolean findInSet(Set < Integer > items, int target) {
+    return items.contains(target);  // O(1) - instant!
+}
     
     public static void main(String[] args) {
-        // Example
-        List<Integer> myList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        Set<Integer> mySet = new HashSet<>(myList);
-        
-        // Both find the number, but HashSet is much faster!
-        System.out.println(findInList(myList, 7));  // true
-        System.out.println(findInSet(mySet, 7));    // true (but faster!)
-    }
+    // Example
+    List < Integer > myList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    Set < Integer > mySet = new HashSet <> (myList);
+
+    // Both find the number, but HashSet is much faster!
+    System.out.println(findInList(myList, 7));  // true
+    System.out.println(findInSet(mySet, 7));    // true (but faster!)
+}
 }`,
-            explanation: 'Java HashSet provides O(1) average lookup time compared to O(n) for ArrayList.',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java HashSet provides O(1) average lookup time compared to O(n) for ArrayList.',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # DSA Fundamentals - Building Your Toolkit
 
 ## Understanding Complexity
 
-The key to mastering DSA is understanding **time and space complexity** - how fast your code runs and how much memory it uses.
+The key to mastering DSA is understanding ** time and space complexity ** - how fast your code runs and how much memory it uses.
 
 ### Big O Notation
-- **O(1)** - Constant: Same time regardless of input size
-- **O(log n)** - Logarithmic: Doubles input, adds one step
-- **O(n)** - Linear: Time grows with input size
-- **O(n log n)** - Linearithmic: Efficient sorting
-- **O(n²)** - Quadratic: Nested loops
-- **O(2ⁿ)** - Exponential: Avoid when possible!
+    - ** O(1) ** - Constant: Same time regardless of input size
+        - ** O(log n) ** - Logarithmic: Doubles input, adds one step
+            - ** O(n) ** - Linear: Time grows with input size
+                - ** O(n log n) ** - Linearithmic: Efficient sorting
+                    - ** O(n²) ** - Quadratic: Nested loops
+                        - ** O(2ⁿ) ** - Exponential: Avoid when possible!
 
 ## Data Structure Categories
 
 ### Linear Structures
 Data arranged in sequence:
-- **Arrays**: Fixed size, fast access by index
-- **Linked Lists**: Dynamic size, fast insertion/deletion
-- **Stacks**: LIFO (Last In, First Out)
-- **Queues**: FIFO (First In, First Out)
+- ** Arrays **: Fixed size, fast access by index
+    - ** Linked Lists **: Dynamic size, fast insertion / deletion
+        - ** Stacks **: LIFO(Last In, First Out)
+            - ** Queues **: FIFO(First In, First Out)
 
-### Non-Linear Structures
+### Non - Linear Structures
 Data arranged hierarchically or in networks:
-- **Trees**: Hierarchical with parent-child relationships
-- **Graphs**: Nodes connected by edges (social networks, maps)
-- **Heaps**: Special trees for priority queues
+- ** Trees **: Hierarchical with parent - child relationships
+    - ** Graphs **: Nodes connected by edges(social networks, maps)
+        - ** Heaps **: Special trees for priority queues
 
-### Hash-Based Structures
+### Hash - Based Structures
 Fast lookups using hash functions:
-- **Hash Tables**: Key-value pairs with O(1) average access
-- **Hash Sets**: Unique elements with O(1) membership testing
+- ** Hash Tables **: Key - value pairs with O(1) average access
+    - ** Hash Sets **: Unique elements with O(1) membership testing
 
 ## Algorithm Paradigms
 
 ### Divide and Conquer
 Break problem into smaller subproblems:
 - Merge Sort, Quick Sort
-- Binary Search
-- Efficient and elegant
+    - Binary Search
+        - Efficient and elegant
 
 ### Dynamic Programming
 Store solutions to avoid recalculation:
 - Fibonacci sequence
-- Longest common subsequence
-- Knapsack problem
+    - Longest common subsequence
+        - Knapsack problem
 
 ### Greedy Algorithms
 Make locally optimal choices:
 - Dijkstra's shortest path
-- Huffman coding
-- Activity selection
+    - Huffman coding
+        - Activity selection
 
 ### Backtracking
 Try all possibilities, backtrack on failure:
-- N-Queens problem
-- Sudoku solver
-- Maze solving
+- N - Queens problem
+    - Sudoku solver
+        - Maze solving
 
 ## Choosing the Right Tool
 
-| Need | Use |
-|------|-----|
+    | Need | Use |
+| ------| -----|
 | Fast random access | Array |
-| Frequent insertions/deletions | Linked List |
+| Frequent insertions / deletions | Linked List |
 | LIFO operations | Stack |
 | FIFO operations | Queue |
 | Fast lookups | Hash Table |
 | Hierarchical data | Tree |
-| Relationships/networks | Graph |
-| Priority-based processing | Heap |
+| Relationships / networks | Graph |
+| Priority - based processing | Heap |
 
 ## Practice Strategy
 
-1. **Understand the problem** - Read carefully
-2. **Choose data structure** - What fits best?
-3. **Design algorithm** - Plan before coding
-4. **Analyze complexity** - Is it efficient?
-5. **Code and test** - Implement and verify
-6. **Optimize** - Can you do better?
-        `,
-        timeComplexityAnalysis: 'Understanding Big O notation is crucial for evaluating algorithm efficiency and making informed decisions about which approach to use.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Comparing different approaches to the same problem
+1. ** Understand the problem ** - Read carefully
+2. ** Choose data structure ** - What fits best ?
+    3. ** Design algorithm ** - Plan before coding
+4. ** Analyze complexity ** - Is it efficient ?
+    5. ** Code and test ** - Implement and verify
+6. ** Optimize ** - Can you do better ?
+    `,
+                timeComplexityAnalysis: 'Understanding Big O notation is crucial for evaluating algorithm efficiency and making informed decisions about which approach to use.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Comparing different approaches to the same problem
 # Problem: Find if array has duplicate elements
 
 # Approach 1: Brute Force - O(n²)
 def has_duplicates_v1(arr):
-    for i in range(len(arr)):
-        for j in range(i + 1, len(arr)):
-            if arr[i] == arr[j]:
-                return True
-    return False
+for i in range(len(arr)):
+    for j in range(i + 1, len(arr)):
+        if arr[i] == arr[j]:
+            return True
+return False
 
 # Approach 2: Sorting - O(n log n)
 def has_duplicates_v2(arr):
-    sorted_arr = sorted(arr)
-    for i in range(len(sorted_arr) - 1):
-        if sorted_arr[i] == sorted_arr[i + 1]:
-            return True
-    return False
+sorted_arr = sorted(arr)
+for i in range(len(sorted_arr) - 1):
+    if sorted_arr[i] == sorted_arr[i + 1]:
+        return True
+return False
 
 # Approach 3: Hash Set - O(n) - BEST!
 def has_duplicates_v3(arr):
-    seen = set()
-    for num in arr:
-        if num in seen:
-            return True
-        seen.add(num)
-    return False
+seen = set()
+for num in arr:
+    if num in seen:
+        return True
+seen.add(num)
+return False
 
 # Test
 test_array = [1, 2, 3, 4, 5, 2]
 print(has_duplicates_v3(test_array))  # True`,
-            explanation: 'Three approaches with different time complexities - hash set is optimal.',
-          },
-          {
-            language: 'javascript',
-            code: `// Comparing different approaches to the same problem
+                        explanation: 'Three approaches with different time complexities - hash set is optimal.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Comparing different approaches to the same problem
 // Problem: Find if array has duplicate elements
 
 // Approach 1: Brute Force - O(n²)
@@ -340,11 +354,11 @@ function hasDuplicatesV3(arr) {
 // Test
 const testArray = [1, 2, 3, 4, 5, 2];
 console.log(hasDuplicatesV3(testArray));  // true`,
-            explanation: 'JavaScript Set provides O(n) solution compared to O(n²) brute force.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript Set provides O(n) solution compared to O(n²) brute force.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <unordered_set>
 #include <algorithm>
@@ -390,11 +404,11 @@ int main() {
     cout << hasDuplicatesV3(testArray) << endl;  // 1 (true)
     return 0;
 }`,
-            explanation: 'C++ unordered_set provides optimal O(n) time complexity.',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ unordered_set provides optimal O(n) time complexity.',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class DuplicateFinder {
     // Approach 1: Brute Force - O(n²)
@@ -438,12 +452,12 @@ public class DuplicateFinder {
         System.out.println(hasDuplicatesV3(testArray));  // true
     }
 }`,
-            explanation: 'Java HashSet provides O(n) solution with clean syntax.',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java HashSet provides O(n) solution with clean syntax.',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Advanced DSA Concepts - Mastery Level
 
 ## Amortized Analysis
@@ -556,13 +570,13 @@ For recurrence relations: T(n) = aT(n/b) + f(n)
 - **Edge cases**: Empty input, single element, duplicates
 - **Stress testing**: Random test generation
         `,
-        memoryOptimization: 'Advanced techniques like bit manipulation, in-place algorithms, and space-efficient data structures can dramatically reduce memory usage.',
-        systemDesignImplications: 'DSA principles scale to distributed systems: consistent hashing, distributed hash tables, and graph algorithms for network routing.',
-        edgeCases: ['Empty input', 'Single element', 'All duplicates', 'Sorted/reverse sorted', 'Maximum constraints'],
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Advanced: Segment Tree for range queries
+                memoryOptimization: 'Advanced techniques like bit manipulation, in-place algorithms, and space-efficient data structures can dramatically reduce memory usage.',
+                systemDesignImplications: 'DSA principles scale to distributed systems: consistent hashing, distributed hash tables, and graph algorithms for network routing.',
+                edgeCases: ['Empty input', 'Single element', 'All duplicates', 'Sorted/reverse sorted', 'Maximum constraints'],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Advanced: Segment Tree for range queries
 class SegmentTree:
     def __init__(self, arr):
         self.n = len(arr)
@@ -596,11 +610,11 @@ class SegmentTree:
 arr = [1, 3, 5, 7, 9, 11]
 st = SegmentTree(arr)
 print(st.range_sum(1, 3))  # Sum of elements from index 1 to 3`,
-            explanation: 'Segment Tree enables O(log n) range queries - essential for competitive programming.',
-          },
-          {
-            language: 'javascript',
-            code: `// Advanced: Segment Tree for range queries
+                        explanation: 'Segment Tree enables O(log n) range queries - essential for competitive programming.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Advanced: Segment Tree for range queries
 class SegmentTree {
     constructor(arr) {
         this.n = arr.length;
@@ -638,11 +652,11 @@ class SegmentTree {
 const arr = [1, 3, 5, 7, 9, 11];
 const st = new SegmentTree(arr);
 console.log(st.rangeSum(1, 3));  // Sum of elements from index 1 to 3`,
-            explanation: 'JavaScript implementation of Segment Tree for efficient range operations.',
-          },
-          {
-            language: 'cpp',
-            code: `// Advanced: Segment Tree for range queries
+                        explanation: 'JavaScript implementation of Segment Tree for efficient range operations.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `// Advanced: Segment Tree for range queries
 class SegmentTree {
     vector<int> tree;
     int n;
@@ -684,11 +698,11 @@ public:
 vector<int> arr = {1, 3, 5, 7, 9, 11};
 SegmentTree st(arr);
 cout << st.rangeSum(1, 3); // Sum of elements from index 1 to 3`,
-            explanation: 'C++ Segment Tree with optimal performance for competitive programming.',
-          },
-          {
-            language: 'java',
-            code: `// Advanced: Segment Tree for range queries
+                        explanation: 'C++ Segment Tree with optimal performance for competitive programming.',
+                    },
+                    {
+                        language: 'java',
+                        code: `// Advanced: Segment Tree for range queries
 class SegmentTree {
     private int[] tree;
     private int n;
@@ -730,21 +744,21 @@ class SegmentTree {
         System.out.println(st.rangeSum(1, 3)); // Sum from index 1 to 3
     }
 }`,
-            explanation: 'Java Segment Tree implementation for advanced data structure problems.',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { 
-        type: 'overview', 
-        params: { 
-          showComplexityChart: true,
-          showDataStructureComparison: true 
-        } 
-      },
-      playgroundInitialCode: {
-        python: `# Explore DSA concepts with this playground!
+                        explanation: 'Java Segment Tree implementation for advanced data structure problems.',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: {
+                type: 'overview',
+                params: {
+                    showComplexityChart: true,
+                    showDataStructureComparison: true
+                }
+            },
+            playgroundInitialCode: {
+                python: `# Explore DSA concepts with this playground!
 # Try different data structures and see the difference
 
 # Example: Compare list vs set performance
@@ -767,7 +781,7 @@ set_time = time.time() - start
 print(f"List search: {list_time:.6f}s")
 print(f"Set search: {set_time:.6f}s")
 print(f"Set is {list_time/set_time:.0f}x faster!")`,
-        javascript: `// Explore DSA concepts with this playground!
+                javascript: `// Explore DSA concepts with this playground!
 // Try different approaches and compare performance
 
 // Example: Fibonacci with and without memoization
@@ -790,7 +804,7 @@ console.timeEnd('Slow');
 console.time('Fast');
 console.log(fibFast(35));
 console.timeEnd('Fast');`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <vector>
 #include <chrono>
 using namespace std;
@@ -819,7 +833,7 @@ int main() {
     
     return 0;
 }`,
-        java: `import java.util.*;
+                java: `import java.util.*;
 
 public class DSAIntro {
     public static void main(String[] args) {
@@ -847,21 +861,21 @@ public class DSAIntro {
         System.out.println("Set is " + (listTime/setTime) + "x faster!");
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '1',
-    meta: {
-      title: 'Arrays',
-      slug: 'arrays',
-      category: 'DSA',
-      tags: ['data-structures', 'arrays', 'fundamentals', 'linear'],
-      estimatedTime: 35,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '1',
+        meta: {
+            title: 'Arrays',
+            slug: 'arrays',
+            category: 'DSA',
+            tags: ['data-structures', 'arrays', 'fundamentals', 'linear'],
+            estimatedTime: 35,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Arrays - The Foundation of Data Structures! 📦
 
 An array is like a row of numbered boxes where you can store items. It's the most fundamental and popular data structure in programming!
@@ -910,11 +924,23 @@ Access any element instantly using its index: \`array[3]\` gives you the 4th ele
 - 📊 Temperature readings over time
 - 🎵 Playlist of songs
         `,
-        analogy: "An array is like a row of mailboxes in an apartment building - each mailbox has a number (index) and can hold one item. You can instantly go to mailbox #5 without checking mailboxes 1-4!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Creating and using arrays in Python
+                analogy: "An array is like a parking lot with numbered spaces - each car goes in its designated spot (index), and you can drive directly to any space if you know its number. Super fast access!",
+                visualizations: [
+                    {
+                        title: "Parking Lot Spaces 🚗",
+                        imageUrl: "/images/visualizations/arrays_parking_lot_1767285674793.png",
+                        description: "Just like a parking lot with numbered spaces (0, 1, 2, 3, 4), arrays allow direct access to any element. You can instantly drive to space #3 without checking other spaces. That's O(1) - constant time access!"
+                    },
+                    {
+                        title: "Array vs Scattered: Speed Comparison ⚡",
+                        imageUrl: "/images/visualizations/arrays_vs_scattered_1767285731046.png",
+                        description: "Compare arrays (neat row of boxes 0-4 with direct arrows) to scattered storage (random placement with maze-like paths). Arrays win because contiguous storage means instant access, while scattered data requires searching!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Creating and using arrays in Python
 # Python lists are dynamic arrays
 
 # Create an array
@@ -939,11 +965,11 @@ print(numbers)       # [10, 25, 30, 40, 50, 60]
 # Traverse (visit each element)
 for num in numbers:
     print(num, end=' ')  # 10 25 30 40 50 60`,
-            explanation: 'Basic array operations: create, access, modify, and traverse',
-          },
-          {
-            language: 'javascript',
-            code: `// Creating and using arrays in JavaScript
+                        explanation: 'Basic array operations: create, access, modify, and traverse',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Creating and using arrays in JavaScript
 // JavaScript arrays are dynamic
 
 // Create an array
@@ -967,11 +993,11 @@ console.log(numbers);  // [10, 25, 30, 40, 50, 60]
 
 // Traverse (visit each element)
 numbers.forEach(num => console.log(num));  // 10 25 30 40 50 60`,
-            explanation: 'JavaScript arrays with push, forEach, and bracket notation',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript arrays with push, forEach, and bracket notation',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -1003,11 +1029,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ vectors provide dynamic array functionality with STL',
-          },
-          {
-            language: 'java',
-            code: `import java.util.ArrayList;
+                        explanation: 'C++ vectors provide dynamic array functionality with STL',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.ArrayList;
 
 public class ArrayExample {
     public static void main(String[] args) {
@@ -1042,12 +1068,12 @@ public class ArrayExample {
         }
     }
 }`,
-            explanation: 'Java ArrayList provides dynamic array with type safety',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java ArrayList provides dynamic array with type safety',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Arrays - Operations and Complexity
 
 ## Time Complexity Analysis
@@ -1136,11 +1162,11 @@ Languages like Python, Java, and JavaScript use dynamic arrays that automaticall
 
 This gives **amortized O(1)** insertion at end!
         `,
-        timeComplexityAnalysis: 'Array access is O(1) due to direct indexing: address = base + (index × element_size). Insertions and deletions are O(n) because elements must be shifted to maintain contiguous storage.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Array Operations - Intermediate Level
+                timeComplexityAnalysis: 'Array access is O(1) due to direct indexing: address = base + (index × element_size). Insertions and deletions are O(n) because elements must be shifted to maintain contiguous storage.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Array Operations - Intermediate Level
 
 def insert_at_position(arr, element, position):
     """Insert element at specific position"""
@@ -1189,11 +1215,11 @@ print(f"Found at index: {index}")  # 3
 sorted_arr = [10, 20, 30, 40, 50, 60, 70]
 index = binary_search(sorted_arr, 50)
 print(f"Found at index: {index}")  # 4`,
-            explanation: 'Python implementation with insert, delete, and search operations',
-          },
-          {
-            language: 'javascript',
-            code: `// Array Operations - Intermediate Level
+                        explanation: 'Python implementation with insert, delete, and search operations',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Array Operations - Intermediate Level
 
 function insertAtPosition(arr, element, position) {
     arr.splice(position, 0, element);
@@ -1244,11 +1270,11 @@ console.log(\`Found at index: \${index}\`);  // 3
 const sortedArr = [10, 20, 30, 40, 50, 60, 70];
 const idx = binarySearch(sortedArr, 50);
 console.log(\`Found at index: \${idx}\`);  // 4`,
-            explanation: 'JavaScript with splice for insert/delete and binary search',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript with splice for insert/delete and binary search',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -1307,11 +1333,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ STL vector with insert, erase, and search algorithms',
-          },
-          {
-            language: 'java',
-            code: `import java.util.ArrayList;
+                        explanation: 'C++ STL vector with insert, erase, and search algorithms',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.ArrayList;
 
 public class ArrayOperations {
     // Insert at position
@@ -1369,12 +1395,12 @@ public class ArrayOperations {
         System.out.println("Found at index: " + idx);  // 4
     }
 }`,
-            explanation: 'Java ArrayList with add, remove, and search methods',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java ArrayList with add, remove, and search methods',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Arrays - Advanced Concepts and Optimizations
 
 ## Memory Layout and Cache Performance
@@ -1516,13 +1542,13 @@ def find_majority(arr):
 - Integer overflow: Large sums
 - Duplicates: Multiple same values
         `,
-        memoryOptimization: 'Use in-place algorithms to achieve O(1) space. For large datasets, consider memory-mapped files or streaming algorithms that process data in chunks.',
-        systemDesignImplications: 'Arrays are fundamental to system design: database indexes use B-trees (arrays in nodes), hash tables use arrays of buckets, and circular buffers enable efficient producer-consumer patterns in streaming systems.',
-        edgeCases: ['Empty array', 'Single element', 'All duplicates', 'Sorted/reverse sorted', 'Negative numbers', 'Integer overflow'],
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Advanced Array Techniques in Python
+                memoryOptimization: 'Use in-place algorithms to achieve O(1) space. For large datasets, consider memory-mapped files or streaming algorithms that process data in chunks.',
+                systemDesignImplications: 'Arrays are fundamental to system design: database indexes use B-trees (arrays in nodes), hash tables use arrays of buckets, and circular buffers enable efficient producer-consumer patterns in streaming systems.',
+                edgeCases: ['Empty array', 'Single element', 'All duplicates', 'Sorted/reverse sorted', 'Negative numbers', 'Integer overflow'],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Advanced Array Techniques in Python
 
 # Two Pointer: Remove duplicates from sorted array
 def remove_duplicates(arr):
@@ -1583,11 +1609,11 @@ print(f"Max subarray sum: {max_subarray_sum(arr3)}")
 arr4 = [1, 2, 3, 4, 5]
 ps = PrefixSum(arr4)
 print(f"Sum [1,3]: {ps.range_sum(1, 3)}")`,
-            explanation: 'Python implementations of advanced array techniques with clean syntax',
-          },
-          {
-            language: 'javascript',
-            code: `// Advanced Array Techniques in JavaScript
+                        explanation: 'Python implementations of advanced array techniques with clean syntax',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Advanced Array Techniques in JavaScript
 
 // Two Pointer: Remove duplicates from sorted array
 function removeDuplicates(arr) {
@@ -1657,11 +1683,11 @@ console.log(\`Max subarray sum: \${maxSubarraySum(arr3)}\`);
 const arr4 = [1, 2, 3, 4, 5];
 const ps = new PrefixSum(arr4);
 console.log(\`Sum [1,3]: \${ps.rangeSum(1, 3)}\`);`,
-            explanation: 'JavaScript with modern ES6+ features and array methods',
-          },
-          {
-            language: 'cpp',
-            code: `// Advanced Array Techniques in C++
+                        explanation: 'JavaScript with modern ES6+ features and array methods',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `// Advanced Array Techniques in C++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -1749,11 +1775,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ with STL algorithms and optimal performance',
-          },
-          {
-            language: 'java',
-            code: `// Advanced Array Techniques in Java
+                        explanation: 'C++ with STL algorithms and optimal performance',
+                    },
+                    {
+                        language: 'java',
+                        code: `// Advanced Array Techniques in Java
 import java.util.*;
 
 public class AdvancedArrays {
@@ -1836,21 +1862,21 @@ public class AdvancedArrays {
         System.out.println("Sum [1,3]: " + ps.rangeSum(1, 3));
     }
 }`,
-            explanation: 'Java with static methods and inner class for PrefixSum',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { 
-        type: 'array', 
-        params: { 
-          operations: ['insert', 'delete', 'search', 'traverse'],
-          visualizeMemory: true 
-        } 
-      },
-      playgroundInitialCode: {
-        python: `# Array Operations Playground
+                        explanation: 'Java with static methods and inner class for PrefixSum',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: {
+                type: 'array',
+                params: {
+                    operations: ['insert', 'delete', 'search', 'traverse'],
+                    visualizeMemory: true
+                }
+            },
+            playgroundInitialCode: {
+                python: `# Array Operations Playground
 
 # Create an array
 arr = [10, 20, 30, 40, 50]
@@ -1864,7 +1890,7 @@ arr = [10, 20, 30, 40, 50]
 
 # Your code here:
 `,
-        javascript: `// Array Operations Playground
+                javascript: `// Array Operations Playground
 
 // Create an array
 const arr = [10, 20, 30, 40, 50];
@@ -1878,7 +1904,7 @@ const arr = [10, 20, 30, 40, 50];
 
 // Your code here:
 `,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -1898,7 +1924,7 @@ int main() {
     
     return 0;
 }`,
-        java: `import java.util.*;
+                java: `import java.util.*;
 
 public class ArrayOperations {
     public static void main(String[] args) {
@@ -1918,21 +1944,21 @@ public class ArrayOperations {
         
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '2',
-    meta: {
-      title: 'Binary Search',
-      slug: 'binary-search',
-      category: 'DSA',
-      tags: ['searching', 'divide-and-conquer', 'arrays'],
-      estimatedTime: 30,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '2',
+        meta: {
+            title: 'Binary Search',
+            slug: 'binary-search',
+            category: 'DSA',
+            tags: ['searching', 'divide-and-conquer', 'arrays'],
+            estimatedTime: 30,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Binary Search - The Smart Way to Find Things
 
 Imagine you're looking for a word in a dictionary. Do you start from page 1 and check every single page? No! You open it somewhere in the middle, see if your word comes before or after, and keep cutting the search space in half.
@@ -1949,11 +1975,33 @@ That's exactly what Binary Search does!
 ## Why It's Fast
 Instead of checking 1000 items one by one, you only need about 10 checks! That's the power of halving.
         `,
-        analogy: "It's like playing the 'guess the number' game where someone says 'higher' or 'lower' after each guess. You always guess the middle to win fastest!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def binary_search(arr, target):
+                analogy: "It's like playing the 'guess the number' game where someone says 'higher' or 'lower' after each guess. You always guess the middle to win fastest!",
+                visualizations: [
+                    {
+                        title: "Linear Search - Check Every Box 📦",
+                        imageUrl: "/images/visualizations/search_linear_boxes.svg",
+                        description: "Looking for a specific toy in 100 unmarked boxes? Open each box one by one until you find it. This is linear search - O(n) time. Simple, works on unsorted data, but slow for large datasets. Like searching for a word by reading every word in a book sequentially."
+                    },
+                    {
+                        title: "Binary Search - Phone Book Strategy 📖",
+                        imageUrl: "/images/visualizations/search_binary_phonebook.svg",
+                        description: "Find 'Smith' in a phone book: Open to middle. Is 'Smith' before or after? Eliminate half the book. Repeat with remaining half. Find any name in O(log n) time! Requires sorted data but incredibly efficient. 1 million items? Only ~20 comparisons needed!"
+                    },
+                    {
+                        title: "Hash-Based Search - Direct Access 🎯",
+                        imageUrl: "/images/visualizations/search_hash_library.svg",
+                        description: "Use a hash function to compute exactly where data is stored. Instead of searching, calculate the location and go directly there - O(1) time! Like knowing exactly which shelf a book is on in a library. Requires extra memory for hash table but provides instant lookups."
+                    },
+                    {
+                        title: "BFS & DFS Graph Search 🗺️",
+                        imageUrl: "/images/visualizations/graph_road_map.png",
+                        description: "Searching graphs/trees? BFS explores level-by-level (like ripples in water - finds shortest path). DFS explores deep before backtracking (like maze solving - uses less memory). Choose based on problem: BFS for shortest path, DFS for exhaustive search or space constraints."
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def binary_search(arr, target):
     """Binary search in sorted array - O(log n)"""
     left, right = 0, len(arr) - 1
     
@@ -1973,11 +2021,11 @@ Instead of checking 1000 items one by one, you only need about 10 checks! That's
 numbers = [1, 3, 5, 7, 9, 11, 13]
 result = binary_search(numbers, 7)
 print(f"Found at index: {result}")  # 3`,
-            explanation: 'Python binary search - halves search space each iteration for O(log n) time',
-          },
-          {
-            language: 'javascript',
-            code: `function binarySearch(arr, target) {
+                        explanation: 'Python binary search - halves search space each iteration for O(log n) time',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function binarySearch(arr, target) {
     // Binary search in sorted array - O(log n)
     let left = 0;
     let right = arr.length - 1;
@@ -2001,11 +2049,11 @@ print(f"Found at index: {result}")  # 3`,
 const numbers = [1, 3, 5, 7, 9, 11, 13];
 const result = binarySearch(numbers, 7);
 console.log(\`Found at index: \${result}\`);  // 3`,
-            explanation: 'JavaScript binary search using Math.floor for integer division',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript binary search using Math.floor for integer division',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -2035,11 +2083,11 @@ int main() {
     cout << "Found at index: " << result << endl;  // 3
     return 0;
 }`,
-            explanation: 'C++ binary search - use (left + right) / 2 carefully to avoid overflow',
-          },
-          {
-            language: 'java',
-            code: `public class BinarySearch {
+                        explanation: 'C++ binary search - use (left + right) / 2 carefully to avoid overflow',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class BinarySearch {
     // Binary search in sorted array - O(log n)
     public static int binarySearch(int[] arr, int target) {
         int left = 0;
@@ -2066,12 +2114,12 @@ int main() {
         System.out.println("Found at index: " + result);  // 3
     }
 }`,
-            explanation: 'Java binary search - classic iterative implementation with O(log n) time',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java binary search - classic iterative implementation with O(log n) time',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Binary Search - Efficient Searching Algorithm
 
 Binary Search is a divide-and-conquer algorithm that finds the position of a target value within a **sorted array**.
@@ -2086,11 +2134,11 @@ Binary Search is a divide-and-conquer algorithm that finds the position of a tar
 1. Array must be **sorted**
 2. Random access to elements (arrays, not linked lists)
         `,
-        timeComplexityAnalysis: 'Each iteration eliminates half the remaining elements, leading to logarithmic time complexity.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def binary_search_recursive(arr, target, left, right):
+                timeComplexityAnalysis: 'Each iteration eliminates half the remaining elements, leading to logarithmic time complexity.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def binary_search_recursive(arr, target, left, right):
     """Recursive binary search - O(log n) time, O(log n) space"""
     if left > right:
         return -1
@@ -2108,11 +2156,11 @@ Binary Search is a divide-and-conquer algorithm that finds the position of a tar
 numbers = [1, 3, 5, 7, 9, 11, 13, 15, 17]
 result = binary_search_recursive(numbers, 11, 0, len(numbers) - 1)
 print(f"Found at index: {result}")  # 5`,
-            explanation: 'Python recursive binary search - elegant but uses O(log n) stack space',
-          },
-          {
-            language: 'javascript',
-            code: `function binarySearchRecursive(arr, target, left = 0, right = arr.length - 1) {
+                        explanation: 'Python recursive binary search - elegant but uses O(log n) stack space',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function binarySearchRecursive(arr, target, left = 0, right = arr.length - 1) {
     // Recursive binary search - O(log n) time, O(log n) space
     if (left > right) {
         return -1;
@@ -2133,11 +2181,11 @@ print(f"Found at index: {result}")  # 5`,
 const numbers = [1, 3, 5, 7, 9, 11, 13, 15, 17];
 const result = binarySearchRecursive(numbers, 11);
 console.log(\`Found at index: \${result}\`);  // 5`,
-            explanation: 'JavaScript recursive binary search with default parameters for cleaner calls',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript recursive binary search with default parameters for cleaner calls',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -2164,11 +2212,11 @@ int main() {
     cout << "Found at index: " << result << endl;  // 5
     return 0;
 }`,
-            explanation: 'C++ recursive binary search - clean implementation with tail recursion',
-          },
-          {
-            language: 'java',
-            code: `public class BinarySearchRecursive {
+                        explanation: 'C++ recursive binary search - clean implementation with tail recursion',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class BinarySearchRecursive {
     // Recursive binary search - O(log n) time, O(log n) space
     public static int binarySearchRecursive(int[] arr, int target, int left, int right) {
         if (left > right) {
@@ -2192,12 +2240,12 @@ int main() {
         System.out.println("Found at index: " + result);  // 5
     }
 }`,
-            explanation: 'Java recursive binary search - uses call stack for O(log n) space complexity',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java recursive binary search - uses call stack for O(log n) space complexity',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Binary Search - Advanced Concepts
 
 ## Variants and Applications
@@ -2215,12 +2263,12 @@ int main() {
 - Load balancing (finding optimal server)
 - Version control (git bisect for bug finding)
         `,
-        memoryOptimization: 'Use iterative approach to avoid call stack overhead.',
-        edgeCases: ['Empty array', 'Integer overflow', 'Duplicates'],
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def search_rotated(nums, target):
+                memoryOptimization: 'Use iterative approach to avoid call stack overhead.',
+                edgeCases: ['Empty array', 'Integer overflow', 'Duplicates'],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def search_rotated(nums, target):
     """
     Binary search in rotated sorted array
     Time: O(log n), Space: O(1)
@@ -2250,13 +2298,13 @@ int main() {
 
 # Example: [4,5,6,7,0,1,2] rotated at index 4
 nums = [4, 5, 6, 7, 0, 1, 2]
-print(search_rotated(nums, 0))  # 4
-print(search_rotated(nums, 3))  # -1`,
-            explanation: 'Python binary search in rotated array - identify sorted half and search accordingly',
-          },
-          {
-            language: 'javascript',
-            code: `function searchRotated(nums, target) {
+print(search_rotated(nums, 0))  // 4
+print(search_rotated(nums, 3))  // -1`,
+                        explanation: 'Python binary search in rotated array - identify sorted half and search accordingly',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function searchRotated(nums, target) {
     /**
      * Binary search in rotated sorted array
      * Time: O(log n), Space: O(1)
@@ -2296,11 +2344,11 @@ print(search_rotated(nums, 3))  # -1`,
 const nums = [4, 5, 6, 7, 0, 1, 2];
 console.log(searchRotated(nums, 0));  // 4
 console.log(searchRotated(nums, 3));  // -1`,
-            explanation: 'JavaScript binary search in rotated array - one half is always sorted',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript binary search in rotated array - one half is always sorted',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -2343,11 +2391,11 @@ int main() {
     cout << searchRotated(nums, 3) << endl;  // -1
     return 0;
 }`,
-            explanation: 'C++ binary search in rotated array - determine which half is sorted first',
-          },
-          {
-            language: 'java',
-            code: `public class SearchRotatedArray {
+                        explanation: 'C++ binary search in rotated array - determine which half is sorted first',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class SearchRotatedArray {
     /**
      * Binary search in rotated sorted array
      * Time: O(log n), Space: O(1)
@@ -2390,30 +2438,30 @@ int main() {
         System.out.println(searchRotated(nums, 3));  // -1
     }
 }`,
-            explanation: 'Java binary search in rotated array - classic interview problem with O(log n) solution',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: {
-        type: 'array',
-        params: { initialArray: [1, 3, 5, 7, 9, 11, 13], target: 7 },
-      },
-      playgroundInitialCode: {
-        python: `def binary_search(arr, target):
+                        explanation: 'Java binary search in rotated array - classic interview problem with O(log n) solution',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: {
+                type: 'array',
+                params: { initialArray: [1, 3, 5, 7, 9, 11, 13], target: 7 },
+            },
+            playgroundInitialCode: {
+                python: `def binary_search(arr, target):
     # Your code here
     pass
 
 arr = [1, 3, 5, 7, 9, 11, 13]
 print(binary_search(arr, 7))`,
-        javascript: `function binarySearch(arr, target) {
+                javascript: `function binarySearch(arr, target) {
     // Your code here
 }
 
 const arr = [1, 3, 5, 7, 9, 11, 13];
 console.log(binarySearch(arr, 7));`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -2427,7 +2475,7 @@ int main() {
     cout << binarySearch(arr, 7) << endl;
     return 0;
 }`,
-        java: `public class BinarySearch {
+                java: `public class BinarySearch {
     public static int binarySearch(int[] arr, int target) {
         // Your code here
         return -1;
@@ -2438,24 +2486,26 @@ int main() {
         System.out.println(binarySearch(arr, 7));
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '2',
-    meta: {
-      title: 'Bubble Sort',
-      slug: 'bubble-sort',
-      category: 'DSA',
-      tags: ['sorting', 'arrays', 'comparison-sort'],
-      estimatedTime: 25,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '2',
+        meta: {
+            title: 'Bubble Sort',
+            slug: 'bubble-sort',
+            category: 'DSA',
+            tags: ['sorting', 'arrays', 'comparison-sort'],
+            estimatedTime: 25,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Bubble Sort - The Simplest Sorting Algorithm
 
-Imagine you have a line of students arranged by height, but they're all mixed up. Bubble Sort is like repeatedly walking down the line and swapping any two students who are in the wrong order.
+Imagine you're looking for a word in a dictionary. Do you start from page 1 and check every single page? No! You open it somewhere in the middle, see if your word comes before or after, and keep cutting the search space in half.
+
+That's exactly what Bubble Sort does!
 
 ## How It Works
 1. Compare adjacent elements
@@ -2466,11 +2516,28 @@ Imagine you have a line of students arranged by height, but they're all mixed up
 ## Why It's Called Bubble Sort
 The largest values bubble up to the top (end) of the array, just like bubbles in water!
         `,
-        analogy: "It's like sorting cards in your hand by repeatedly swapping adjacent cards that are out of order.",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def bubble_sort(arr):
+                analogy: "It's like sorting cards in your hand by repeatedly swapping adjacent cards that are out of order.",
+                visualizations: [
+                    {
+                        title: "Bubbling Up 🫧",
+                        imageUrl: "/images/visualizations/bubble_sort_analogy.png",
+                        description: "Just like air bubbles rising in water, the largest numbers in the array 'bubble up' to the top (end) of the list with each pass."
+                    },
+                    {
+                        title: "Compare & Swap ↔️",
+                        imageUrl: "/images/visualizations/bubble_sort_process.png",
+                        description: "The algorithm walks through the list, comparing two neighbors at a time. If they are in the wrong order, they swap places!"
+                    },
+                    {
+                        title: "One Pass Complete ✅",
+                        imageUrl: "/images/visualizations/bubble_sort_complete.png",
+                        description: "After one full pass, the largest unsorted number is guaranteed to be in its correct final position. We repeat this until the whole list is sorted."
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def bubble_sort(arr):
     """Bubble sort - O(n²) time, O(1) space"""
     n = len(arr)
     for i in range(n):
@@ -2481,11 +2548,11 @@ The largest values bubble up to the top (end) of the array, just like bubbles in
 
 numbers = [64, 34, 25, 12, 22, 11, 90]
 print(bubble_sort(numbers))  # [11, 12, 22, 25, 34, 64, 90]`,
-            explanation: 'Python bubble sort with tuple unpacking for swapping',
-          },
-          {
-            language: 'javascript',
-            code: `function bubbleSort(arr) {
+                        explanation: 'Python bubble sort with tuple unpacking for swapping',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function bubbleSort(arr) {
     // Bubble sort - O(n²) time, O(1) space
     const n = arr.length;
     
@@ -2502,11 +2569,11 @@ print(bubble_sort(numbers))  # [11, 12, 22, 25, 34, 64, 90]`,
 
 const numbers = [64, 34, 25, 12, 22, 11, 90];
 console.log(bubbleSort(numbers));  // [11, 12, 22, 25, 34, 64, 90]`,
-            explanation: 'JavaScript bubble sort using destructuring for clean swaps',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript bubble sort using destructuring for clean swaps',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -2534,11 +2601,11 @@ int main() {
     // Output: 11 12 22 25 34 64 90
     return 0;
 }`,
-            explanation: 'C++ bubble sort using STL swap function for efficiency',
-          },
-          {
-            language: 'java',
-            code: `public class BubbleSort {
+                        explanation: 'C++ bubble sort using STL swap function for efficiency',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class BubbleSort {
     // Bubble sort - O(n²) time, O(1) space
     public static void bubbleSort(int[] arr) {
         int n = arr.length;
@@ -2565,12 +2632,12 @@ int main() {
         // Output: 11 12 22 25 34 64 90
     }
 }`,
-            explanation: 'Java bubble sort with traditional temp variable for swapping',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java bubble sort with traditional temp variable for swapping',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Bubble Sort - Analysis
 
 ## Time Complexity
@@ -2582,11 +2649,11 @@ int main() {
 ## Optimization
 Add a flag to detect if any swaps were made. If no swaps in a pass, array is sorted!
         `,
-        timeComplexityAnalysis: 'Nested loops lead to quadratic time. Each pass moves the largest unsorted element to its position.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def optimized_bubble_sort(arr):
+                timeComplexityAnalysis: 'Nested loops lead to quadratic time. Each pass moves the largest unsorted element to its position.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def optimized_bubble_sort(arr):
     """Optimized bubble sort with early termination"""
     n = len(arr)
     for i in range(n):
@@ -2602,11 +2669,11 @@ Add a flag to detect if any swaps were made. If no swaps in a pass, array is sor
 # Best case: already sorted - O(n)
 sorted_arr = [1, 2, 3, 4, 5]
 print(optimized_bubble_sort(sorted_arr))`,
-            explanation: 'Python optimized bubble sort - stops early if no swaps occur',
-          },
-          {
-            language: 'javascript',
-            code: `function optimizedBubbleSort(arr) {
+                        explanation: 'Python optimized bubble sort - stops early if no swaps occur',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function optimizedBubbleSort(arr) {
     // Optimized bubble sort with early termination
     const n = arr.length;
     
@@ -2630,11 +2697,11 @@ print(optimized_bubble_sort(sorted_arr))`,
 // Best case: already sorted - O(n)
 const sortedArr = [1, 2, 3, 4, 5];
 console.log(optimizedBubbleSort(sortedArr));`,
-            explanation: 'JavaScript optimized version - detects when array is sorted',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript optimized version - detects when array is sorted',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -2668,11 +2735,11 @@ int main() {
     }
     return 0;
 }`,
-            explanation: 'C++ optimized bubble sort - breaks early when sorted',
-          },
-          {
-            language: 'java',
-            code: `public class OptimizedBubbleSort {
+                        explanation: 'C++ optimized bubble sort - breaks early when sorted',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class OptimizedBubbleSort {
     // Optimized bubble sort with early termination
     public static void optimizedBubbleSort(int[] arr) {
         int n = arr.length;
@@ -2705,12 +2772,12 @@ int main() {
         }
     }
 }`,
-            explanation: 'Java optimized bubble sort - uses flag to detect completion',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java optimized bubble sort - uses flag to detect completion',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Bubble Sort - Advanced Insights
 
 ## When to Use
@@ -2724,11 +2791,11 @@ int main() {
 - Stable sort (maintains relative order)
 - Adaptive (performs better on partially sorted data)
         `,
-        edgeCases: ['Already sorted', 'Reverse sorted', 'All elements same'],
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def bubble_sort_generic(arr, key=None, reverse=False):
+                edgeCases: ['Already sorted', 'Reverse sorted', 'All elements same'],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def bubble_sort_generic(arr, key=None, reverse=False):
     """
     Generic bubble sort with custom comparison
     Time: O(n²), Space: O(1)
@@ -2755,16 +2822,16 @@ int main() {
 
 # Sort by string length
 words = ["apple", "pie", "banana", "cat"]
-print(bubble_sort_generic(words, key=len))  # ['pie', 'cat', 'apple', 'banana']
+print(bubble_sort_generic(words, key=len))  // ['pie', 'cat', 'apple', 'banana']
 
 # Sort in reverse
 numbers = [5, 2, 8, 1, 9]
-print(bubble_sort_generic(numbers, reverse=True))  # [9, 8, 5, 2, 1]`,
-            explanation: 'Python generic bubble sort with custom key function and reverse option',
-          },
-          {
-            language: 'javascript',
-            code: `function bubbleSortGeneric(arr, compareFn = null) {
+print(bubble_sort_generic(numbers, reverse=True))  // [9, 8, 5, 2, 1]`,
+                        explanation: 'Python generic bubble sort with custom key function and reverse option',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function bubbleSortGeneric(arr, compareFn = null) {
     /**
      * Generic bubble sort with custom comparison
      * Time: O(n²), Space: O(1)
@@ -2797,11 +2864,11 @@ console.log(words);  // ['pie', 'cat', 'apple', 'banana']
 const numbers = [5, 2, 8, 1, 9];
 bubbleSortGeneric(numbers, (a, b) => b - a);
 console.log(numbers);  // [9, 8, 5, 2, 1]`,
-            explanation: 'JavaScript generic bubble sort with custom comparator function',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript generic bubble sort with custom comparator function',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <functional>
 using namespace std;
@@ -2842,11 +2909,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ template bubble sort with lambda comparison function',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ template bubble sort with lambda comparison function',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class BubbleSortGeneric {
     /**
@@ -2886,27 +2953,27 @@ public class BubbleSortGeneric {
         // [9, 8, 5, 2, 1]
     }
 }`,
-            explanation: 'Java generic bubble sort using Comparator interface for flexibility',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'sorting', params: { algorithm: 'bubble' } },
-      playgroundInitialCode: {
-        python: `def bubble_sort(arr):
+                        explanation: 'Java generic bubble sort using Comparator interface for flexibility',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'sorting', params: { algorithm: 'bubble' } },
+            playgroundInitialCode: {
+                python: `def bubble_sort(arr):
     # Your code here
     pass
 
 arr = [64, 34, 25, 12, 22]
 print(bubble_sort(arr))`,
-        javascript: `function bubbleSort(arr) {
+                javascript: `function bubbleSort(arr) {
     // Your code here
 }
 
 const arr = [64, 34, 25, 12, 22];
 console.log(bubbleSort(arr));`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -2919,7 +2986,7 @@ int main() {
     bubbleSort(arr);
     return 0;
 }`,
-        java: `public class BubbleSort {
+                java: `public class BubbleSort {
     public static void bubbleSort(int[] arr) {
         // Your code here
     }
@@ -2929,21 +2996,21 @@ int main() {
         bubbleSort(arr);
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '3',
-    meta: {
-      title: 'Linked Lists',
-      slug: 'linked-lists',
-      category: 'DSA',
-      tags: ['data-structures', 'pointers', 'dynamic-memory'],
-      estimatedTime: 40,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '3',
+        meta: {
+            title: 'Linked Lists',
+            slug: 'linked-lists',
+            category: 'DSA',
+            tags: ['data-structures', 'pointers', 'dynamic-memory'],
+            estimatedTime: 40,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Linked Lists - Dynamic Data Chains 🔗
 
 A linked list is a linear data structure where elements are stored in nodes, and each node points to the next node. Unlike arrays, elements are not stored in contiguous memory!
@@ -2990,11 +3057,33 @@ The first node is called the **head**, and the last node points to **null**.
 - Image viewer (next/previous image)
 - Train cars connected together
         `,
-        analogy: "A linked list is like a treasure hunt where each clue (node) contains a treasure (data) and directions to the next clue (pointer). You must follow the chain from start to finish!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `class Node:
+                analogy: "A linked list is like a treasure hunt - each clue (node) holds a secret (data) and tells you exactly where to find the next clue (pointer). You can't skip ahead; you must follow the path!",
+                visualizations: [
+                    {
+                        title: "Train Cars Connection 🚂",
+                        imageUrl: "/images/visualizations/linkedlist_train_cars_1767285767379.png",
+                        description: "Each train car (node) is connected to the next by a coupling (pointer). To add a new car in the middle, simply unhook the coupling between two cars and hook in the new one! This shows why linked lists have O(1) insertion when you have a reference to the location."
+                    },
+                    {
+                        title: "The Treasure Hunt Adventure 🗺️",
+                        imageUrl: "/images/visualizations/linkedlist_treasure_hunt_1767285789933.png",
+                        description: "Follow the clues one by one! Each treasure chest (node) contains data AND a map to the next chest (pointer). Start at chest #1 (HEAD), read its clue to find chest #2, then chest #3, and so on until you find the final treasure (NULL). This demonstrates sequential O(n) traversal."
+                    },
+                    {
+                        title: "Sequential Access Pattern 📍",
+                        imageUrl: "/images/visualizations/linkedlist_train_cars_1767285767379.png",
+                        description: "Like a paper chain, each loop links to the next. Unlike arrays where you can jump to any position, linked lists require following the chain from the start. But adding or removing a loop? Super easy - just unhook and re-hook! Dynamic size with O(1) insertion/deletion at known positions."
+                    },
+                    {
+                        title: "Array vs Linked List Trade-offs ⚖️",
+                        imageUrl: "/images/visualizations/arrays_vs_scattered_1767285731046.png",
+                        description: "Arrays: Fixed boxes in a row, O(1) random access but O(n) insertion. Linked Lists: Flexible chain of nodes, O(n) access but O(1) insertion/deletion when you have a pointer. Choose based on your needs - fast access or fast modification!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `class Node:
     """Node class for linked list"""
     def __init__(self, data):
         self.data = data
@@ -3066,11 +3155,11 @@ ll.append(3)
 ll.prepend(0)
 ll.display()  # 0 -> 1 -> 2 -> 3 -> None
 ll.search(2)  # Found 2 at position 2`,
-            explanation: 'Python linked list with Node class. head tracks first node. Traverse using current.next until None.',
-          },
-          {
-            language: 'javascript',
-            code: `class Node {
+                        explanation: 'Python linked list with Node class. head tracks first node. Traverse using current.next until None.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class Node {
     // Node class for linked list
     constructor(data) {
         this.data = data;
@@ -3156,11 +3245,11 @@ ll.append(3);
 ll.prepend(0);
 ll.display();  // 0 -> 1 -> 2 -> 3 -> null
 ll.search(2);  // Found 2 at position 2`,
-            explanation: 'JavaScript linked list using classes. Each node has data and next pointer. Traverse with while loop.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript linked list using classes. Each node has data and next pointer. Traverse with while loop.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 using namespace std;
 
 // Node structure
@@ -3251,11 +3340,11 @@ int main() {
     ll.search(2);  // Found 2 at position 2
     return 0;
 }`,
-            explanation: 'C++ linked list with Node struct and pointers. Use -> to access members through pointers. Remember to manage memory!',
-          },
-          {
-            language: 'java',
-            code: `// Node class
+                        explanation: 'C++ linked list with Node struct and pointers. Use -> to access members through pointers. Remember to manage memory!',
+                    },
+                    {
+                        language: 'java',
+                        code: `// Node class
 class Node {
     int data;
     Node next;
@@ -3346,12 +3435,12 @@ class LinkedList {
         ll.search(2);  // Found 2 at position 2
     }
 }`,
-            explanation: 'Java linked list with Node and LinkedList classes. Java handles memory automatically (garbage collection).',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java linked list with Node and LinkedList classes. Java handles memory automatically (garbage collection).',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Linked Lists - Reverse a Linked List 🔄
 
 One of the most common interview questions: reverse a singly linked list in-place!
@@ -3404,11 +3493,11 @@ Step 3: None <- 1 <- 2 <- 3
 - **Navigation**: Go back through path
 - **Data processing**: Reverse data flow
         `,
-        timeComplexityAnalysis: 'Single pass through the list (O(n)) with constant extra space (O(1)). Each node is visited exactly once.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `class Node:
+                timeComplexityAnalysis: 'Single pass through the list (O(n)) with constant extra space (O(1)). Each node is visited exactly once.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -3457,11 +3546,11 @@ new_head = reverse_linked_list(head)
 
 print("\\nReversed:")
 print_list(new_head)  # 4 -> 3 -> 2 -> 1 -> None`,
-            explanation: 'Python iterative reversal using three pointers. Save next, reverse link, move forward. Clean and efficient!',
-          },
-          {
-            language: 'javascript',
-            code: `class Node {
+                        explanation: 'Python iterative reversal using three pointers. Save next, reverse link, move forward. Clean and efficient!',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class Node {
     constructor(data) {
         this.data = data;
         this.next = null;
@@ -3517,11 +3606,11 @@ const newHead = reverseLinkedList(head);
 
 console.log("\\nReversed:");
 printList(newHead);  // 4 -> 3 -> 2 -> 1 -> null`,
-            explanation: 'JavaScript iterative approach with three pointers. Use const for nextNode to prevent reassignment bugs.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript iterative approach with three pointers. Use const for nextNode to prevent reassignment bugs.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 using namespace std;
 
 struct Node {
@@ -3582,11 +3671,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ pointer manipulation for reversal. Use -> for pointer access. Three pointers track prev, current, next.',
-          },
-          {
-            language: 'java',
-            code: `class Node {
+                        explanation: 'C++ pointer manipulation for reversal. Use -> for pointer access. Three pointers track prev, current, next.',
+                    },
+                    {
+                        language: 'java',
+                        code: `class Node {
     int data;
     Node next;
     
@@ -3648,12 +3737,12 @@ class LinkedListReversal {
         printList(newHead);  // 4 -> 3 -> 2 -> 1 -> null
     }
 }`,
-            explanation: 'Java iterative reversal with three references. Clean logic: save next, reverse link, move forward.',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java iterative reversal with three references. Clean logic: save next, reverse link, move forward.',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Linked Lists - Detect Cycle (Floyd's Algorithm) 🔍
 
 Detect if a linked list has a cycle using the famous **Floyd's Cycle Detection Algorithm** (Tortoise and Hare)!
@@ -3710,12 +3799,12 @@ Given a linked list, determine if it has a cycle (a node's next pointer points b
 - **Deadlock detection**: Resource allocation
 - **Data validation**: Corrupted data structures
         `,
-        memoryOptimization: 'Floyd\'s algorithm uses O(1) space vs O(n) for hash set approach. Optimal for memory-constrained systems.',
-        systemDesignImplications: 'Used in garbage collectors for cycle detection, network routing to detect loops, and distributed systems for deadlock detection.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `class Node:
+                memoryOptimization: 'Floyd\'s algorithm uses O(1) space vs O(n) for hash set approach. Optimal for memory-constrained systems.',
+                systemDesignImplications: 'Used in garbage collectors for cycle detection, network routing to detect loops, and distributed systems for deadlock detection.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -3770,11 +3859,11 @@ head3 = Node(1)
 head3.next = head3  # Points to itself
 
 print(f"List 3 has cycle: {has_cycle(head3)}")  # True`,
-            explanation: 'Python Floyd\'s algorithm with slow/fast pointers. Elegant and efficient - if they meet, there\'s a cycle!',
-          },
-          {
-            language: 'javascript',
-            code: `class Node {
+                        explanation: 'Python Floyd\'s algorithm with slow/fast pointers. Elegant and efficient - if they meet, there\'s a cycle!',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class Node {
     constructor(data) {
         this.data = data;
         this.next = null;
@@ -3835,11 +3924,11 @@ const head3 = new Node(1);
 head3.next = head3;  // Points to itself
 
 console.log(\`List 3 has cycle: \${hasCycle(head3)}\`);  // true`,
-            explanation: 'JavaScript Floyd\'s algorithm. Use === for reference equality. Fast catches slow if cycle exists!',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript Floyd\'s algorithm. Use === for reference equality. Fast catches slow if cycle exists!',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 using namespace std;
 
 struct Node {
@@ -3906,11 +3995,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ Floyd\'s algorithm with pointer comparison. Check fast && fast->next to avoid null pointer errors!',
-          },
-          {
-            language: 'java',
-            code: `class Node {
+                        explanation: 'C++ Floyd\'s algorithm with pointer comparison. Check fast && fast->next to avoid null pointer errors!',
+                    },
+                    {
+                        language: 'java',
+                        code: `class Node {
     int data;
     Node next;
     
@@ -3978,15 +4067,15 @@ class CycleDetection {
         System.out.println("List 3 has cycle: " + hasCycle(head3));  // true
     }
 }`,
-            explanation: 'Java Floyd\'s algorithm with reference comparison. Classic tortoise and hare - simple yet powerful!',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'graph', params: { structure: 'linked-list' } },
-      playgroundInitialCode: {
-        python: `class Node:
+                        explanation: 'Java Floyd\'s algorithm with reference comparison. Classic tortoise and hare - simple yet powerful!',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'graph', params: { structure: 'linked-list' } },
+            playgroundInitialCode: {
+                python: `class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -3995,7 +4084,7 @@ class CycleDetection {
 head = Node(1)
 head.next = Node(2)
 head.next.next = Node(3)`,
-        javascript: `class Node {
+                javascript: `class Node {
     constructor(data) {
         this.data = data;
         this.next = null;
@@ -4006,7 +4095,7 @@ head.next.next = Node(3)`,
 const head = new Node(1);
 head.next = new Node(2);
 head.next.next = new Node(3);`,
-        cpp: `struct Node {
+                cpp: `struct Node {
     int data;
     Node* next;
     Node(int val) : data(val), next(nullptr) {}
@@ -4018,7 +4107,7 @@ int main() {
     head->next->next = new Node(3);
     return 0;
 }`,
-        java: `class Node {
+                java: `class Node {
     int data;
     Node next;
     Node(int data) {
@@ -4034,21 +4123,21 @@ public class Main {
         head.next.next = new Node(3);
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '4',
-    meta: {
-      title: 'Dynamic Programming Basics',
-      slug: 'dynamic-programming',
-      category: 'DSA',
-      tags: ['algorithms', 'optimization', 'memoization'],
-      estimatedTime: 50,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '4',
+        meta: {
+            title: 'Dynamic Programming Basics',
+            slug: 'dynamic-programming',
+            category: 'DSA',
+            tags: ['algorithms', 'optimization', 'memoization'],
+            estimatedTime: 50,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Dynamic Programming - Smart Problem Solving
 
 Imagine you're climbing stairs and you write down how many ways you can reach each step. Instead of recalculating, you just look at your notes!
@@ -4060,11 +4149,33 @@ Break big problems into smaller subproblems and remember the answers.
 1. **Memoization:** Top-down (recursion + cache)
 2. **Tabulation:** Bottom-up (iterative + table)
         `,
-        analogy: "It's like doing homework and saving your answers so you don't have to solve the same problem twice!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Fibonacci with memoization (top-down DP)
+                analogy: "It's like doing homework and saving your answers so you don't have to solve the same problem twice!",
+                visualizations: [
+                    {
+                        title: "Climbing Stairs with Memory 🪜",
+                        imageUrl: "/images/visualizations/dp_staircase.svg",
+                        description: "Climb n stairs taking 1 or 2 steps. Ways to reach step 5? It's ways(4) + ways(3) - you can arrive from step 4 or 3! Naive recursion recalculates same steps repeatedly. DP solution: write down ways(i) for each step once in a table. Use stored results instead of recalculating. Memoization!"
+                    },
+                    {
+                        title: "Fibonacci With Notebook 📔",
+                        imageUrl: "/images/visualizations/dp_fib_tree.svg",
+                        description: "Computing Fib(50) recursively does millions of duplicate calculations. DP approach: keep a notebook! Write Fib(0)=0, Fib(1)=1. For next numbers, look up the previous two in your notebook instead of recalculating. Bottom-up DP builds from base cases - O(n) instead of O(2ⁿ)!"
+                    },
+                    {
+                        title: "Knapsack Problem Grid 🎒",
+                        imageUrl: "/images/visualizations/dp_knapsack.png",
+                        description: "Fit items in backpack to maximize value? Create a 2D table: rows are items, columns are weight capacities. Each cell [i][w] = max value using first i items with capacity w. Build table cell by cell, using previous results. Final cell has answer - no recalculation needed!"
+                    },
+                    {
+                        title: "Longest Common Subsequence Matrix 📊",
+                        imageUrl: "/images/visualizations/dp_grid_path.png",
+                        description: "Find longest common subsequence of two strings? Build matrix comparing each character pair. If match, diagonal + 1. If not, max of left and top cells. Fill entire table once, use stored values. Bottom-right cell has answer. DP trades space (table) for time (efficiency)!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Fibonacci with memoization (top-down DP)
 def fib(n, memo={}):
     """Calculate nth Fibonacci number - O(n) time, O(n) space"""
     if n in memo:
@@ -4093,11 +4204,11 @@ def fib_tabulation(n):
     return dp[n]
 
 print(fib_tabulation(10))  # 55`,
-            explanation: 'Python DP with memoization (top-down) and tabulation (bottom-up) approaches',
-          },
-          {
-            language: 'javascript',
-            code: `// Fibonacci with memoization (top-down DP)
+                        explanation: 'Python DP with memoization (top-down) and tabulation (bottom-up) approaches',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Fibonacci with memoization (top-down DP)
 function fib(n, memo = {}) {
     // Calculate nth Fibonacci number - O(n) time, O(n) space
     if (n in memo) {
@@ -4131,11 +4242,11 @@ function fibTabulation(n) {
 }
 
 console.log(fibTabulation(10));  // 55`,
-            explanation: 'JavaScript DP showing both memoization and tabulation patterns',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript DP showing both memoization and tabulation patterns',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <unordered_map>
 #include <vector>
 using namespace std;
@@ -4176,11 +4287,11 @@ int main() {
     cout << fibTabulation(50) << endl;  // 12586269025
     return 0;
 }`,
-            explanation: 'C++ DP using unordered_map for memoization and vector for tabulation',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ DP using unordered_map for memoization and vector for tabulation',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class DynamicProgramming {
     // Fibonacci with memoization (top-down DP)
@@ -4220,12 +4331,12 @@ public class DynamicProgramming {
         System.out.println(fibTabulation(50));  // 12586269025
     }
 }`,
-            explanation: 'Java DP with HashMap for memoization and array for tabulation',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java DP with HashMap for memoization and array for tabulation',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Dynamic Programming - Patterns
 
 ## When to Use DP
@@ -4242,11 +4353,11 @@ public class DynamicProgramming {
 ## Time Complexity
 Usually reduces exponential to polynomial time!
         `,
-        timeComplexityAnalysis: 'Memoization trades space for time. O(2^n) becomes O(n) for Fibonacci.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def coin_change(coins, amount):
+                timeComplexityAnalysis: 'Memoization trades space for time. O(2^n) becomes O(n) for Fibonacci.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def coin_change(coins, amount):
     """
     Minimum coins needed to make amount
     Time: O(amount * coins), Space: O(amount)
@@ -4264,11 +4375,11 @@ Usually reduces exponential to polynomial time!
 print(coin_change([1, 2, 5], 11))  # 3 (5+5+1)
 print(coin_change([2], 3))         # -1 (impossible)
 print(coin_change([1, 3, 4], 6))   # 2 (3+3)`,
-            explanation: 'Python coin change DP - classic problem showing optimal substructure',
-          },
-          {
-            language: 'javascript',
-            code: `function coinChange(coins, amount) {
+                        explanation: 'Python coin change DP - classic problem showing optimal substructure',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function coinChange(coins, amount) {
     /**
      * Minimum coins needed to make amount
      * Time: O(amount * coins), Space: O(amount)
@@ -4289,11 +4400,11 @@ print(coin_change([1, 3, 4], 6))   # 2 (3+3)`,
 console.log(coinChange([1, 2, 5], 11));  // 3 (5+5+1)
 console.log(coinChange([2], 3));         // -1 (impossible)
 console.log(coinChange([1, 3, 4], 6));   // 2 (3+3)`,
-            explanation: 'JavaScript coin change DP - builds solution from smaller subproblems',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript coin change DP - builds solution from smaller subproblems',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <climits>
 using namespace std;
@@ -4329,11 +4440,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ coin change DP - uses INT_MAX to represent impossible states',
-          },
-          {
-            language: 'java',
-            code: `public class CoinChange {
+                        explanation: 'C++ coin change DP - uses INT_MAX to represent impossible states',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class CoinChange {
     /**
      * Minimum coins needed to make amount
      * Time: O(amount * coins), Space: O(amount)
@@ -4362,12 +4473,12 @@ int main() {
         System.out.println(coinChange(new int[]{1, 3, 4}, 6));   // 2 (3+3)
     }
 }`,
-            explanation: 'Java coin change DP - demonstrates optimal substructure property',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java coin change DP - demonstrates optimal substructure property',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Dynamic Programming - Advanced
 
 ## Space Optimization
@@ -4380,12 +4491,12 @@ The hardest part is defining the DP state correctly.
 - Bottom-up: Better space, iterative
 - Top-down: More intuitive, handles sparse cases better
         `,
-        memoryOptimization: 'Use rolling arrays or state compression when possible.',
-        systemDesignImplications: 'DP principles apply to caching strategies in distributed systems.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def length_of_lis(nums):
+                memoryOptimization: 'Use rolling arrays or state compression when possible.',
+                systemDesignImplications: 'DP principles apply to caching strategies in distributed systems.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def length_of_lis(nums):
     """
     Longest Increasing Subsequence - O(n log n)
     Using binary search for optimization
@@ -4407,11 +4518,11 @@ The hardest part is defining the DP state correctly.
 print(length_of_lis([10, 9, 2, 5, 3, 7, 101, 18]))  # 4 ([2,3,7,101])
 print(length_of_lis([0, 1, 0, 3, 2, 3]))            # 4 ([0,1,2,3])
 print(length_of_lis([7, 7, 7, 7, 7]))               # 1`,
-            explanation: 'Python LIS using binary search - O(n log n) instead of O(n²)',
-          },
-          {
-            language: 'javascript',
-            code: `function lengthOfLIS(nums) {
+                        explanation: 'Python LIS using binary search - O(n log n) instead of O(n²)',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function lengthOfLIS(nums) {
     /**
      * Longest Increasing Subsequence - O(n log n)
      * Using binary search for optimization
@@ -4448,11 +4559,11 @@ print(length_of_lis([7, 7, 7, 7, 7]))               # 1`,
 console.log(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]));  // 4
 console.log(lengthOfLIS([0, 1, 0, 3, 2, 3]));            // 4
 console.log(lengthOfLIS([7, 7, 7, 7, 7]));               // 1`,
-            explanation: 'JavaScript LIS with custom binary search for O(n log n) complexity',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript LIS with custom binary search for O(n log n) complexity',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -4488,11 +4599,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ LIS using STL lower_bound for efficient binary search',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ LIS using STL lower_bound for efficient binary search',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class LongestIncreasingSubsequence {
     /**
@@ -4533,25 +4644,25 @@ public class LongestIncreasingSubsequence {
         System.out.println(lengthOfLIS(new int[]{7, 7, 7, 7, 7}));               // 1
     }
 }`,
-            explanation: 'Java LIS with custom binary search - demonstrates DP optimization techniques',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'array', params: { visualization: 'dp-table' } },
-      playgroundInitialCode: {
-        python: `def fibonacci(n):
+                        explanation: 'Java LIS with custom binary search - demonstrates DP optimization techniques',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'array', params: { visualization: 'dp-table' } },
+            playgroundInitialCode: {
+                python: `def fibonacci(n):
     # Implement with DP
     pass
 
 print(fibonacci(10))`,
-        javascript: `function fibonacci(n) {
+                javascript: `function fibonacci(n) {
     // Implement with DP
 }
 
 console.log(fibonacci(10));`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -4564,7 +4675,7 @@ int main() {
     cout << fibonacci(10) << endl;
     return 0;
 }`,
-        java: `public class DP {
+                java: `public class DP {
     public static int fibonacci(int n) {
         // Implement with DP
         return 0;
@@ -4574,21 +4685,21 @@ int main() {
         System.out.println(fibonacci(10));
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '5',
-    meta: {
-      title: 'Hash Tables',
-      slug: 'hash-tables',
-      category: 'DSA',
-      tags: ['data-structures', 'hashing', 'dictionaries'],
-      estimatedTime: 35,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '5',
+        meta: {
+            title: 'Hash Tables',
+            slug: 'hash-tables',
+            category: 'DSA',
+            tags: ['data-structures', 'hashing', 'dictionaries'],
+            estimatedTime: 35,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Hash Tables - Lightning Fast Lookups
 
 Imagine a library where instead of searching shelf by shelf, you have a magic formula that tells you exactly which shelf has your book!
@@ -4604,11 +4715,34 @@ Average O(1) time for insert, delete, and search!
 - Objects in JavaScript
 - Phone book lookups
         `,
-        analogy: "It's like having a locker number (hash) that directly tells you where your stuff is stored!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Using Python's built-in dictionary (hash table)
+                analogy: "It's like having a locker number (hash) that directly tells you where your stuff is stored!",
+                visualizations: [
+                    {
+                        title: "Library Card Catalog 📚",
+                        imageUrl: "/images/visualizations/hash_library_catalog.png",
+                        description: "Old library catalogs used drawers labeled A-Z. Find a book by author? Hash the author's last name to a letter (hash function), go straight to that drawer (bucket). O(1) access! Collisions happen when multiple authors start with the same letter - handle with chaining (multiple cards in drawer)."
+                    },
+                    {
+                        title: "Classroom Lockers with Numbers 🔐",
+                        imageUrl: "/images/visualizations/hash_lockers.png",
+                        description: "Lockers numbered 0-99 (hash table size). Your student ID is hashed (ID % 100) to assign you a locker number. Go directly to your locker in O(1) time! If two students hash to the same number (collision), use linear probing (try next locker) or chaining (share the locker with subdivisions)."
+                    },
+                    {
+                        title: "Restaurant Reservation System 🍴",
+                        imageUrl: "/images/visualizations/hash_restaurant.png",
+                        description: "Hash phone numbers to quickly find reservations! Phone number → hash function → table index. Instead of searching all reservations  (O(n)), jump directly to the right spot (O(1)). Multiple reservations with same hash? Use linked list at that index (chaining) or find next empty slot (open addressing)."
+                    },
+                    {
+                        title: "Dictionary/HashMap Inside 🔍",
+                        imageUrl: "/images/visualizations/hash_dictionary.png",
+                        description: "Programming dictionaries/maps use hash tables! Key goes through hash function → index in array. This is why dict['name'] is O(1) instead of O(n). Good hash functions distribute keys evenly to minimize collisions. Load factor (items/capacity) kept low by resizing table when it gets too full!"
+                    }
+                ],
+
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Using Python's built-in dictionary (hash table)
 phone_book = {}
 
 # Insert - O(1) average
@@ -4629,11 +4763,11 @@ del phone_book["Bob"]
 # Iterate
 for name, number in phone_book.items():
     print(f"{name}: {number}")`,
-            explanation: 'Python dict is a hash table with O(1) average operations',
-          },
-          {
-            language: 'javascript',
-            code: `// Using JavaScript Object (hash table)
+                        explanation: 'Python dict is a hash table with O(1) average operations',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Using JavaScript Object (hash table)
 const phoneBook = {};
 
 // Insert - O(1) average
@@ -4661,11 +4795,11 @@ for (const [name, number] of Object.entries(phoneBook)) {
 const phoneMap = new Map();
 phoneMap.set("Alice", "555-1234");
 console.log(phoneMap.get("Alice"));`,
-            explanation: 'JavaScript Object and Map both provide hash table functionality',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript Object and Map both provide hash table functionality',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <unordered_map>
 #include <string>
 using namespace std;
@@ -4697,11 +4831,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ unordered_map is a hash table with average O(1) operations',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ unordered_map is a hash table with average O(1) operations',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class HashTableExample {
     public static void main(String[] args) {
@@ -4730,12 +4864,12 @@ public class HashTableExample {
         }
     }
 }`,
-            explanation: 'Java HashMap provides hash table with O(1) average time complexity',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java HashMap provides hash table with O(1) average time complexity',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Hash Tables - Under the Hood
 
 ## Hash Function
@@ -4749,11 +4883,11 @@ Converts key to array index: \`hash(key) % array_size\`
 - **Average:** O(1) for all operations
 - **Worst:** O(n) when many collisions
         `,
-        timeComplexityAnalysis: 'Good hash function distributes keys uniformly, minimizing collisions.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `class HashTable:
+                timeComplexityAnalysis: 'Good hash function distributes keys uniformly, minimizing collisions.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `class HashTable:
     """Custom hash table with chaining for collision resolution"""
     def __init__(self, size=10):
         self.size = size
@@ -4796,11 +4930,11 @@ ht = HashTable()
 ht.insert("apple", 5)
 ht.insert("banana", 7)
 print(ht.get("apple"))  # 5`,
-            explanation: 'Python custom hash table using chaining (lists) for collision handling',
-          },
-          {
-            language: 'javascript',
-            code: `class HashTable {
+                        explanation: 'Python custom hash table using chaining (lists) for collision handling',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class HashTable {
     // Custom hash table with chaining for collision resolution
     constructor(size = 10) {
         this.size = size;
@@ -4858,11 +4992,11 @@ const ht = new HashTable();
 ht.insert("apple", 5);
 ht.insert("banana", 7);
 console.log(ht.get("apple"));  // 5`,
-            explanation: 'JavaScript custom hash table with chaining using nested arrays',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript custom hash table with chaining using nested arrays',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <list>
 #include <string>
@@ -4929,11 +5063,11 @@ int main() {
     cout << ht.get("apple") << endl;  // 5
     return 0;
 }`,
-            explanation: 'C++ custom hash table using vector of lists for chaining',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ custom hash table using vector of lists for chaining',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 // Custom hash table with chaining for collision resolution
 class HashTable {
@@ -5012,12 +5146,12 @@ class HashTable {
         System.out.println(ht.get("apple"));  // 5
     }
 }`,
-            explanation: 'Java custom hash table with ArrayList of ArrayLists for chaining',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java custom hash table with ArrayList of ArrayLists for chaining',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Hash Tables - Advanced Topics
 
 ## Load Factor
@@ -5034,12 +5168,12 @@ When keys are known in advance, can achieve O(1) worst case.
 - Deduplication
 - Symbol tables in compilers
         `,
-        memoryOptimization: 'Trade-off between space (larger table) and collision rate.',
-        systemDesignImplications: 'Distributed hash tables (DHT) power systems like BitTorrent and Cassandra.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `from collections import OrderedDict
+                memoryOptimization: 'Trade-off between space (larger table) and collision rate.',
+                systemDesignImplications: 'Distributed hash tables (DHT) power systems like BitTorrent and Cassandra.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `from collections import OrderedDict
 
 class LRUCache:
     """LRU Cache using hash table + ordered dict - O(1) operations"""
@@ -5071,11 +5205,11 @@ lru.put(2, 2)
 print(lru.get(1))  # 1
 lru.put(3, 3)  # Evicts key 2
 print(lru.get(2))  # -1 (not found)`,
-            explanation: 'Python LRU Cache using OrderedDict for O(1) get/put operations',
-          },
-          {
-            language: 'javascript',
-            code: `class LRUCache {
+                        explanation: 'Python LRU Cache using OrderedDict for O(1) get/put operations',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class LRUCache {
     // LRU Cache using Map - O(1) operations
     constructor(capacity) {
         this.capacity = capacity;
@@ -5115,11 +5249,11 @@ lru.put(2, 2);
 console.log(lru.get(1));  // 1
 lru.put(3, 3);  // Evicts key 2
 console.log(lru.get(2));  // -1 (not found)`,
-            explanation: 'JavaScript LRU Cache using Map which maintains insertion order',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript LRU Cache using Map which maintains insertion order',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <list>
 #include <unordered_map>
 using namespace std;
@@ -5167,11 +5301,11 @@ int main() {
     cout << lru.get(2) << endl;  // -1 (not found)
     return 0;
 }`,
-            explanation: 'C++ LRU Cache using list + unordered_map for O(1) operations',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ LRU Cache using list + unordered_map for O(1) operations',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 // LRU Cache using LinkedHashMap - O(1) operations
 class LRUCache extends LinkedHashMap<Integer, Integer> {
@@ -5207,15 +5341,15 @@ class LRUCache extends LinkedHashMap<Integer, Integer> {
         System.out.println(lru.get(2));  // -1 (not found)
     }
 }`,
-            explanation: 'Java LRU Cache using LinkedHashMap with access-order mode for automatic LRU',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'array', params: { visualization: 'hash-table' } },
-      playgroundInitialCode: {
-        python: `# Implement a simple hash table
+                        explanation: 'Java LRU Cache using LinkedHashMap with access-order mode for automatic LRU',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'array', params: { visualization: 'hash-table' } },
+            playgroundInitialCode: {
+                python: `# Implement a simple hash table
 class HashTable:
     def __init__(self):
         self.table = [None] * 10
@@ -5226,7 +5360,7 @@ class HashTable:
 
 ht = HashTable()
 ht.insert("name", "Alice")`,
-        javascript: `class HashTable {
+                javascript: `class HashTable {
     constructor() {
         this.table = new Array(10);
     }
@@ -5238,7 +5372,7 @@ ht.insert("name", "Alice")`,
 
 const ht = new HashTable();
 ht.insert("name", "Alice");`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -5255,7 +5389,7 @@ int main() {
     ht.insert("name", "Alice");
     return 0;
 }`,
-        java: `import java.util.*;
+                java: `import java.util.*;
 
 class HashTable {
     private List<List<Pair>> table;
@@ -5271,21 +5405,21 @@ class HashTable {
         // Your code here
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '6',
-    meta: {
-      title: 'Introduction to Neural Networks',
-      slug: 'neural-networks-intro',
-      category: 'AI',
-      tags: ['machine-learning', 'deep-learning', 'ai'],
-      estimatedTime: 45,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '6',
+        meta: {
+            title: 'Introduction to Neural Networks',
+            slug: 'neural-networks-intro',
+            category: 'AI',
+            tags: ['machine-learning', 'deep-learning', 'ai'],
+            estimatedTime: 45,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Neural Networks - Teaching Computers to Learn
 
 Imagine teaching a child to recognize cats. You show them many pictures, and they learn the patterns. Neural networks work the same way!
@@ -5298,11 +5432,28 @@ A computer system inspired by the human brain, made of connected "neurons" that 
 2. **Hidden Layers:** Process and find patterns
 3. **Output Layer:** Makes predictions
         `,
-        analogy: "It's like a team of workers passing information down a line, each adding their expertise until you get the final answer!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `import numpy as np
+                analogy: "It's like a team of workers passing information down a line, each adding their expertise until you get the final answer!",
+                visualizations: [
+                    {
+                        title: "Neural Network Architecture 🏗️",
+                        imageUrl: "/images/visualizations/nn_architecture.png",
+                        description: "A bird's-eye view of a neural network showing the Input Layer, Hidden Layers, and Output Layer. Information flows from left to right as the network learns complex patterns."
+                    },
+                    {
+                        title: "The Single Neuron 🔬",
+                        imageUrl: "/images/visualizations/nn_neuron_logic.png",
+                        description: "Inside a single neuron! It takes multiple inputs, multiplies them by 'weights', adds them up, and then uses an 'activation function' to decide what signal to pass forward."
+                    },
+                    {
+                        title: "The Learning Cycle 🔄",
+                        imageUrl: "/images/visualizations/nn_training_flow.png",
+                        description: "How AI learns: The 'Forward Pass' makes a prediction, while 'Backpropagation' looks at the error and adjusts the weights to make the next prediction even better!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `import numpy as np
 
 # Simple neuron
 def neuron(inputs, weights, bias):
@@ -5318,11 +5469,11 @@ bias = 0.5
 
 output = neuron(inputs, weights, bias)
 print(f"Output: {output}")`,
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Neural Networks - Training Process
 
 ## Forward Propagation
@@ -5341,11 +5492,11 @@ Calculate error and adjust weights to improve.
 - ReLU: max(0, x)
 - Tanh: -1 to 1
         `,
-        timeComplexityAnalysis: 'Training is O(n * m * e) where n=samples, m=parameters, e=epochs.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `import numpy as np
+                timeComplexityAnalysis: 'Training is O(n * m * e) where n=samples, m=parameters, e=epochs.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `import numpy as np
 
 class SimpleNN:
     def __init__(self, input_size, hidden_size, output_size):
@@ -5367,11 +5518,11 @@ nn = SimpleNN(3, 4, 1)
 X = np.array([[1, 2, 3]])
 output = nn.forward(X)
 print(f"Prediction: {output}")`,
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Neural Networks - Advanced Architecture
 
 ## Modern Architectures
@@ -5390,12 +5541,12 @@ print(f"Prediction: {output}")`,
 - Overfitting
 - Computational cost
         `,
-        memoryOptimization: 'Use mixed precision training, gradient checkpointing for large models.',
-        systemDesignImplications: 'Distributed training across GPUs/TPUs. Model serving with TensorFlow Serving or ONNX.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `import torch
+                memoryOptimization: 'Use mixed precision training, gradient checkpointing for large models.',
+                systemDesignImplications: 'Distributed training across GPUs/TPUs. Model serving with TensorFlow Serving or ONNX.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `import torch
 import torch.nn as nn
 
 class DeepNN(nn.Module):
@@ -5426,14 +5577,14 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 #     loss = criterion(outputs, labels)
 #     loss.backward()
 #     optimizer.step()`,
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'graph', params: { structure: 'neural-network' } },
-      playgroundInitialCode: {
-        python: `import numpy as np
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'graph', params: { structure: 'neural-network' } },
+            playgroundInitialCode: {
+                python: `import numpy as np
 
 # Build a simple neural network
 def sigmoid(x):
@@ -5441,14 +5592,14 @@ def sigmoid(x):
 
 # Your code here
 `,
-        javascript: `// Build a simple neural network
+                javascript: `// Build a simple neural network
 function sigmoid(x) {
     return 1 / (1 + Math.exp(-x));
 }
 
 // Your code here
 `,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <cmath>
 using namespace std;
 
@@ -5460,7 +5611,7 @@ int main() {
     // Your code here
     return 0;
 }`,
-        java: `public class NeuralNetwork {
+                java: `public class NeuralNetwork {
     public static double sigmoid(double x) {
         return 1.0 / (1.0 + Math.exp(-x));
     }
@@ -5469,21 +5620,21 @@ int main() {
         // Your code here
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '7',
-    meta: {
-      title: 'Stacks',
-      slug: 'stacks',
-      category: 'DSA',
-      tags: ['data-structures', 'LIFO', 'linear'],
-      estimatedTime: 30,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '7',
+        meta: {
+            title: 'Stacks',
+            slug: 'stacks',
+            category: 'DSA',
+            tags: ['data-structures', 'LIFO', 'linear'],
+            estimatedTime: 30,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Stacks - Last In, First Out! 📚
 
 A stack is a linear data structure that follows the **LIFO (Last In, First Out)** principle. Think of a stack of plates - you can only add or remove plates from the top!
@@ -5515,11 +5666,33 @@ A stack is a collection of elements where insertions and deletions occur at one 
 - Expression evaluation
 - Backtracking algorithms
         `,
-        analogy: "A stack is like a stack of books - you can only take the top book off, and you add new books on top! You can't pull a book from the middle without removing all the books above it first.",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Stack implementation using list
+                analogy: "A stack is like a stack of books - you can only take the top book off, and you add new books on top! You can't pull a book from the middle without removing all the books above it first.",
+                visualizations: [
+                    {
+                        title: "Plate Stack in Cafeteria 🍽️",
+                        imageUrl: "/images/visualizations/stack_plates.png",
+                        description: "Imagine a stack of plates at a buffet. New plates are placed on top (PUSH), and you always take from the top (POP). The last plate added is the first one taken - that's LIFO (Last In, First Out) in action! You can't access plates in the middle without removing the ones on top."
+                    },
+                    {
+                        title: "Browser Back Button History 🌐",
+                        imageUrl: "/images/visualizations/stack_browser_history.png",
+                        description: "When you browse websites, each page is 'pushed' onto a history stack. Clicking 'Back' 'pops' the most recent page off the stack, taking you to the previous one. Keep clicking back to traverse the stack - most recent pages come off first!"
+                    },
+                    {
+                        title: "Undo/Redo Operations ↩️",
+                        imageUrl: "/images/visualizations/stack_undo_redo.png",
+                        description: "Text editors use stacks for undo/redo! Each action you perform is pushed onto the undo stack. Press Ctrl+Z to pop the last action and reverse it. This is why undo always reverses your MOST RECENT change - perfect LIFO behavior!"
+                    },
+                    {
+                        title: "Function Call Stack 📞",
+                        imageUrl: "/images/visualizations/stack_function_calls.png",
+                        description: "When function A calls function B, which calls function C, they're stacked: C on top, B in middle, A at bottom. When C finishes, it's popped off, returning to B. Then B finishes and pops, returning to A. This is how recursion and function calls work!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Stack implementation using list
 class Stack:
     def __init__(self):
         self.items = []
@@ -5561,11 +5734,11 @@ print(f"Top: {stack.peek()}")  # 3
 print(f"Size: {stack.size()}")  # 3
 stack.pop()  # Removes 3
 print(f"New top: {stack.peek()}")  # 2`,
-            explanation: 'Python list provides built-in stack operations with append() and pop()',
-          },
-          {
-            language: 'javascript',
-            code: `// Stack implementation using array
+                        explanation: 'Python list provides built-in stack operations with append() and pop()',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Stack implementation using array
 class Stack {
     constructor() {
         this.items = [];
@@ -5616,11 +5789,11 @@ console.log(\`Top: \${stack.peek()}\`);  // 3
 console.log(\`Size: \${stack.size()}\`);  // 3
 stack.pop();  // Removes 3
 console.log(\`New top: \${stack.peek()}\`);  // 2`,
-            explanation: 'JavaScript array methods push() and pop() provide natural stack operations',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript array methods push() and pop() provide natural stack operations',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <stack>
 #include <vector>
 using namespace std;
@@ -5678,11 +5851,11 @@ int main() {
     cout << "New top: " << stack.peek() << endl;  // 2
     return 0;
 }`,
-            explanation: 'C++ STL provides stack container, or use vector with push_back/pop_back',
-          },
-          {
-            language: 'java',
-            code: `import java.util.ArrayList;
+                        explanation: 'C++ STL provides stack container, or use vector with push_back/pop_back',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.ArrayList;
 
 // Stack implementation using ArrayList
 class Stack {
@@ -5738,12 +5911,12 @@ class Stack {
         System.out.println("New top: " + stack.peek());  // 2
     }
 }`,
-            explanation: 'Java provides Stack class in util package, or use ArrayList for custom implementation',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java provides Stack class in util package, or use ArrayList for custom implementation',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Stacks - Balanced Parentheses Checker 🔍
 
 Now let's solve a classic problem: checking if parentheses, brackets, and braces are balanced in an expression!
@@ -5781,11 +5954,11 @@ Given a string containing characters like \`()\`, \`[]\`, \`{}\`, determine if t
 - **HTML/XML parsers**: Tag matching
 - **Mathematical expressions**: Validation
         `,
-        timeComplexityAnalysis: 'We traverse the string once (O(n)) and each push/pop operation is O(1). In worst case, all characters are opening brackets, so space is O(n).',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def is_balanced(expression):
+                timeComplexityAnalysis: 'We traverse the string once (O(n)) and each push/pop operation is O(1). In worst case, all characters are opening brackets, so space is O(n).',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def is_balanced(expression):
     """
     Check if parentheses/brackets/braces are balanced
     Time: O(n), Space: O(n)
@@ -5818,11 +5991,11 @@ print(is_balanced("{[()]}"))      # True
 # With other characters
 print(is_balanced("a(b[c]d)e"))   # True
 print(is_balanced("if (x > 0) { return [1, 2]; }"))  # True`,
-            explanation: 'Python list as stack - append() for push, pop() for pop. Dictionary maps opening to closing brackets.',
-          },
-          {
-            language: 'javascript',
-            code: `function isBalanced(expression) {
+                        explanation: 'Python list as stack - append() for push, pop() for pop. Dictionary maps opening to closing brackets.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function isBalanced(expression) {
     /**
      * Check if parentheses/brackets/braces are balanced
      * Time: O(n), Space: O(n)
@@ -5860,11 +6033,11 @@ console.log(isBalanced("{[()]}"));      // true
 // With other characters
 console.log(isBalanced("a(b[c]d)e"));   // true
 console.log(isBalanced("if (x > 0) { return [1, 2]; }"));  // true`,
-            explanation: 'JavaScript array methods - push() and pop() provide stack operations. Object for bracket mapping.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript array methods - push() and pop() provide stack operations. Object for bracket mapping.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <stack>
 #include <unordered_map>
 #include <string>
@@ -5916,11 +6089,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ STL stack with unordered_map for O(1) bracket lookup. Uses top() to peek and pop() to remove.',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ STL stack with unordered_map for O(1) bracket lookup. Uses top() to peek and pop() to remove.',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class BalancedParentheses {
     /**
@@ -5967,12 +6140,12 @@ public class BalancedParentheses {
         System.out.println(isBalanced("if (x > 0) { return [1, 2]; }"));  // true
     }
 }`,
-            explanation: 'Java Stack class with HashMap for bracket mapping. Uses push(), pop(), and isEmpty() methods.',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java Stack class with HashMap for bracket mapping. Uses push(), pop(), and isEmpty() methods.',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Stacks - Min/Max Stack Design 🎯
 
 Design a stack that supports push, pop, top, and retrieving the minimum/maximum element in **constant time O(1)**!
@@ -6020,12 +6193,12 @@ Normal stack operations are O(1), but finding minimum typically requires O(n) tr
 - **Game development**: Score tracking with best/worst
 - **Database query optimization**: Min/max aggregates
         `,
-        memoryOptimization: 'Space optimization: Store only differences from min in main stack, or use single stack with pairs (value, currentMin).',
-        systemDesignImplications: 'Used in time-series databases for efficient range queries, monitoring dashboards for real-time metrics, and game leaderboards.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `class MinStack:
+                memoryOptimization: 'Space optimization: Store only differences from min in main stack, or use single stack with pairs (value, currentMin).',
+                systemDesignImplications: 'Used in time-series databases for efficient range queries, monitoring dashboards for real-time metrics, and game leaderboards.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `class MinStack:
     """
     Stack with O(1) min retrieval
     Uses two stacks: main + min tracker
@@ -6074,11 +6247,11 @@ print(f"Min after pop: {min_stack.get_min()}")  # 2
 
 min_stack.pop()  # Remove 7
 print(f"Min after pop: {min_stack.get_min()}")  # 2`,
-            explanation: 'Python implementation using two lists. min_stack tracks minimum at each level for O(1) retrieval.',
-          },
-          {
-            language: 'javascript',
-            code: `class MinStack {
+                        explanation: 'Python implementation using two lists. min_stack tracks minimum at each level for O(1) retrieval.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class MinStack {
     /**
      * Stack with O(1) min retrieval
      * Uses two stacks: main + min tracker
@@ -6135,11 +6308,11 @@ console.log(\`Min after pop: \${minStack.getMin()}\`);  // 2
 
 minStack.pop();  // Remove 7
 console.log(\`Min after pop: \${minStack.getMin()}\`);  // 2`,
-            explanation: 'JavaScript implementation with two arrays. Maintains sync between main stack and minimum tracker.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript implementation with two arrays. Maintains sync between main stack and minimum tracker.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <stack>
 using namespace std;
 
@@ -6202,11 +6375,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ STL stack implementation. Uses two stacks for O(1) operations. top() peeks without removing.',
-          },
-          {
-            language: 'java',
-            code: `import java.util.Stack;
+                        explanation: 'C++ STL stack implementation. Uses two stacks for O(1) operations. top() peeks without removing.',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.Stack;
 
 /**
  * Stack with O(1) min retrieval
@@ -6268,15 +6441,15 @@ class MinStack {
         System.out.println("Min after pop: " + minStack.getMin());  // 2
     }
 }`,
-            explanation: 'Java Stack implementation with two stacks. peek() views top without removing, maintaining O(1) for all operations.',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'stack', params: { operations: ['push', 'pop', 'peek'] } },
-      playgroundInitialCode: {
-        python: `class Stack:
+                        explanation: 'Java Stack implementation with two stacks. peek() views top without removing, maintaining O(1) for all operations.',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'stack', params: { operations: ['push', 'pop', 'peek'] } },
+            playgroundInitialCode: {
+                python: `class Stack:
     def __init__(self):
         self.items = []
     
@@ -6292,7 +6465,7 @@ stack = Stack()
 stack.push(1)
 stack.push(2)
 print(stack.pop())`,
-        javascript: `class Stack {
+                javascript: `class Stack {
     constructor() {
         this.items = [];
     }
@@ -6310,7 +6483,7 @@ const stack = new Stack();
 stack.push(1);
 stack.push(2);
 console.log(stack.pop());`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <stack>
 using namespace std;
 
@@ -6322,7 +6495,7 @@ int main() {
     s.pop();
     return 0;
 }`,
-        java: `import java.util.Stack;
+                java: `import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
@@ -6332,21 +6505,21 @@ public class Main {
         System.out.println(stack.pop());
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '8',
-    meta: {
-      title: 'Queues',
-      slug: 'queues',
-      category: 'DSA',
-      tags: ['data-structures', 'FIFO', 'linear'],
-      estimatedTime: 30,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '8',
+        meta: {
+            title: 'Queues',
+            slug: 'queues',
+            category: 'DSA',
+            tags: ['data-structures', 'FIFO', 'linear'],
+            estimatedTime: 30,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Queues - First In, First Out! 🎫
 
 A queue is a linear data structure that follows the **FIFO (First In, First Out)** principle. Think of a line at a ticket counter - the first person in line is the first to be served!
@@ -6380,11 +6553,33 @@ A queue is a collection where elements are added at one end (rear) and removed f
 - Task scheduling in operating systems
 - Message queues in distributed systems
         `,
-        analogy: "A queue is like waiting in line at a coffee shop - first come, first served! You join at the back of the line and leave from the front. No cutting in line allowed!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Queue implementation using deque (double-ended queue)
+                analogy: "A queue is like waiting in line at a coffee shop - first come, first served! You join at the back of the line and leave from the front. No cutting in line allowed!",
+                visualizations: [
+                    {
+                        title: "Line at Coffee Shop  ☕",
+                        imageUrl: "/images/visualizations/queue_coffee_line.png",
+                        description: "A queue is like people waiting in line at a coffee shop. First person in line gets served first (FIFO - First In, First Out). New customers join at the back (enqueue), and service happens at the front (dequeue). Fair and orderly!"
+                    },
+                    {
+                        title: "Print Queue 🖨️",
+                        imageUrl: "/images/visualizations/queue_printer.png",
+                        description: "When multiple people send documents to a printer, they form a queue. The first document sent prints first, then the second, and so on. Your document waits its turn at the back of the queue until all previous jobs finish. No cutting in line!"
+                    },
+                    {
+                        title: "Customer Service Hotline 📞",
+                        imageUrl: "/images/visualizations/queue_call_center.png",
+                        description: "Call a support hotline and you're added to a queue. 'You are caller number 5' means 4 people are ahead of you. As each call finishes (dequeue from front), you move forward. First caller to join gets helped first - classic FIFO!"
+                    },
+                    {
+                        title: "Task Scheduling in OS 💻",
+                        imageUrl: "/images/visualizations/queue_cpu_scheduling.png",
+                        description: "Operating systems use queues to manage processes waiting for CPU time. Each process joins the ready queue. The CPU serves processes in order - first come, first served (FCFS scheduling). This ensures fair resource allocation across all programs!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Queue implementation using deque (double-ended queue)
 from collections import deque
 
 class Queue:
@@ -6428,11 +6623,11 @@ print(f"Front: {queue.front()}")  # 1
 print(f"Size: {queue.size()}")    # 3
 queue.dequeue()  # Removes 1
 print(f"New front: {queue.front()}")  # 2`,
-            explanation: 'Python deque (double-ended queue) provides O(1) operations for both ends - append() adds to rear, popleft() removes from front',
-          },
-          {
-            language: 'javascript',
-            code: `// Queue implementation using array
+                        explanation: 'Python deque (double-ended queue) provides O(1) operations for both ends - append() adds to rear, popleft() removes from front',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Queue implementation using array
 class Queue {
     constructor() {
         this.items = [];
@@ -6483,11 +6678,11 @@ console.log(\`Front: \${queue.front()}\`);  // 1
 console.log(\`Size: \${queue.size()}\`);    // 3
 queue.dequeue();  // Removes 1
 console.log(\`New front: \${queue.front()}\`);  // 2`,
-            explanation: 'JavaScript array with push() to add at rear and shift() to remove from front. Note: shift() is O(n), but simple for learning',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript array with push() to add at rear and shift() to remove from front. Note: shift() is O(n), but simple for learning',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <queue>
 using namespace std;
 
@@ -6544,11 +6739,11 @@ int main() {
     cout << "New front: " << queue.front() << endl;  // 2
     return 0;
 }`,
-            explanation: 'C++ STL queue provides push() to add, pop() to remove, and front() to peek. All operations are O(1)',
-          },
-          {
-            language: 'java',
-            code: `import java.util.LinkedList;
+                        explanation: 'C++ STL queue provides push() to add, pop() to remove, and front() to peek. All operations are O(1)',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.LinkedList;
 import java.util.Queue;
 
 // Queue implementation using LinkedList
@@ -6605,12 +6800,12 @@ class QueueDemo {
         System.out.println("New front: " + queue.front());  // 2
     }
 }`,
-            explanation: 'Java Queue interface with LinkedList implementation. add() enqueues, poll() dequeues, peek() views front',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java Queue interface with LinkedList implementation. add() enqueues, poll() dequeues, peek() views front',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Queues - Circular Queue Implementation 🔄
 
 A circular queue is a more efficient queue where the last position connects back to the first, preventing wasted space!
@@ -6654,11 +6849,11 @@ Implement a circular queue with fixed capacity that efficiently reuses space.
 - **Traffic systems**: Traffic light rotation
 - **Gaming**: Turn-based game systems
         `,
-        timeComplexityAnalysis: 'All operations are O(1) because we use direct array access with modulo arithmetic. Space is O(n) for the fixed-size array.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `class CircularQueue:
+                timeComplexityAnalysis: 'All operations are O(1) because we use direct array access with modulo arithmetic. Space is O(n) for the fixed-size array.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `class CircularQueue:
     """
     Circular Queue with fixed capacity
     Time: O(1) for all operations, Space: O(k)
@@ -6729,11 +6924,11 @@ print(f"Front: {cq.get_front()}")  # 1
 cq.dequeue()   # [_, 2, 3]
 cq.enqueue(4)  # [4, 2, 3] - Wrapped around!
 print(f"Front: {cq.get_front()}")  # 2`,
-            explanation: 'Python circular queue using modulo (%) to wrap indices. Tracks front and rear pointers for O(1) operations.',
-          },
-          {
-            language: 'javascript',
-            code: `class CircularQueue {
+                        explanation: 'Python circular queue using modulo (%) to wrap indices. Tracks front and rear pointers for O(1) operations.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class CircularQueue {
     /**
      * Circular Queue with fixed capacity
      * Time: O(1) for all operations, Space: O(k)
@@ -6813,11 +7008,11 @@ console.log(\`Front: \${cq.getFront()}\`);  // 1
 cq.dequeue();   // [_, 2, 3]
 cq.enqueue(4);  // [4, 2, 3] - Wrapped around!
 console.log(\`Front: \${cq.getFront()}\`);  // 2`,
-            explanation: 'JavaScript circular queue with modulo arithmetic for wrapping. Efficient space reuse with O(1) operations.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript circular queue with modulo arithmetic for wrapping. Efficient space reuse with O(1) operations.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -6906,11 +7101,11 @@ int main() {
     cout << "Front: " << cq.getFront() << endl;  // 2
     return 0;
 }`,
-            explanation: 'C++ circular queue using vector and modulo for circular indexing. Efficient memory usage with constant-time operations.',
-          },
-          {
-            language: 'java',
-            code: `/**
+                        explanation: 'C++ circular queue using vector and modulo for circular indexing. Efficient memory usage with constant-time operations.',
+                    },
+                    {
+                        language: 'java',
+                        code: `/**
  * Circular Queue with fixed capacity
  * Time: O(1) for all operations, Space: O(k)
  */
@@ -6996,12 +7191,12 @@ class CircularQueue {
         System.out.println("Front: " + cq.getFront());  // 2
     }
 }`,
-            explanation: 'Java circular queue with array and modulo arithmetic. Prevents space wastage with circular wrapping.',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java circular queue with array and modulo arithmetic. Prevents space wastage with circular wrapping.',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Queues - Priority Queue (Heap-Based) 🎯
 
 A priority queue where elements are dequeued based on priority, not insertion order. Higher priority elements come out first!
@@ -7050,12 +7245,12 @@ Use a **max heap** (or min heap) for efficient operations:
 - **A* search**: Pathfinding in games/maps
 - **Load balancing**: Task distribution by priority
         `,
-        memoryOptimization: 'Binary heap uses array representation for O(1) parent/child access. No extra pointers needed unlike tree structures.',
-        systemDesignImplications: 'Used in OS schedulers, network routers (QoS), database query optimizers, and real-time systems. Message queues like RabbitMQ support priority.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `import heapq
+                memoryOptimization: 'Binary heap uses array representation for O(1) parent/child access. No extra pointers needed unlike tree structures.',
+                systemDesignImplications: 'Used in OS schedulers, network routers (QoS), database query optimizers, and real-time systems. Message queues like RabbitMQ support priority.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `import heapq
 
 class PriorityQueue:
     """
@@ -7107,11 +7302,11 @@ print(f"\\nPeek: {pq.peek()}")  # Critical task
 while not pq.is_empty():
     pq.extract_max()
 # Output: Critical (20), High (10), Medium (5), Low (1)`,
-            explanation: 'Python heapq module provides min heap. Negate priorities for max heap behavior. O(log n) for insert/extract.',
-          },
-          {
-            language: 'javascript',
-            code: `class PriorityQueue {
+                        explanation: 'Python heapq module provides min heap. Negate priorities for max heap behavior. O(log n) for insert/extract.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class PriorityQueue {
     /**
      * Priority Queue using array-based max heap
      * Time: O(log n) insert/extract, O(1) peek
@@ -7203,11 +7398,11 @@ console.log(\`\\nPeek: \${pq.peek()}\`);  // Critical task
 while (!pq.isEmpty()) {
     pq.extractMax();
 }`,
-            explanation: 'JavaScript max heap implementation with bubbleUp/bubbleDown for maintaining heap property. Array-based for efficiency.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript max heap implementation with bubbleUp/bubbleDown for maintaining heap property. Array-based for efficiency.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <queue>
 #include <vector>
 #include <string>
@@ -7277,11 +7472,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ STL priority_queue is max heap by default. Custom comparator for struct. O(log n) push/pop, O(1) top.',
-          },
-          {
-            language: 'java',
-            code: `import java.util.PriorityQueue;
+                        explanation: 'C++ STL priority_queue is max heap by default. Custom comparator for struct. O(log n) push/pop, O(1) top.',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.PriorityQueue;
 import java.util.Comparator;
 
 /**
@@ -7349,15 +7544,15 @@ class PriorityQueueDemo {
         }
     }
 }`,
-            explanation: 'Java PriorityQueue is min heap by default. Use reverse comparator for max heap. offer() adds, poll() removes, peek() views.',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'queue', params: { operations: ['enqueue', 'dequeue'] } },
-      playgroundInitialCode: {
-        python: `from collections import deque
+                        explanation: 'Java PriorityQueue is min heap by default. Use reverse comparator for max heap. offer() adds, poll() removes, peek() views.',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'queue', params: { operations: ['enqueue', 'dequeue'] } },
+            playgroundInitialCode: {
+                python: `from collections import deque
 
 class Queue:
     def __init__(self):
@@ -7375,7 +7570,7 @@ queue = Queue()
 queue.enqueue(1)
 queue.enqueue(2)
 print(queue.dequeue())`,
-        javascript: `class Queue {
+                javascript: `class Queue {
     constructor() {
         this.items = [];
     }
@@ -7393,7 +7588,7 @@ const queue = new Queue();
 queue.enqueue(1);
 queue.enqueue(2);
 console.log(queue.dequeue());`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <queue>
 using namespace std;
 
@@ -7405,7 +7600,7 @@ int main() {
     q.pop();
     return 0;
 }`,
-        java: `import java.util.LinkedList;
+                java: `import java.util.LinkedList;
 import java.util.Queue;
 
 public class Main {
@@ -7416,21 +7611,21 @@ public class Main {
         System.out.println(queue.poll());
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '9',
-    meta: {
-      title: 'Binary Trees',
-      slug: 'binary-trees',
-      category: 'DSA',
-      tags: ['data-structures', 'trees', 'hierarchical'],
-      estimatedTime: 45,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '9',
+        meta: {
+            title: 'Binary Trees',
+            slug: 'binary-trees',
+            category: 'DSA',
+            tags: ['data-structures', 'trees', 'hierarchical'],
+            estimatedTime: 45,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Binary Trees - Hierarchical Data Structures 🌳
 
 A binary tree is a hierarchical data structure where each node has at most two children: left and right. Think of it like a family tree!
@@ -7479,11 +7674,33 @@ Where h = height of tree
 - Expression trees in compilers
 - Decision trees in AI/ML
         `,
-        analogy: "A binary tree is like a family tree where each person can have at most two children. You start at the top (root) and branch down through generations!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `class TreeNode:
+                analogy: "A binary tree is like a family tree where each person can have at most two children. You start at the top (root) and branch down through generations!",
+                visualizations: [
+                    {
+                        title: "Family Tree Hierarchy 👨‍👩‍👧‍👦",
+                        imageUrl: "/images/visualizations/tree_family.png",
+                        description: "A family tree is a perfect example! The ancestor is the root, children are child nodes, and each person can have their own descendants. Grandparents → Parents → Children shows the hierarchical parent-child relationship. Each node has at most one parent but can have multiple children!"
+                    },
+                    {
+                        title: "Company Organization Chart 🏢",
+                        imageUrl: "/images/visualizations/tree_org_chart.png",
+                        description: "Companies are structured as trees: CEO at the root, VPs as children, managers below them, and employees as leaves. Each employee reports to exactly one manager (parent), but managers can have multiple employees (children). Clear hierarchy, no circular reporting!"
+                    },
+                    {
+                        title: "File System Directory Structure 📁",
+                        imageUrl: "/images/visualizations/tree_file_system.png",
+                        description: "Your computer's folders form a tree! Root directory (C:\\ or /) is at top, folders are nodes, and files are leaves. Each folder can contain subfolders (children) and files. Navigate the tree by traversing parent-child relationships. Efficient organization and searching!"
+                    },
+                    {
+                        title: "Decision Tree Flow 🎯",
+                        imageUrl: "/images/visualizations/tree_decision.png",
+                        description: "Decision-making follows a tree structure.  Start at root with a question, each answer branches to child nodes with new questions, until you reach leaf nodes (final decisions). Binary trees (2 choices) and n-ary trees (multiple choices) model real-world decisions perfectly!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `class TreeNode:
     """Node class for binary tree"""
     def __init__(self, value):
         self.value = value
@@ -7529,11 +7746,11 @@ print("\\nPreorder: ", end='')
 preorder_traversal(root)   # 1 2 4 5 3
 print("\\nPostorder:", end='')
 postorder_traversal(root)  # 4 5 2 3 1`,
-            explanation: 'Python binary tree with recursive traversals. Inorder visits left subtree, root, then right subtree.',
-          },
-          {
-            language: 'javascript',
-            code: `class TreeNode {
+                        explanation: 'Python binary tree with recursive traversals. Inorder visits left subtree, root, then right subtree.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class TreeNode {
     // Node class for binary tree
     constructor(value) {
         this.value = value;
@@ -7587,11 +7804,11 @@ process.stdout.write("\\nPreorder:  ");
 preorderTraversal(root);   // 1 2 4 5 3
 process.stdout.write("\\nPostorder: ");
 postorderTraversal(root);  // 4 5 2 3 1`,
-            explanation: 'JavaScript binary tree with three traversal methods. Each uses recursion to visit nodes in different orders.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript binary tree with three traversal methods. Each uses recursion to visit nodes in different orders.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 using namespace std;
 
 // Node structure for binary tree
@@ -7653,11 +7870,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ binary tree using pointers. Three recursive traversal functions visit nodes in different orders.',
-          },
-          {
-            language: 'java',
-            code: `// Node class for binary tree
+                        explanation: 'C++ binary tree using pointers. Three recursive traversal functions visit nodes in different orders.',
+                    },
+                    {
+                        language: 'java',
+                        code: `// Node class for binary tree
 class TreeNode {
     int value;
     TreeNode left;
@@ -7720,12 +7937,12 @@ class BinaryTreeTraversal {
         System.out.println();
     }
 }`,
-            explanation: 'Java binary tree with three traversal methods. Recursion naturally handles the tree structure.',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java binary tree with three traversal methods. Recursion naturally handles the tree structure.',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Binary Trees - Level Order Traversal (BFS) 📊
 
 Level order traversal visits nodes level by level, from left to right. This is also called **Breadth-First Search (BFS)**!
@@ -7782,11 +7999,11 @@ Where w = maximum width (nodes at widest level)
 - **Game AI**: Explore game states breadth-first
 - **Network broadcasting**: Spread message to all nodes
         `,
-        timeComplexityAnalysis: 'Visit each node exactly once (O(n)). Queue stores at most one level of nodes, so space is O(w) where w is maximum width.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `from collections import deque
+                timeComplexityAnalysis: 'Visit each node exactly once (O(n)). Queue stores at most one level of nodes, so space is O(w) where w is maximum width.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `from collections import deque
 
 class TreeNode:
     def __init__(self, value):
@@ -7846,11 +8063,11 @@ for i, level in enumerate(levels):
 # Level 0: [1]
 # Level 1: [2, 3]
 # Level 2: [4, 5, 6]`,
-            explanation: 'Python BFS using deque for O(1) queue operations. Track level size to group nodes by level.',
-          },
-          {
-            language: 'javascript',
-            code: `class TreeNode {
+                        explanation: 'Python BFS using deque for O(1) queue operations. Track level size to group nodes by level.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class TreeNode {
     constructor(value) {
         this.value = value;
         this.left = null;
@@ -7911,11 +8128,11 @@ levels.forEach((level, i) => {
 // Level 0: [1]
 // Level 1: [2, 3]
 // Level 2: [4, 5, 6]`,
-            explanation: 'JavaScript BFS using array as queue. shift() removes from front, push() adds to back.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript BFS using array as queue. shift() removes from front, push() adds to back.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <queue>
 #include <vector>
 using namespace std;
@@ -7987,11 +8204,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ BFS using STL queue. front() gets first element, pop() removes it, push() adds to back.',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ BFS using STL queue. front() gets first element, pop() removes it, push() adds to back.',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 class TreeNode {
     int value;
@@ -8059,12 +8276,12 @@ class LevelOrderTraversal {
         }
     }
 }`,
-            explanation: 'Java BFS using LinkedList as Queue. offer() adds, poll() removes and returns front element.',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java BFS using LinkedList as Queue. offer() adds, poll() removes and returns front element.',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Binary Trees - Lowest Common Ancestor (LCA) 🎯
 
 Find the lowest common ancestor of two nodes in a binary tree - a classic interview problem!
@@ -8122,12 +8339,12 @@ Worst case: O(n) for skewed tree
 - **Taxonomy**: Find common ancestor in classification
 - **Network routing**: Find common network node
         `,
-        memoryOptimization: 'Recursive solution uses O(h) stack space. Iterative with parent pointers uses O(n) space but avoids recursion.',
-        systemDesignImplications: 'Used in Git for merge base finding, file system path resolution, and distributed systems for finding common ancestors in version trees.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `class TreeNode:
+                memoryOptimization: 'Recursive solution uses O(h) stack space. Iterative with parent pointers uses O(n) space but avoids recursion.',
+                systemDesignImplications: 'Used in Git for merge base finding, file system path resolution, and distributed systems for finding common ancestors in version trees.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `class TreeNode:
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -8185,11 +8402,11 @@ print(f"LCA(5, 4) = {lca2.value}")  # 5
 
 lca3 = lowest_common_ancestor(root, node6, node4)
 print(f"LCA(6, 4) = {lca3.value}")  # 5`,
-            explanation: 'Python recursive LCA. If both subtrees return nodes, current root is LCA. Otherwise, return the non-null side.',
-          },
-          {
-            language: 'javascript',
-            code: `class TreeNode {
+                        explanation: 'Python recursive LCA. If both subtrees return nodes, current root is LCA. Otherwise, return the non-null side.',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class TreeNode {
     constructor(value) {
         this.value = value;
         this.left = null;
@@ -8252,11 +8469,11 @@ console.log(\`LCA(5, 4) = \${lca2.value}\`);  // 5
 
 const lca3 = lowestCommonAncestor(root, node6, node4);
 console.log(\`LCA(6, 4) = \${lca3.value}\`);  // 5`,
-            explanation: 'JavaScript recursive LCA using reference equality. Clean logic: both sides found = root is LCA.',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript recursive LCA using reference equality. Clean logic: both sides found = root is LCA.',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 using namespace std;
 
 struct TreeNode {
@@ -8325,11 +8542,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ recursive LCA with pointer comparison. Elegant solution: if both subtrees have nodes, current is LCA.',
-          },
-          {
-            language: 'java',
-            code: `class TreeNode {
+                        explanation: 'C++ recursive LCA with pointer comparison. Elegant solution: if both subtrees have nodes, current is LCA.',
+                    },
+                    {
+                        language: 'java',
+                        code: `class TreeNode {
     int value;
     TreeNode left;
     TreeNode right;
@@ -8400,15 +8617,15 @@ class LowestCommonAncestor {
         System.out.println("LCA(6, 4) = " + lca3.value);  // 5
     }
 }`,
-            explanation: 'Java recursive LCA with reference comparison. Classic algorithm: both found in different subtrees = root is LCA.',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'tree', params: { structure: 'binary-tree', traversal: 'inorder' } },
-      playgroundInitialCode: {
-        python: `class TreeNode:
+                        explanation: 'Java recursive LCA with reference comparison. Classic algorithm: both found in different subtrees = root is LCA.',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'tree', params: { structure: 'binary-tree', traversal: 'inorder' } },
+            playgroundInitialCode: {
+                python: `class TreeNode:
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -8423,7 +8640,7 @@ root = TreeNode(1)
 root.left = TreeNode(2)
 root.right = TreeNode(3)
 inorder_traversal(root)`,
-        javascript: `class TreeNode {
+                javascript: `class TreeNode {
     constructor(value) {
         this.value = value;
         this.left = null;
@@ -8439,7 +8656,7 @@ const root = new TreeNode(1);
 root.left = new TreeNode(2);
 root.right = new TreeNode(3);
 inorderTraversal(root);`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 using namespace std;
 
 struct TreeNode {
@@ -8460,7 +8677,7 @@ int main() {
     inorderTraversal(root);
     return 0;
 }`,
-        java: `class TreeNode {
+                java: `class TreeNode {
     int value;
     TreeNode left, right;
     TreeNode(int value) {
@@ -8481,21 +8698,21 @@ public class Main {
         inorderTraversal(root);
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '10',
-    meta: {
-      title: 'Graphs',
-      slug: 'graphs',
-      category: 'DSA',
-      tags: ['data-structures', 'graphs', 'networks'],
-      estimatedTime: 45,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '10',
+        meta: {
+            title: 'Graphs',
+            slug: 'graphs',
+            category: 'DSA',
+            tags: ['data-structures', 'graphs', 'networks'],
+            estimatedTime: 45,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Graphs - Networks and Connections 🕸️
 
 A graph is a collection of nodes (vertices) connected by edges. Think of it like a social network where people are nodes and friendships are edges!
@@ -8518,11 +8735,33 @@ A graph is a collection of nodes (vertices) connected by edges. Think of it like
 - Web pages (links between pages)
 - Computer networks
         `,
-        analogy: "A graph is like a map of cities (nodes) connected by roads (edges). You can travel from one city to another following the roads!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Graph using adjacency list
+                analogy: "A graph is like a map of cities (nodes) connected by roads (edges). You can travel from one city to another following the roads!",
+                visualizations: [
+                    {
+                        title: "Social Network Connections 👥",
+                        imageUrl: "/images/visualizations/graph_social_network.png",
+                        description: "Facebook friends form a graph! Each person is a node, and friendships are edges connecting them. Unlike trees, graphs can have cycles (A knows B, B knows C, C knows A). You can traverse the network to find mutual friends, suggest connections, or measure degrees of separation!"
+                    },
+                    {
+                        title: "City Road Map 🗺️",
+                        imageUrl: "/images/visualizations/graph_road_map.png",
+                        description: "Cities are nodes, roads are edges in a weighted graph (weights = distances). Multiple routes exist between cities (unlike trees with one path). GPS uses graph algorithms like Dijkstra's to find shortest paths. Edges can be directed (one-way streets) or undirected (two-way roads)!"
+                    },
+                    {
+                        title: "Flight Route Network ✈️",
+                        imageUrl: "/images/visualizations/graph_flight_routes.png",
+                        description: "Airports are vertices, flight routes are edges. This is a directed weighted graph: edges have direction (NYC→LA ≠ LA→NYC) and weights (flight cost/time). Finding cheapest or fastest route between cities? That's a graph traversal problem solved by algorithms like Bellman-Ford or Dijkstra!"
+                    },
+                    {
+                        title: "Web Page Link Graph 🌐",
+                        imageUrl: "/images/visualizations/graph_web_pages.png",
+                        description: "The internet is a massive directed graph! Webpages are nodes, hyperlinks are directed edges. PageRank algorithm analyzes this graph to rank pages by importance. Crawlers traverse the graph to index content. Cycles are common (pages link to each other)!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Graph using adjacency list
 class Graph:
     def __init__(self):
         self.graph = {}
@@ -8551,11 +8790,11 @@ g.print_graph()
 # 0: [1, 2]
 # 1: [0, 2]
 # 2: [0, 1]`,
-            explanation: 'Python graph using dictionary for adjacency list representation',
-          },
-          {
-            language: 'javascript',
-            code: `// Graph using adjacency list
+                        explanation: 'Python graph using dictionary for adjacency list representation',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Graph using adjacency list
 class Graph {
     constructor() {
         this.graph = new Map();
@@ -8588,11 +8827,11 @@ g.printGraph();
 // 0: [1, 2]
 // 1: [0, 2]
 // 2: [0, 1]`,
-            explanation: 'JavaScript graph using Map for adjacency list',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript graph using Map for adjacency list',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <map>
 using namespace std;
@@ -8633,11 +8872,11 @@ int main() {
     // 2: [0, 1]
     return 0;
 }`,
-            explanation: 'C++ graph using map and vectors for adjacency list',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ graph using map and vectors for adjacency list',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 // Graph using adjacency list
 class Graph {
@@ -8675,12 +8914,12 @@ class Graph {
         // 2: [0, 1]
     }
 }`,
-            explanation: 'Java graph using HashMap and ArrayList for adjacency list',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java graph using HashMap and ArrayList for adjacency list',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Graphs - DFS and BFS Traversal 🔍
 
 Two fundamental ways to explore a graph: Depth-First Search (DFS) and Breadth-First Search (BFS).
@@ -8703,11 +8942,11 @@ Two fundamental ways to explore a graph: Depth-First Search (DFS) and Breadth-Fi
 - **DFS**: Cycle detection, topological sort, pathfinding
 - **BFS**: Shortest path, level-order traversal, peer-to-peer networks
         `,
-        timeComplexityAnalysis: 'Both DFS and BFS visit each vertex once and explore each edge once, giving O(V + E) time complexity.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `from collections import deque
+                timeComplexityAnalysis: 'Both DFS and BFS visit each vertex once and explore each edge once, giving O(V + E) time complexity.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `from collections import deque
 
 class Graph:
     def __init__(self):
@@ -8762,11 +9001,11 @@ g.add_edge(2, 4)
 
 print("DFS:", g.dfs(0))  # [0, 1, 3, 2, 4]
 print("BFS:", g.bfs(0))  # [0, 1, 2, 3, 4]`,
-            explanation: 'Python DFS (recursive) and BFS (queue-based) implementations',
-          },
-          {
-            language: 'javascript',
-            code: `class Graph {
+                        explanation: 'Python DFS (recursive) and BFS (queue-based) implementations',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class Graph {
     constructor() {
         this.graph = new Map();
     }
@@ -8828,11 +9067,11 @@ g.addEdge(2, 4);
 
 console.log("DFS:", g.dfs(0));  // [0, 1, 3, 2, 4]
 console.log("BFS:", g.bfs(0));  // [0, 1, 2, 3, 4]`,
-            explanation: 'JavaScript DFS and BFS with Set for visited tracking',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript DFS and BFS with Set for visited tracking',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <queue>
 #include <unordered_set>
@@ -8912,11 +9151,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ DFS and BFS using unordered_set and queue',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ DFS and BFS using unordered_set and queue',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 class Graph {
     private Map<Integer, List<Integer>> graph;
@@ -8985,12 +9224,12 @@ class Graph {
         System.out.println("BFS: " + g.bfs(0));
     }
 }`,
-            explanation: 'Java DFS and BFS using HashSet and LinkedList as queue',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java DFS and BFS using HashSet and LinkedList as queue',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Graphs - Dijkstra's Shortest Path 🎯
 
 Find the shortest path from a source to all other vertices in a weighted graph!
@@ -9018,12 +9257,12 @@ Find the shortest path from a source to all other vertices in a weighted graph!
 - Flight booking (cheapest path)
 - Game AI pathfinding
         `,
-        memoryOptimization: 'Use Fibonacci heap for O(V log V + E) time complexity.',
-        systemDesignImplications: 'Used in OSPF routing protocol, Google Maps, and network packet routing.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `import heapq
+                memoryOptimization: 'Use Fibonacci heap for O(V log V + E) time complexity.',
+                systemDesignImplications: 'Used in OSPF routing protocol, Google Maps, and network packet routing.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `import heapq
 
 def dijkstra(graph, start):
     """
@@ -9063,11 +9302,11 @@ graph = {
 
 result = dijkstra(graph, 'A')
 print(result)  # {'A': 0, 'B': 4, 'C': 2, 'D': 9, 'E': 11}`,
-            explanation: 'Python Dijkstra using heapq for priority queue',
-          },
-          {
-            language: 'javascript',
-            code: `class PriorityQueue {
+                        explanation: 'Python Dijkstra using heapq for priority queue',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class PriorityQueue {
     constructor() {
         this.values = [];
     }
@@ -9133,11 +9372,11 @@ const graph = {
 
 console.log(dijkstra(graph, 'A'));
 // {A: 0, B: 4, C: 2, D: 9, E: 11}`,
-            explanation: 'JavaScript Dijkstra with custom priority queue',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript Dijkstra with custom priority queue',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <queue>
 #include <unordered_map>
@@ -9200,11 +9439,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ Dijkstra using priority_queue (min-heap)',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ Dijkstra using priority_queue (min-heap)',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class Dijkstra {
     /**
@@ -9264,15 +9503,15 @@ public class Dijkstra {
         System.out.println(result);
     }
 }`,
-            explanation: 'Java Dijkstra using PriorityQueue for efficient min extraction',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'graph', params: { algorithm: 'bfs' } },
-      playgroundInitialCode: {
-        python: `# Implement graph traversal
+                        explanation: 'Java Dijkstra using PriorityQueue for efficient min extraction',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'graph', params: { algorithm: 'bfs' } },
+            playgroundInitialCode: {
+                python: `# Implement graph traversal
 class Graph:
     def __init__(self):
         self.graph = {}
@@ -9283,7 +9522,7 @@ class Graph:
 
 g = Graph()
 g.add_edge(0, 1)`,
-        javascript: `class Graph {
+                javascript: `class Graph {
     constructor() {
         this.graph = new Map();
     }
@@ -9295,7 +9534,7 @@ g.add_edge(0, 1)`,
 
 const g = new Graph();
 g.addEdge(0, 1);`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -9311,7 +9550,7 @@ int main() {
     g.addEdge(0, 1);
     return 0;
 }`,
-        java: `import java.util.*;
+                java: `import java.util.*;
 
 class Graph {
     public void addEdge(int u, int v) {
@@ -9323,21 +9562,21 @@ class Graph {
         g.addEdge(0, 1);
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '11',
-    meta: {
-      title: 'Recursion',
-      slug: 'recursion',
-      category: 'DSA',
-      tags: ['algorithms', 'recursion', 'divide-and-conquer'],
-      estimatedTime: 40,
-    },
-    content: {
-      beginner: {
-        markdownText: `
+    {
+        _id: '11',
+        meta: {
+            title: 'Recursion',
+            slug: 'recursion',
+            category: 'DSA',
+            tags: ['algorithms', 'recursion', 'divide-and-conquer'],
+            estimatedTime: 40,
+        },
+        content: {
+            beginner: {
+                markdownText: `
 # Recursion - Functions Calling Themselves 🔄
 
 Recursion is when a function calls itself to solve a problem by breaking it into smaller subproblems!
@@ -9362,11 +9601,33 @@ A function that calls itself with:
 - Fractal generation
 - Game AI (minimax)
         `,
-        analogy: "Recursion is like Russian nesting dolls - each doll contains a smaller version of itself until you reach the smallest one!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def factorial(n):
+                analogy: "Recursion is like Russian nesting dolls - each doll contains a smaller version of itself until you reach the smallest one!",
+                visualizations: [
+                    {
+                        title: "Russian Nesting Dolls 🪆",
+                        imageUrl: "/images/visualizations/recursion_dolls.svg",
+                        description: "Each doll contains a smaller copy of itself until you reach the tiniest one (base case). Opening them is recursive: open outer doll, find inner doll, open it (recursive call), repeat. When you hit the smallest doll (base case), start returning back up. Perfect recursion analogy!"
+                    },
+                    {
+                        title: "Factorial Staircase 🪜",
+                        imageUrl: "/images/visualizations/recursion_factorial.png",
+                        description: "Computing 5! = 5 × 4 × 3 × 2 × 1. Each step needs the previous: 5! = 5 × 4!, 4! = 4 × 3!, etc. Descent the stairs with recursive calls until 1! = 1 (base case), then climb back up multiplying values. Stack grows going down, shrinks going up!"
+                    },
+                    {
+                        title: "Mirrors Reflecting Mirrors 🪞",
+                        imageUrl: "/images/visualizations/recursion_mirror.png",
+                        description: "Stand between two mirrors - you see infinite reflections (each reflection contains smaller versions). That's recursion visualized! Each call creates a smaller version of the problem. Base case is when the reflection becomes too small to see - recursion stops and returns begin."
+                    },
+                    {
+                        title: "Tree Traversal Recursion 🌳",
+                        imageUrl: "/images/visualizations/recursion_file_tree.png",
+                        description: "Visiting every node in a tree? Define recursively: Visit node, recursively visit left subtree, recursively visit right subtree. Each subtree is a smaller tree (recursive structure). Base case: empty subtree (null). Natural fit - trees are inherently recursive data structures!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def factorial(n):
     """Calculate n! recursively"""
     # Base case
     if n <= 1:
@@ -9391,11 +9652,11 @@ def sum_array(arr):
     return arr[0] + sum_array(arr[1:])
 
 print(sum_array([1, 2, 3, 4]))  # 10`,
-            explanation: 'Python recursion with base and recursive cases',
-          },
-          {
-            language: 'javascript',
-            code: `function factorial(n) {
+                        explanation: 'Python recursion with base and recursive cases',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function factorial(n) {
     // Calculate n! recursively
     if (n <= 1) return 1;  // Base case
     return n * factorial(n - 1);  // Recursive case
@@ -9418,11 +9679,11 @@ function sumArray(arr) {
 }
 
 console.log(sumArray([1, 2, 3, 4]));  // 10`,
-            explanation: 'JavaScript recursion - each call waits for smaller calls to complete',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript recursion - each call waits for smaller calls to complete',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -9453,11 +9714,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ recursion - uses call stack to track function calls',
-          },
-          {
-            language: 'java',
-            code: `public class Recursion {
+                        explanation: 'C++ recursion - uses call stack to track function calls',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class Recursion {
     // Calculate n! recursively
     public static int factorial(int n) {
         if (n <= 1) return 1;  // Base case
@@ -9482,12 +9743,12 @@ int main() {
         System.out.println(sumArray(new int[]{1, 2, 3, 4}, 0));  // 10
     }
 }`,
-            explanation: 'Java recursion - method calls itself until base case is reached',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `
+                        explanation: 'Java recursion - method calls itself until base case is reached',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `
 # Recursion - Backtracking 🎯
 
 Backtracking is a recursive technique for solving problems by trying possibilities and undoing (backtracking) when they don't work!
@@ -9510,11 +9771,11 @@ Backtracking is a recursive technique for solving problems by trying possibiliti
 
 Often exponential O(2ⁿ) or O(n!), but pruning helps!
         `,
-        timeComplexityAnalysis: 'Backtracking explores decision trees. Complexity depends on branching factor and depth.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def permutations(arr):
+                timeComplexityAnalysis: 'Backtracking explores decision trees. Complexity depends on branching factor and depth.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def permutations(arr):
     """Generate all permutations using backtracking"""
     result = []
     
@@ -9553,11 +9814,11 @@ def subsets(arr):
     return result
 
 print(subsets([1, 2, 3]))`,
-            explanation: 'Python backtracking for permutations and subsets',
-          },
-          {
-            language: 'javascript',
-            code: `function permutations(arr) {
+                        explanation: 'Python backtracking for permutations and subsets',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function permutations(arr) {
     // Generate all permutations using backtracking
     const result = [];
     
@@ -9603,11 +9864,11 @@ function subsets(arr) {
 }
 
 console.log(subsets([1, 2, 3]));`,
-            explanation: 'JavaScript backtracking with choose-explore-undo pattern',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript backtracking with choose-explore-undo pattern',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -9654,11 +9915,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ backtracking for generating permutations',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ backtracking for generating permutations',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class Backtracking {
     public static List<List<Integer>> permutations(int[] arr) {
@@ -9695,12 +9956,12 @@ public class Backtracking {
         }
     }
 }`,
-            explanation: 'Java backtracking with ArrayList for tracking current path',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `
+                        explanation: 'Java backtracking with ArrayList for tracking current path',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `
 # Recursion - Optimization Techniques 🚀
 
 Advanced recursion with memoization and tail recursion optimization!
@@ -9723,12 +9984,12 @@ When recursive call is the last operation:
 - Increase stack size
 - Use trampolining
         `,
-        memoryOptimization: 'Tail recursion uses O(1) space vs O(n) for regular recursion. Memoization trades space for time.',
-        systemDesignImplications: 'Recursion powers parsers, compilers, and tree-based algorithms in databases and file systems.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `# Memoization decorator
+                memoryOptimization: 'Tail recursion uses O(1) space vs O(n) for regular recursion. Memoization trades space for time.',
+                systemDesignImplications: 'Recursion powers parsers, compilers, and tree-based algorithms in databases and file systems.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `# Memoization decorator
 def memoize(func):
     cache = {}
     def wrapper(*args):
@@ -9770,11 +10031,11 @@ def sum_to_n(n, acc=0):
     return lambda: sum_to_n(n - 1, acc + n)
 
 print(trampoline(lambda: sum_to_n(10000)))`,
-            explanation: 'Python memoization, tail recursion, and trampolining techniques',
-          },
-          {
-            language: 'javascript',
-            code: `// Memoization
+                        explanation: 'Python memoization, tail recursion, and trampolining techniques',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `// Memoization
 function memoize(func) {
     const cache = new Map();
     return function(...args) {
@@ -9820,11 +10081,11 @@ function sumToN(n, acc = 0) {
 }
 
 console.log(trampoline(() => sumToN(10000)));`,
-            explanation: 'JavaScript memoization and trampolining for stack-safe recursion',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript memoization and trampolining for stack-safe recursion',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <unordered_map>
 #include <functional>
 using namespace std;
@@ -9867,11 +10128,11 @@ int main() {
     
     return 0;
 }`,
-            explanation: 'C++ memoization with unordered_map and tail recursion',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ memoization with unordered_map and tail recursion',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class RecursionOptimization {
     // Memoization with HashMap
@@ -9916,25 +10177,25 @@ public class RecursionOptimization {
         System.out.println(factorialIterative(20));
     }
 }`,
-            explanation: 'Java memoization and tail recursion with wrapper method',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'tree', params: { visualization: 'recursion-tree' } },
-      playgroundInitialCode: {
-        python: `def factorial(n):
+                        explanation: 'Java memoization and tail recursion with wrapper method',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'tree', params: { visualization: 'recursion-tree' } },
+            playgroundInitialCode: {
+                python: `def factorial(n):
     # Implement recursively
     pass
 
 print(factorial(5))`,
-        javascript: `function factorial(n) {
+                javascript: `function factorial(n) {
     // Implement recursively
 }
 
 console.log(factorial(5));`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 using namespace std;
 
 int factorial(int n) {
@@ -9945,7 +10206,7 @@ int main() {
     cout << factorial(5) << endl;
     return 0;
 }`,
-        java: `public class Main {
+                java: `public class Main {
     public static int factorial(int n) {
         // Implement recursively
         return 0;
@@ -9955,21 +10216,21 @@ int main() {
         System.out.println(factorial(5));
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '12',
-    meta: {
-      title: 'Merge Sort',
-      slug: 'merge-sort',
-      category: 'DSA',
-      tags: ['sorting', 'divide-and-conquer', 'algorithms'],
-      estimatedTime: 35,
-    },
-    content: {
-      beginner: {
-        markdownText: `# Merge Sort - Divide and Conquer Sorting 🔀
+    {
+        _id: '12',
+        meta: {
+            title: 'Merge Sort',
+            slug: 'merge-sort',
+            category: 'DSA',
+            tags: ['sorting', 'divide-and-conquer', 'algorithms'],
+            estimatedTime: 35,
+        },
+        content: {
+            beginner: {
+                markdownText: `# Merge Sort - Divide and Conquer Sorting 🔀
 
 Merge Sort divides the array into halves, sorts them, and merges them back together!
 
@@ -9986,11 +10247,23 @@ Merge Sort divides the array into halves, sorts them, and merges them back toget
 - External sorting (large files)
 - Stable sorting (maintains order)
 - Linked list sorting`,
-        analogy: "Like organizing a deck of cards by splitting it in half, sorting each half, then merging them back in order!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def merge_sort(arr):
+                analogy: "Like organizing a deck of cards by splitting it in half, sorting each half, then merging them back in order!",
+                visualizations: [
+                    {
+                        title: "Merge Sort Merging Streams 🌊",
+                        imageUrl: "/images/visualizations/sort_merge_piles.svg",
+                        description: "Split the deck in half repeatedly until you have single cards (trivially sorted). Then merge pairs of sorted piles by comparing tops and taking the smaller. Conquer by dividing! Always O(n log n) - guaranteed performance. Think of merging two sorted lists into one sorted list."
+                    },
+                    {
+                        title: "Merging Zipper Analogy 🤐",
+                        imageUrl: "/images/visualizations/sort_merge_zipper.png",
+                        description: "Merge Sort acts like a zipper closing! Two separate sorted sides (arrays) come together, element by element, to form one perfectly aligned (sorted) sequence."
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def merge_sort(arr):
     """Merge sort - O(n log n) time, O(n) space"""
     if len(arr) <= 1:
         return arr
@@ -10022,11 +10295,11 @@ def merge(left, right):
 
 arr = [64, 34, 25, 12, 22, 11, 90]
 print(merge_sort(arr))  # [11, 12, 22, 25, 34, 64, 90]`,
-            explanation: 'Python merge sort with clean divide and conquer approach',
-          },
-          {
-            language: 'javascript',
-            code: `function mergeSort(arr) {
+                        explanation: 'Python merge sort with clean divide and conquer approach',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function mergeSort(arr) {
     // Merge sort - O(n log n) time, O(n) space
     if (arr.length <= 1) return arr;
     
@@ -10057,11 +10330,11 @@ function merge(left, right) {
 
 const arr = [64, 34, 25, 12, 22, 11, 90];
 console.log(mergeSort(arr));  // [11, 12, 22, 25, 34, 64, 90]`,
-            explanation: 'JavaScript merge sort with array slicing',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript merge sort with array slicing',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -10105,11 +10378,11 @@ int main() {
     }
     return 0;
 }`,
-            explanation: 'C++ merge sort using vectors',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ merge sort using vectors',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 public class MergeSort {
     public static int[] mergeSort(int[] arr) {
@@ -10146,12 +10419,12 @@ public class MergeSort {
         System.out.println(Arrays.toString(sorted));
     }
 }`,
-            explanation: 'Java merge sort with array copying',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `# Merge Sort - In-Place Optimization
+                        explanation: 'Java merge sort with array copying',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `# Merge Sort - In-Place Optimization
 
 Optimize merge sort to reduce space complexity!
 
@@ -10166,11 +10439,11 @@ Merge sort is stable - maintains relative order of equal elements
 - External sorting for large datasets
 - Sorting linked lists (O(1) space!)
 - Parallel sorting algorithms`,
-        timeComplexityAnalysis: 'Always O(n log n) regardless of input. Divides problem in half (log n levels), merges n elements at each level.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def merge_sort_inplace(arr, left=0, right=None):
+                timeComplexityAnalysis: 'Always O(n log n) regardless of input. Divides problem in half (log n levels), merges n elements at each level.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def merge_sort_inplace(arr, left=0, right=None):
     """In-place merge sort"""
     if right is None:
         right = len(arr) - 1
@@ -10205,11 +10478,11 @@ def merge_inplace(arr, left, mid, right):
 arr = [64, 34, 25, 12, 22, 11, 90]
 merge_sort_inplace(arr)
 print(arr)`,
-            explanation: 'Python in-place merge sort modifying original array',
-          },
-          {
-            language: 'javascript',
-            code: `function mergeSortInPlace(arr, left = 0, right = arr.length - 1) {
+                        explanation: 'Python in-place merge sort modifying original array',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function mergeSortInPlace(arr, left = 0, right = arr.length - 1) {
     // In-place merge sort
     if (left < right) {
         const mid = Math.floor((left + right) / 2);
@@ -10244,11 +10517,11 @@ function mergeInPlace(arr, left, mid, right) {
 const arr = [64, 34, 25, 12, 22, 11, 90];
 mergeSortInPlace(arr);
 console.log(arr);`,
-            explanation: 'JavaScript in-place merge sort',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript in-place merge sort',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -10290,11 +10563,11 @@ int main() {
     }
     return 0;
 }`,
-            explanation: 'C++ in-place merge sort',
-          },
-          {
-            language: 'java',
-            code: `public class MergeSortInPlace {
+                        explanation: 'C++ in-place merge sort',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class MergeSortInPlace {
     public static void mergeSortInPlace(int[] arr, int left, int right) {
         if (left < right) {
             int mid = left + (right - left) / 2;
@@ -10330,12 +10603,12 @@ int main() {
         System.out.println(java.util.Arrays.toString(arr));
     }
 }`,
-            explanation: 'Java in-place merge sort',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `# Merge Sort - Advanced Techniques
+                        explanation: 'Java in-place merge sort',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `# Merge Sort - Advanced Techniques
 
 External sorting and parallel merge sort!
 
@@ -10349,12 +10622,12 @@ Divide work across multiple threads/processors
 
 ## K-Way Merge
 Merge k sorted arrays simultaneously`,
-        memoryOptimization: 'Use iterative bottom-up approach to avoid recursion overhead. External sorting for massive datasets.',
-        systemDesignImplications: 'Used in database systems for sorting large tables, MapReduce for distributed sorting, and file system operations.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `import heapq
+                memoryOptimization: 'Use iterative bottom-up approach to avoid recursion overhead. External sorting for massive datasets.',
+                systemDesignImplications: 'Used in database systems for sorting large tables, MapReduce for distributed sorting, and file system operations.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `import heapq
 
 def k_way_merge(arrays):
     """Merge k sorted arrays using heap - O(n log k)"""
@@ -10384,11 +10657,11 @@ arrays = [
     [3, 6, 9]
 ]
 print(k_way_merge(arrays))  # [1, 2, 3, 4, 5, 6, 7, 8, 9]`,
-            explanation: 'Python k-way merge using heap for efficient merging',
-          },
-          {
-            language: 'javascript',
-            code: `class MinHeap {
+                        explanation: 'Python k-way merge using heap for efficient merging',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `class MinHeap {
     constructor() {
         this.heap = [];
     }
@@ -10462,11 +10735,11 @@ function kWayMerge(arrays) {
 
 const arrays = [[1, 4, 7], [2, 5, 8], [3, 6, 9]];
 console.log(kWayMerge(arrays));`,
-            explanation: 'JavaScript k-way merge with custom min heap',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript k-way merge with custom min heap',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <queue>
 using namespace std;
@@ -10517,11 +10790,11 @@ int main() {
     }
     return 0;
 }`,
-            explanation: 'C++ k-way merge using priority queue',
-          },
-          {
-            language: 'java',
-            code: `import java.util.*;
+                        explanation: 'C++ k-way merge using priority queue',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.*;
 
 class Element {
     int value;
@@ -10573,27 +10846,27 @@ public class KWayMerge {
         System.out.println(kWayMerge(arrays));
     }
 }`,
-            explanation: 'Java k-way merge using PriorityQueue',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'sorting', params: { algorithm: 'merge' } },
-      playgroundInitialCode: {
-        python: `def merge_sort(arr):
+                        explanation: 'Java k-way merge using PriorityQueue',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'sorting', params: { algorithm: 'merge' } },
+            playgroundInitialCode: {
+                python: `def merge_sort(arr):
     # Implement merge sort
     pass
 
 arr = [64, 34, 25, 12, 22]
 print(merge_sort(arr))`,
-        javascript: `function mergeSort(arr) {
+                javascript: `function mergeSort(arr) {
     // Implement merge sort
 }
 
 const arr = [64, 34, 25, 12, 22];
 console.log(mergeSort(arr));`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -10605,7 +10878,7 @@ int main() {
     vector<int> arr = {64, 34, 25, 12, 22};
     return 0;
 }`,
-        java: `public class Main {
+                java: `public class Main {
     public static int[] mergeSort(int[] arr) {
         // Implement merge sort
         return arr;
@@ -10615,21 +10888,21 @@ int main() {
         int[] arr = {64, 34, 25, 12, 22};
     }
 }`,
-      },
+            },
+        },
     },
-  },
-  {
-    _id: '13',
-    meta: {
-      title: 'Quick Sort',
-      slug: 'quick-sort',
-      category: 'DSA',
-      tags: ['sorting', 'divide-and-conquer', 'algorithms'],
-      estimatedTime: 35,
-    },
-    content: {
-      beginner: {
-        markdownText: `# Quick Sort - Fast Partitioning Sort ⚡
+    {
+        _id: '13',
+        meta: {
+            title: 'Quick Sort',
+            slug: 'quick-sort',
+            category: 'DSA',
+            tags: ['sorting', 'divide-and-conquer', 'algorithms'],
+            estimatedTime: 35,
+        },
+        content: {
+            beginner: {
+                markdownText: `# Quick Sort - Fast Partitioning Sort ⚡
 
 Quick Sort picks a pivot, partitions array around it, and recursively sorts!
 
@@ -10647,11 +10920,23 @@ Quick Sort picks a pivot, partitions array around it, and recursively sorts!
 - Most standard library sort implementations
 - In-place sorting (low memory)
 - Cache-friendly`,
-        analogy: "Like organizing books by picking a middle book as reference, putting smaller books left, larger right, then repeating!",
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def quick_sort(arr):
+                analogy: "Like organizing books by picking a middle book as reference, putting smaller books left, larger right, then repeating!",
+                visualizations: [
+                    {
+                        title: "Quick Sort Divide & Conquer ⚡",
+                        imageUrl: "/images/visualizations/sort_quick_pivot_cards.svg",
+                        description: "Pick a pivot card, partition deck: smaller cards left, larger cards right. Recursively sort each partition. Like organizing a messy room - pick an item, sort everything around it, then tackle each pile. Average O(n log n) - very fast! Used in real-world applications."
+                    },
+                    {
+                        title: "Quick Sort Partitioning 📏",
+                        imageUrl: "/images/visualizations/sort_quick_partition.png",
+                        description: "The core of Quick Sort is partitioning. We choose a pivot and move everything smaller to the left and everything larger to the right, placing the pivot in its final correct spot. Then we repeat for the left and right sides!"
+                    }
+                ],
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def quick_sort(arr):
     """Quick sort - O(n log n) average"""
     if len(arr) <= 1:
         return arr
@@ -10693,11 +10978,11 @@ def partition(arr, low, high):
 arr2 = [64, 34, 25, 12, 22, 11, 90]
 quick_sort_inplace(arr2)
 print(arr2)`,
-            explanation: 'Python quick sort with list comprehension and in-place versions',
-          },
-          {
-            language: 'javascript',
-            code: `function quickSort(arr) {
+                        explanation: 'Python quick sort with list comprehension and in-place versions',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function quickSort(arr) {
     // Quick sort - O(n log n) average
     if (arr.length <= 1) return arr;
     
@@ -10739,11 +11024,11 @@ function partition(arr, low, high) {
 const arr2 = [64, 34, 25, 12, 22, 11, 90];
 quickSortInPlace(arr2);
 console.log(arr2);`,
-            explanation: 'JavaScript quick sort with filter and in-place partitioning',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript quick sort with filter and in-place partitioning',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -10779,11 +11064,11 @@ int main() {
     }
     return 0;
 }`,
-            explanation: 'C++ in-place quick sort with Lomuto partition scheme',
-          },
-          {
-            language: 'java',
-            code: `public class QuickSort {
+                        explanation: 'C++ in-place quick sort with Lomuto partition scheme',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class QuickSort {
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -10818,12 +11103,12 @@ int main() {
         System.out.println(java.util.Arrays.toString(arr));
     }
 }`,
-            explanation: 'Java in-place quick sort with classic partitioning',
-          },
-        ],
-      },
-      intermediate: {
-        markdownText: `# Quick Sort - Pivot Selection Strategies
+                        explanation: 'Java in-place quick sort with classic partitioning',
+                    },
+                ],
+            },
+            intermediate: {
+                markdownText: `# Quick Sort - Pivot Selection Strategies
 
 Different ways to choose pivot affect performance!
 
@@ -10839,11 +11124,11 @@ Different ways to choose pivot affect performance!
 
 ## 3-Way Partitioning
 For arrays with many duplicates`,
-        timeComplexityAnalysis: 'Average O(n log n) with good pivot. Worst O(n²) with bad pivot (sorted array, always picking first/last).',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `import random
+                timeComplexityAnalysis: 'Average O(n log n) with good pivot. Worst O(n²) with bad pivot (sorted array, always picking first/last).',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `import random
 
 def quick_sort_random(arr, low=0, high=None):
     """Quick sort with random pivot"""
@@ -10907,11 +11192,11 @@ def partition_3way(arr, low, high):
 arr = [64, 34, 25, 12, 22, 11, 90, 22, 22]
 quick_sort_3way(arr)
 print(arr)`,
-            explanation: 'Python quick sort with random pivot and 3-way partitioning',
-          },
-          {
-            language: 'javascript',
-            code: `function quickSortRandom(arr, low = 0, high = arr.length - 1) {
+                        explanation: 'Python quick sort with random pivot and 3-way partitioning',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function quickSortRandom(arr, low = 0, high = arr.length - 1) {
     // Quick sort with random pivot
     if (low < high) {
         const pi = partitionRandom(arr, low, high);
@@ -10955,11 +11240,11 @@ function medianOfThree(arr, low, high) {
 const arr = [64, 34, 25, 12, 22, 11, 90];
 quickSortRandom(arr);
 console.log(arr);`,
-            explanation: 'JavaScript quick sort with random and median-of-three pivot selection',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript quick sort with random and median-of-three pivot selection',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 #include <cstdlib>
 #include <ctime>
@@ -11001,11 +11286,11 @@ int main() {
     }
     return 0;
 }`,
-            explanation: 'C++ quick sort with random pivot selection',
-          },
-          {
-            language: 'java',
-            code: `import java.util.Random;
+                        explanation: 'C++ quick sort with random pivot selection',
+                    },
+                    {
+                        language: 'java',
+                        code: `import java.util.Random;
 
 public class QuickSortOptimized {
     private static Random rand = new Random();
@@ -11048,12 +11333,12 @@ public class QuickSortOptimized {
         System.out.println(java.util.Arrays.toString(arr));
     }
 }`,
-            explanation: 'Java quick sort with randomized pivot for better average case',
-          },
-        ],
-      },
-      expert: {
-        markdownText: `# Quick Sort - Advanced Optimizations
+                        explanation: 'Java quick sort with randomized pivot for better average case',
+                    },
+                ],
+            },
+            expert: {
+                markdownText: `# Quick Sort - Advanced Optimizations
 
 Hybrid approaches and tail recursion optimization!
 
@@ -11067,12 +11352,12 @@ Eliminate one recursive call to save stack space
 
 ## Hybrid with Insertion Sort
 Switch to insertion sort for small subarrays (< 10 elements)`,
-        memoryOptimization: 'Tail recursion optimization reduces stack space from O(n) to O(log n). Iterative version uses explicit stack.',
-        systemDesignImplications: 'Quick sort powers most standard library implementations. Used in databases for in-memory sorting.',
-        codeSnippets: [
-          {
-            language: 'python',
-            code: `def quick_sort_optimized(arr, low=0, high=None):
+                memoryOptimization: 'Tail recursion optimization reduces stack space from O(n) to O(log n). Iterative version uses explicit stack.',
+                systemDesignImplications: 'Quick sort powers most standard library implementations. Used in databases for in-memory sorting.',
+                codeSnippets: [
+                    {
+                        language: 'python',
+                        code: `def quick_sort_optimized(arr, low=0, high=None):
     """Optimized quick sort with tail recursion elimination"""
     if high is None:
         high = len(arr) - 1
@@ -11117,11 +11402,11 @@ def partition(arr, low, high):
 arr = [64, 34, 25, 12, 22, 11, 90, 5, 3, 1]
 quick_sort_optimized(arr)
 print(arr)`,
-            explanation: 'Python optimized quick sort with tail recursion and insertion sort for small arrays',
-          },
-          {
-            language: 'javascript',
-            code: `function quickSortOptimized(arr, low = 0, high = arr.length - 1) {
+                        explanation: 'Python optimized quick sort with tail recursion and insertion sort for small arrays',
+                    },
+                    {
+                        language: 'javascript',
+                        code: `function quickSortOptimized(arr, low = 0, high = arr.length - 1) {
     // Optimized quick sort with tail recursion elimination
     while (low < high) {
         // Small arrays: use insertion sort
@@ -11172,11 +11457,11 @@ function partition(arr, low, high) {
 const arr = [64, 34, 25, 12, 22, 11, 90, 5, 3, 1];
 quickSortOptimized(arr);
 console.log(arr);`,
-            explanation: 'JavaScript hybrid quick sort with insertion sort for small subarrays',
-          },
-          {
-            language: 'cpp',
-            code: `#include <iostream>
+                        explanation: 'JavaScript hybrid quick sort with insertion sort for small subarrays',
+                    },
+                    {
+                        language: 'cpp',
+                        code: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -11233,11 +11518,11 @@ int main() {
     }
     return 0;
 }`,
-            explanation: 'C++ optimized quick sort similar to std::sort implementation',
-          },
-          {
-            language: 'java',
-            code: `public class QuickSortExpert {
+                        explanation: 'C++ optimized quick sort similar to std::sort implementation',
+                    },
+                    {
+                        language: 'java',
+                        code: `public class QuickSortExpert {
     private static final int INSERTION_SORT_THRESHOLD = 10;
     
     public static void quickSortOptimized(int[] arr, int low, int high) {
@@ -11294,27 +11579,27 @@ int main() {
         System.out.println(java.util.Arrays.toString(arr));
     }
 }`,
-            explanation: 'Java production-ready quick sort with hybrid approach',
-          },
-        ],
-      },
-    },
-    interactive: {
-      animationConfig: { type: 'sorting', params: { algorithm: 'quick' } },
-      playgroundInitialCode: {
-        python: `def quick_sort(arr):
+                        explanation: 'Java production-ready quick sort with hybrid approach',
+                    },
+                ],
+            },
+        },
+        interactive: {
+            animationConfig: { type: 'sorting', params: { algorithm: 'quick' } },
+            playgroundInitialCode: {
+                python: `def quick_sort(arr):
     # Implement quick sort
     pass
 
 arr = [64, 34, 25, 12, 22]
 print(quick_sort(arr))`,
-        javascript: `function quickSort(arr) {
+                javascript: `function quickSort(arr) {
     // Implement quick sort
 }
 
 const arr = [64, 34, 25, 12, 22];
 console.log(quickSort(arr));`,
-        cpp: `#include <iostream>
+                cpp: `#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -11326,7 +11611,7 @@ int main() {
     vector<int> arr = {64, 34, 25, 12, 22};
     return 0;
 }`,
-        java: `public class Main {
+                java: `public class Main {
     public static void quickSort(int[] arr, int low, int high) {
         // Implement quick sort
     }
@@ -11335,45 +11620,45 @@ int main() {
         int[] arr = {64, 34, 25, 12, 22};
     }
 }`,
-      },
+            },
+        },
     },
-  },
 ];
 
 export const mockUser = {
-  _id: 'user1',
-  profile: {
-    name: 'Alex Chen',
-    email: 'alex@omnilearn.dev',
-    bio: 'Aspiring software engineer',
-    university: 'MIT',
-  },
-  gamification: {
-    xp: 250,
-    streak: 7,
-    level: 3,
-    badges: ['First Steps', 'Week Warrior'],
-    heatMapData: [
-      { date: '2024-12-01', count: 3 },
-      { date: '2024-12-02', count: 5 },
-      { date: '2024-12-03', count: 2 },
-      { date: '2024-12-04', count: 4 },
-      { date: '2024-12-05', count: 6 },
-      { date: '2024-12-06', count: 3 },
-      { date: '2024-12-07', count: 5 },
-    ],
-  },
-  settings: {
-    theme: 'dark',
-    defaultLanguage: 'python',
-    accessibilityMode: false,
-  },
-  progress: [
-    {
-      topicId: '1',
-      status: 'active',
-      currentSkillTier: 'beginner',
-      quizScores: [80, 90],
+    _id: 'user1',
+    profile: {
+        name: 'Alex Chen',
+        email: 'alex@omnilearn.dev',
+        bio: 'Aspiring software engineer',
+        university: 'MIT',
     },
-  ],
+    gamification: {
+        xp: 250,
+        streak: 7,
+        level: 3,
+        badges: ['First Steps', 'Week Warrior'],
+        heatMapData: [
+            { date: '2024-12-01', count: 3 },
+            { date: '2024-12-02', count: 5 },
+            { date: '2024-12-03', count: 2 },
+            { date: '2024-12-04', count: 4 },
+            { date: '2024-12-05', count: 6 },
+            { date: '2024-12-06', count: 3 },
+            { date: '2024-12-07', count: 5 },
+        ],
+    },
+    settings: {
+        theme: 'dark',
+        defaultLanguage: 'python',
+        accessibilityMode: false,
+    },
+    progress: [
+        {
+            topicId: '1',
+            status: 'active',
+            currentSkillTier: 'beginner',
+            quizScores: [80, 90],
+        },
+    ],
 };
