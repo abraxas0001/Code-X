@@ -83,7 +83,7 @@ Ready to begin? Pick any topic from the list and start your journey! 🎯
                     },
                     {
                         title: "The Train Journey 🚂",
-                        imageUrl: "/images/visualizations/linkedlist_train_cars_1767285767379.png",
+                        imageUrl: "/images/visualizations/intro_learning_train.png",
                         description: "Your learning path is like a train journey. You start at the station (Arrays), travel through different zones (Trees, Graphs), and connect concepts together like train cars. Every stop adds a new skill to your cargo!"
                     }
                 ],
@@ -1994,7 +1994,7 @@ Instead of checking 1000 items one by one, you only need about 10 checks! That's
                     },
                     {
                         title: "BFS & DFS Graph Search 🗺️",
-                        imageUrl: "/images/visualizations/graph_road_map.png",
+                        imageUrl: "/images/visualizations/search_graph_bfs_dfs.png",
                         description: "Searching graphs/trees? BFS explores level-by-level (like ripples in water - finds shortest path). DFS explores deep before backtracking (like maze solving - uses less memory). Choose based on problem: BFS for shortest path, DFS for exhaustive search or space constraints."
                     }
                 ],
@@ -3071,12 +3071,12 @@ The first node is called the **head**, and the last node points to **null**.
                     },
                     {
                         title: "Sequential Access Pattern 📍",
-                        imageUrl: "/images/visualizations/linkedlist_train_cars_1767285767379.png",
+                        imageUrl: "/images/visualizations/linkedlist_sequential_access.png",
                         description: "Like a paper chain, each loop links to the next. Unlike arrays where you can jump to any position, linked lists require following the chain from the start. But adding or removing a loop? Super easy - just unhook and re-hook! Dynamic size with O(1) insertion/deletion at known positions."
                     },
                     {
                         title: "Array vs Linked List Trade-offs ⚖️",
-                        imageUrl: "/images/visualizations/arrays_vs_scattered_1767285731046.png",
+                        imageUrl: "/images/visualizations/arrays_vs_linkedlist.png",
                         description: "Arrays: Fixed boxes in a row, O(1) random access but O(n) insertion. Linked Lists: Flexible chain of nodes, O(n) access but O(1) insertion/deletion when you have a pointer. Choose based on your needs - fast access or fast modification!"
                     }
                 ],
