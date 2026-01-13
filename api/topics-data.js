@@ -73,12 +73,12 @@ Ready to begin? Pick any topic from the list and start your journey! 🎯
                 visualizations: [
                     {
                         title: "Building a Skyscraper 🏢",
-                        imageUrl: "/images/visualizations/arrays_apartment_building_1767285711476.png",
+                        imageUrl: "/images/visualizations/analogy_skyscraper_construction.png",
                         description: "Think of DSA as construction. Data structures are your materials (bricks, beams, glass) and algorithms are your construction techniques. You need a solid foundation (arrays) and structure (trees) to build a stable, scalable application like a skyscraper!"
                     },
                     {
                         title: "The Organized Library 📚",
-                        imageUrl: "/images/visualizations/arrays_bookshelf_1767285693088.png",
+                        imageUrl: "/images/visualizations/analogy_library_bookshelves.png",
                         description: "Imagine a library with millions of books. Without a system (Data Structure), finding one is impossible. With a catalog and sorted shelves (Algorithms), you can find any book in seconds. DSA turns chaos into order!"
                     },
                     {
@@ -928,7 +928,7 @@ Access any element instantly using its index: \`array[3]\` gives you the 4th ele
                 visualizations: [
                     {
                         title: "Parking Lot Spaces 🚗",
-                        imageUrl: "/images/visualizations/arrays_parking_lot_1767285674793.png",
+                        imageUrl: "/images/visualizations/analogy_parking_lot_numbered.png",
                         description: "Just like a parking lot with numbered spaces (0, 1, 2, 3, 4), arrays allow direct access to any element. You can instantly drive to space #3 without checking other spaces. That's O(1) - constant time access!"
                     },
                     {
@@ -1979,12 +1979,12 @@ Instead of checking 1000 items one by one, you only need about 10 checks! That's
                 visualizations: [
                     {
                         title: "Linear Search - Check Every Box 📦",
-                        imageUrl: "/images/visualizations/search_linear_boxes.svg",
+                        imageUrl: "/images/visualizations/analogy_linear_search_boxes.png",
                         description: "Looking for a specific toy in 100 unmarked boxes? Open each box one by one until you find it. This is linear search - O(n) time. Simple, works on unsorted data, but slow for large datasets. Like searching for a word by reading every word in a book sequentially."
                     },
                     {
                         title: "Binary Search - Phone Book Strategy 📖",
-                        imageUrl: "/images/visualizations/search_binary_phonebook.svg",
+                        imageUrl: "/images/visualizations/analogy_binary_search_phonebook.png",
                         description: "Find 'Smith' in a phone book: Open to middle. Is 'Smith' before or after? Eliminate half the book. Repeat with remaining half. Find any name in O(log n) time! Requires sorted data but incredibly efficient. 1 million items? Only ~20 comparisons needed!"
                     },
                     {
@@ -2520,12 +2520,12 @@ The largest values bubble up to the top (end) of the array, just like bubbles in
                 visualizations: [
                     {
                         title: "Bubbling Up 🫧",
-                        imageUrl: "/images/visualizations/bubble_sort_analogy.png",
+                        imageUrl: "/images/visualizations/analogy_bubble_sort_rising.png",
                         description: "Just like air bubbles rising in water, the largest numbers in the array 'bubble up' to the top (end) of the list with each pass."
                     },
                     {
                         title: "Compare & Swap ↔️",
-                        imageUrl: "/images/visualizations/bubble_sort_process.png",
+                        imageUrl: "/images/visualizations/analogy_compare_swap_hands.png",
                         description: "The algorithm walks through the list, comparing two neighbors at a time. If they are in the wrong order, they swap places!"
                     },
                     {
@@ -4719,7 +4719,7 @@ Average O(1) time for insert, delete, and search!
                 visualizations: [
                     {
                         title: "Library Card Catalog 📚",
-                        imageUrl: "/images/visualizations/hash_library_catalog.png",
+                        imageUrl: "/images/visualizations/analogy_hash_card_catalog.png",
                         description: "Old library catalogs used drawers labeled A-Z. Find a book by author? Hash the author's last name to a letter (hash function), go straight to that drawer (bucket). O(1) access! Collisions happen when multiple authors start with the same letter - handle with chaining (multiple cards in drawer)."
                     },
                     {
@@ -5670,7 +5670,7 @@ A stack is a collection of elements where insertions and deletions occur at one 
                 visualizations: [
                     {
                         title: "Plate Stack in Cafeteria 🍽️",
-                        imageUrl: "/images/visualizations/stack_plates.png",
+                        imageUrl: "/images/visualizations/analogy_stack_plates_buffet.png",
                         description: "Imagine a stack of plates at a buffet. New plates are placed on top (PUSH), and you always take from the top (POP). The last plate added is the first one taken - that's LIFO (Last In, First Out) in action! You can't access plates in the middle without removing the ones on top."
                     },
                     {
@@ -6557,7 +6557,7 @@ A queue is a collection where elements are added at one end (rear) and removed f
                 visualizations: [
                     {
                         title: "Line at Coffee Shop  ☕",
-                        imageUrl: "/images/visualizations/queue_coffee_line.png",
+                        imageUrl: "/images/visualizations/analogy_queue_coffee_line.png",
                         description: "A queue is like people waiting in line at a coffee shop. First person in line gets served first (FIFO - First In, First Out). New customers join at the back (enqueue), and service happens at the front (dequeue). Fair and orderly!"
                     },
                     {
@@ -7678,7 +7678,7 @@ Where h = height of tree
                 visualizations: [
                     {
                         title: "Family Tree Hierarchy 👨‍👩‍👧‍👦",
-                        imageUrl: "/images/visualizations/tree_family.png",
+                        imageUrl: "/images/visualizations/analogy_tree_family.png",
                         description: "A family tree is a perfect example! The ancestor is the root, children are child nodes, and each person can have their own descendants. Grandparents → Parents → Children shows the hierarchical parent-child relationship. Each node has at most one parent but can have multiple children!"
                     },
                     {
@@ -8739,7 +8739,7 @@ A graph is a collection of nodes (vertices) connected by edges. Think of it like
                 visualizations: [
                     {
                         title: "Social Network Connections 👥",
-                        imageUrl: "/images/visualizations/graph_social_network.png",
+                        imageUrl: "/images/visualizations/analogy_graph_social_network.png",
                         description: "Facebook friends form a graph! Each person is a node, and friendships are edges connecting them. Unlike trees, graphs can have cycles (A knows B, B knows C, C knows A). You can traverse the network to find mutual friends, suggest connections, or measure degrees of separation!"
                     },
                     {
@@ -9605,7 +9605,7 @@ A function that calls itself with:
                 visualizations: [
                     {
                         title: "Russian Nesting Dolls 🪆",
-                        imageUrl: "/images/visualizations/recursion_dolls.svg",
+                        imageUrl: "/images/visualizations/analogy_recursion_dolls.png",
                         description: "Each doll contains a smaller copy of itself until you reach the tiniest one (base case). Opening them is recursive: open outer doll, find inner doll, open it (recursive call), repeat. When you hit the smallest doll (base case), start returning back up. Perfect recursion analogy!"
                     },
                     {
